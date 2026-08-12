@@ -667,15 +667,15 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <section class="section" id="ost">
   <span class="wm" aria-hidden="true">♪</span>
   <div class="wrap">
-    <span class="sec-label reveal">Trilha sonora</span>
+    <span class="sec-label reveal">Trilha sonora · clique para ouvir no YouTube oficial</span>
     <h2 class="sec-title reveal">OST <b>CLOVER</b></h2>
     <div class="ost reveal">
-      <div class="ost-head"><h4>☘ Aberturas oficiais</h4><span style="color:var(--muted);font-weight:800;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase">2017 – 2021</span></div>
-      <div class="ost-track"><span class="ost-num">01</span><div class="ost-title">Haruka Mirai (OP1)<small>Kankaku Piero</small></div><span class="ost-time">1:30</span></div>
-      <div class="ost-track"><span class="ost-num">02</span><div class="ost-title">Black Rover (OP3)<small>Vickeblanka</small></div><span class="ost-time">1:30</span></div>
-      <div class="ost-track"><span class="ost-num">03</span><div class="ost-title">Guess Who Is Back (OP4)<small>Kumi Koda</small></div><span class="ost-time">1:30</span></div>
-      <div class="ost-track"><span class="ost-num">04</span><div class="ost-title">Aoi Honoo (OP5)<small>Kankaku Piero</small></div><span class="ost-time">1:30</span></div>
-      <div class="ost-track"><span class="ost-num">05</span><div class="ost-title">Black Catcher (OP10)<small>Vickeblanka</small></div><span class="ost-time">1:30</span></div>
+      <div class="ost-head"><h4>☘ Aberturas oficiais</h4><span style="color:var(--muted);font-weight:800;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase">2017 – 2021 · ▶</span></div>
+      <div class="ost-track" data-q="Black Clover Haruka Mirai opening Kankaku Piero"><span class="ost-num">01</span><div class="ost-title">Haruka Mirai (OP1)<small>Kankaku Piero</small></div><span class="ost-time">▶</span></div>
+      <div class="ost-track" data-q="Black Clover Black Rover opening Vickeblanka"><span class="ost-num">02</span><div class="ost-title">Black Rover (OP3)<small>Vickeblanka</small></div><span class="ost-time">▶</span></div>
+      <div class="ost-track" data-q="Black Clover Guess Who Is Back opening Kumi Koda"><span class="ost-num">03</span><div class="ost-title">Guess Who Is Back (OP4)<small>Kumi Koda</small></div><span class="ost-time">▶</span></div>
+      <div class="ost-track" data-q="Black Clover Aoi Honoo opening Kankaku Piero"><span class="ost-num">04</span><div class="ost-title">Aoi Honoo (OP5)<small>Kankaku Piero</small></div><span class="ost-time">▶</span></div>
+      <div class="ost-track" data-q="Black Clover Black Catcher opening Vickeblanka"><span class="ost-num">05</span><div class="ost-title">Black Catcher (OP10)<small>Vickeblanka</small></div><span class="ost-time">▶</span></div>
     </div>
   </div>
 </section>
@@ -1022,11 +1022,14 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
   go(0);
   if(!reduce) setInterval(function(){ go(qi+1); }, 7000);
 
+  /* OST: abre o vídeo oficial no YouTube (sem pirataria!) */
   document.querySelectorAll('.ost-track').forEach(function(t){
     t.addEventListener('click', function(){
       document.querySelectorAll('.ost-track').forEach(function(x){ x.classList.remove('playing'); });
       t.classList.add('playing');
-      toast.show('♫ Tocando: ' + t.querySelector('.ost-title').textContent.split('\n')[0].trim());
+      var q = t.getAttribute('data-q') || 'Black Clover opening';
+      toast.show('♫ Abrindo a abertura oficial no YouTube…');
+      window.open('https://www.youtube.com/results?search_query=' + encodeURIComponent(q), '_blank');
     });
   });
 
@@ -1206,4 +1209,4 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 })();
 </script>
 </body>
-  </html>
+</html>
