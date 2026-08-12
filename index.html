@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Clover — Reino Clover | ✦</title>
+<meta name="description" content="Site não oficial de Black Clover: sinopse, Touros Negros, os 9 esquadrões, vilões, filme, timeline, OST e galeria. Eu nunca desisto!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --bg2:#120d0d; --bg3:#1a1212; --line:#2b1616;
+  --ink:#f2ece6; --muted:#a39494;
+  --acc:#ff3b3b; --acc2:#c1121f; --green:#4caf50; --gold:#e8b64c;
+  --header-bg:rgba(10,10,11,.55); --header-bg-solid:rgba(8,8,9,.94);
+  --overlay:rgba(5,5,8,.93);
+}
+body.reino{
+  --bg:#f2f5ec; --bg2:#fafcf5; --bg3:#e8eede; --line:#cfdcc0;
+  --ink:#17201a; --muted:#5f6b60;
+  --acc:#2e7d32; --acc2:#1b5e20; --green:#2e7d32; --gold:#8a6d1c;
+  --header-bg:rgba(242,245,236,.6); --header-bg-solid:rgba(248,251,244,.95);
+  --overlay:rgba(242,245,236,.95);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{background:var(--bg);color:var(--ink);font-family:'Alegreya Sans',sans-serif;font-weight:500;line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s}
+body.cursor-mode{cursor:none}
+body.cursor-mode a,body.cursor-mode button{cursor:none}
+::selection{background:var(--acc);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#332020;border:2px solid var(--bg)}
+body.reino ::-webkit-scrollbar-thumb{background:#b9c9a9}
+::-webkit-scrollbar-thumb:hover{background:var(--acc)}
+img{display:block;max-width:100%}
+h1,h2,h3,.display{font-family:'Pirata One',cursive;font-weight:400;letter-spacing:.03em}
+a{color:inherit;text-decoration:none}
+button{font-family:'Alegreya Sans';border:none;background:none;color:inherit}
+
+#fx{position:fixed;inset:0;z-index:40;pointer-events:none}
+#read-bar{position:fixed;top:0;left:0;right:0;height:3px;z-index:80}
+#read-bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .15s}
+#cur{position:fixed;width:14px;height:14px;border-radius:50%;background:var(--acc);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .12s,background .2s;mix-blend-mode:screen}
+#cur.big{transform:translate(-50%,-50%) scale(2.4);background:var(--green)}
+body.reino #cur{mix-blend-mode:multiply}
+
+.header{position:fixed;top:3px;left:0;right:0;z-index:70;display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.5rem;height:72px;border-bottom:1px solid var(--line);
+  background:var(--header-bg);backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:var(--header-bg-solid)}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:'Pirata One';font-size:1.35rem;letter-spacing:.08em}
+.logo-flor{color:var(--acc);font-size:1.3rem;transition:transform .5s;display:inline-block}
+body.reino .logo-flor{color:var(--green)}
+.logo:hover .logo-flor{transform:rotate(360deg) scale(1.15)}
+.logo-sub{color:var(--muted);font-family:'Alegreya Sans';font-size:.7rem;font-weight:800;letter-spacing:.35em;text-transform:uppercase}
+.header-right{display:flex;align-items:center;gap:.8rem}
+.nav{display:flex;gap:1rem}
+.nav a{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);position:relative;padding:.4rem 0;transition:color .25s}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--acc);transition:width .3s}
+.nav a:hover,.nav a.active{color:var(--ink)}
+.nav a:hover::after,.nav a.active::after{width:100%}
+.theme-btn,.visits{border:1px solid var(--line);background:transparent;color:var(--ink);font-weight:800;
+  font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;padding:.5rem .7rem;cursor:pointer;transition:.3s;white-space:nowrap}
+.theme-btn{border-color:var(--acc);color:var(--acc)}
+.theme-btn:hover{background:var(--acc);color:#fff}
+.visits{color:var(--muted);cursor:default}
+.visits b{color:var(--acc)}
+.burger{display:none;border:1px solid var(--line);width:44px;height:44px;cursor:pointer;position:relative;background:none}
+.burger span{position:absolute;left:11px;right:11px;height:2px;background:var(--ink);transition:.35s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:26px}
+.burger.open span:nth-child(1){top:21px;transform:rotate(45deg);background:var(--acc)}
+.burger.open span:nth-child(2){top:21px;transform:rotate(-45deg);background:var(--acc)}
+
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;will-change:transform;background-color:#0a0a0b;
+  background-image:url('img/20.jpg'),radial-gradient(ellipse at 75% 25%,rgba(255,59,59,.22),transparent 60%),radial-gradient(ellipse at 15% 75%,rgba(193,18,31,.25),transparent 55%);
+  background-position:center 25%,center,center;background-size:cover,auto,auto;background-repeat:no-repeat}
+body.reino .hero-bg{background-color:#f2f5ec;
+  background-image:url('img/11.jpg'),radial-gradient(ellipse at 75% 25%,rgba(46,125,50,.18),transparent 60%),radial-gradient(ellipse at 15% 75%,rgba(138,109,28,.12),transparent 55%)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.6) 0%,rgba(10,10,11,.25) 40%,rgba(10,10,11,.96) 100%)}
+body.reino .hero-overlay{background:linear-gradient(180deg,rgba(242,245,236,.4) 0%,rgba(242,245,236,.15) 40%,rgba(242,245,236,.94) 100%)}
+.hero-inner{max-width:1100px;margin:0 auto;padding:7rem 1.5rem 5rem;width:100%;position:relative;z-index:2}
+.hero-label{display:inline-flex;align-items:center;gap:.7rem;font-weight:800;font-size:.8rem;letter-spacing:.4em;text-transform:uppercase;color:var(--acc)}
+.hero-label::before{content:"✦ ✦ ";color:var(--muted);letter-spacing:.2em}
+.hero h1{font-size:clamp(3.6rem,12vw,10rem);line-height:.9;text-transform:uppercase;margin:1rem 0 .5rem;text-shadow:0 10px 60px rgba(0,0,0,.7)}
+body.reino .hero h1{text-shadow:0 10px 50px rgba(242,245,236,.6)}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-jp{font-weight:800;font-size:clamp(1rem,2.6vw,1.4rem);letter-spacing:.6em;opacity:.85;cursor:pointer;transition:.3s;text-transform:uppercase}
+.hero-jp:hover{color:var(--acc);letter-spacing:.8em}
+.hero-tag{margin:1.4rem 0 2.2rem;max-width:560px;color:var(--muted);font-size:1.12rem;border-left:2px solid var(--acc);padding-left:1rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-block;font-weight:800;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:.95rem 1.7rem;border:1px solid var(--acc);color:var(--ink);transition:.3s;cursor:pointer;background:transparent}
+.btn--fill{background:var(--acc);color:#fff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,59,59,.35)}
+.hero-side{position:absolute;right:1.2rem;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;
+  letter-spacing:.6em;font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--muted);z-index:2}
+.hero-scroll{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);animation:pulse 2s infinite;z-index:2}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--bg2);padding:.95rem 0}
+.marquee-track{display:flex;width:max-content;animation:mq 24s linear infinite}
+.marquee.rev .marquee-track{animation-direction:reverse}
+.mq-group{display:flex;gap:3rem;padding-right:3rem;align-items:center}
+.mq-group span{font-weight:800;letter-spacing:.4em;text-transform:uppercase;font-size:.85rem;color:var(--muted);white-space:nowrap}
+.mq-group .m-acc{color:var(--acc)} .mq-group .m-green{color:var(--green)} .mq-group .m-gold{color:var(--gold)} .mq-group .m-x{color:#555050}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+.section{position:relative;padding:6.5rem 1.5rem;overflow:hidden}
+.wrap{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.wm{position:absolute;top:1rem;right:-1rem;font-family:'Pirata One';font-size:clamp(7rem,22vw,17rem);color:rgba(255,59,59,.05);writing-mode:vertical-rl;user-select:none;pointer-events:none;z-index:1}
+body.reino .wm{color:rgba(46,125,50,.08)}
+.sec-label{display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:.45em;text-transform:uppercase;color:var(--acc);margin-bottom:.8rem}
+.sec-label::before{content:"✦ ";color:var(--muted)}
+.sec-title{font-size:clamp(2.4rem,6vw,4.2rem);text-transform:uppercase;line-height:1.05;margin-bottom:1.6rem}
+.sec-title b{color:var(--acc);font-weight:400}
+
+.sinopse-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+.sinopse-txt p{color:var(--muted);font-size:1.08rem;margin-bottom:1.1rem}
+.sinopse-txt p strong{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.chip{border:1px solid var(--line);padding:.45rem .9rem;font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:.3s;background:var(--bg2)}
+.chip:hover{border-color:var(--acc);color:var(--ink);transform:translateY(-2px)}
+.chip b{color:var(--acc);font-weight:800}
+.sinopse-poster{position:relative}
+.sinopse-poster img{width:100%;border:1px solid var(--line);transform:rotate(2deg);transition:transform .5s;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.sinopse-poster:hover img{transform:rotate(0)}
+.sinopse-poster::before{content:"✦";position:absolute;top:-1.6rem;left:-1rem;font-family:'Pirata One';font-size:2.6rem;color:var(--acc);z-index:2}
+
+.ficha-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:start}
+.ficha-item{border-left:2px solid var(--acc);padding-left:1.1rem;margin-bottom:1.3rem}
+.ficha-item dt{font-weight:800;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.ficha-item dd{font-size:1.05rem;font-weight:700;margin-top:.15rem}
+.ficha-item dd b{color:var(--acc)}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stat{border:1px solid var(--line);padding:1.6rem 1rem;text-align:center;background:var(--bg2);transition:.3s}
+.stat:hover{border-color:var(--acc);transform:translateY(-4px)}
+.count{font-family:'Pirata One';font-size:2.8rem;color:var(--acc);display:block;line-height:1}
+.stat small{display:block;margin-top:.5rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-size:.7rem}
+
+.throne{position:relative;min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.throne-bg{position:absolute;inset:0;background:center/cover no-repeat}
+.throne--color .throne-bg{background-image:url('img/23.jpg')}
+.throne--pb .throne-bg{background-image:url('img/24.jpg')}
+.throne-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.85),rgba(10,10,11,.4) 50%,rgba(10,10,11,.9))}
+body.reino .throne-ov{background:linear-gradient(180deg,rgba(242,245,236,.8),rgba(242,245,236,.35) 50%,rgba(242,245,236,.88))}
+.throne-inner{position:relative;z-index:2;max-width:900px;padding:4rem 1.5rem}
+.throne-quote{font-family:'Pirata One';font-size:clamp(1.8rem,5vw,3.6rem);line-height:1.2;text-shadow:0 6px 40px rgba(0,0,0,.7)}
+body.reino .throne-quote{text-shadow:0 6px 30px rgba(242,245,236,.7)}
+.throne-quote b{color:var(--acc);font-weight:400}
+.throne-src{display:block;margin-top:1.2rem;font-weight:800;font-size:.78rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted)}
+.throne-tag{display:inline-block;margin-bottom:1rem;font-weight:800;font-size:.75rem;letter-spacing:.45em;text-transform:uppercase;color:var(--acc)}
+
+.p-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-bottom:2.5rem}
+.p-card{background:var(--bg2);border:1px solid var(--line);overflow:hidden;transition:.35s;cursor:pointer}
+.p-card:hover{transform:translateY(-8px);border-color:var(--acc);box-shadow:0 20px 60px rgba(255,59,59,.15)}
+.p-card figure{overflow:hidden;aspect-ratio:4/4.2}
+.p-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.p-card:hover img{transform:scale(1.06)}
+.p-body{padding:1.4rem 1.4rem 1.6rem;border-top:1px solid var(--line)}
+.p-body h3{font-size:1.7rem;text-transform:uppercase}
+.p-role{color:var(--acc);font-weight:800;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;margin:.3rem 0 .8rem}
+.p-body p{color:var(--muted);font-size:.98rem}
+.p-mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
+.mini{border:1px solid var(--line);background:var(--bg2);padding:1rem;transition:.3s;overflow:hidden}
+.mini:hover{border-color:var(--acc);transform:translateY(-4px)}
+.mini img{width:100%;aspect-ratio:1/1;object-fit:cover;border:1px solid var(--line);margin-bottom:.7rem;transition:transform .5s}
+.mini:hover img{transform:scale(1.05)}
+.mini h4{font-family:'Pirata One';font-size:1.15rem;text-transform:uppercase}
+.mini span{display:block;color:var(--muted);font-size:.82rem;font-weight:700;margin-top:.25rem}
+
+.sq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.sq-card{border:1px solid var(--line);border-left:4px solid var(--sq,#888);background:var(--bg2);padding:1.2rem 1.1rem;transition:.3s}
+.sq-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.sq-card h4{font-family:'Pirata One';font-size:1.25rem;text-transform:uppercase}
+.sq-card .cap{color:var(--muted);font-size:.85rem;font-weight:700;margin-top:.2rem}
+.sq-card .att{display:inline-block;margin-top:.6rem;font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sq)}
+
+.w-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-bottom:3rem}
+.w-card{border:1px solid var(--line);background:var(--bg2);padding:1.2rem;transition:.3s;overflow:hidden}
+.w-card:hover{border-color:var(--acc);transform:translateY(-6px)}
+.w-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);margin-bottom:.8rem}
+.w-card h3{font-size:1.25rem;text-transform:uppercase;margin-bottom:.5rem}
+.w-card p{color:var(--muted);font-size:.94rem}
+.map-box{position:relative;border:1px solid var(--line);background:var(--bg2);aspect-ratio:16/9;overflow:hidden}
+.map-bg{position:absolute;inset:0;background:url('img/21.jpg') center/cover,linear-gradient(135deg,#151010,#0a0a0b);filter:saturate(.7) contrast(1.05) brightness(.6)}
+body.reino .map-bg{filter:saturate(.8) contrast(1.05) brightness(1.05)}
+.map-pin{position:absolute;width:38px;height:38px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;border:2px solid #141414;box-shadow:0 0 0 0 rgba(255,59,59,.6);
+  animation:pulse-pin 2s infinite;transform:translate(-50%,-50%);font-family:'Pirata One';font-size:1.05rem}
+.map-pin:hover{transform:translate(-50%,-50%) scale(1.25);background:var(--acc2)}
+@keyframes pulse-pin{0%{box-shadow:0 0 0 0 rgba(255,59,59,.6)}70%{box-shadow:0 0 0 18px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
+.map-legend{position:absolute;bottom:1rem;left:1rem;background:rgba(10,10,11,.85);border:1px solid var(--line);padding:.7rem 1rem;font-size:.78rem;color:var(--muted);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+body.reino .map-legend{background:rgba(242,245,236,.9)}
+
+.v-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+.v-card{border:1px solid var(--line);background:var(--bg2);padding:1.2rem;transition:.3s;position:relative;overflow:hidden}
+.v-card:hover{border-color:var(--acc);transform:translateY(-6px)}
+.v-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);margin-bottom:.8rem;filter:saturate(1.05)}
+.v-card h3{font-size:1.3rem;text-transform:uppercase;margin-bottom:.2rem}
+.v-mag{color:var(--acc);font-weight:800;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;margin-bottom:.6rem}
+.v-card p{color:var(--muted);font-size:.94rem}
+
+.tl{position:relative;padding-left:2.2rem;border-left:2px solid var(--line)}
+.tl-item{position:relative;padding:1rem 0 1.8rem 1.5rem}
+.tl-item::before{content:"";position:absolute;left:-2.7rem;top:1.5rem;width:14px;height:14px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--bg)}
+.tl-year{font-family:'Pirata One';font-size:1.7rem;color:var(--acc)}
+.tl-item h4{font-family:'Pirata One';text-transform:uppercase;margin:.2rem 0 .4rem;font-size:1.15rem}
+.tl-item p{color:var(--muted);font-size:.96rem}
+
+.g-filters{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.8rem}
+.g-filter{border:1px solid var(--line);background:var(--bg2);color:var(--muted);padding:.55rem 1rem;font-weight:800;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.g-filter:hover{border-color:var(--acc);color:var(--ink)}
+.g-filter.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.g-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}
+.g-item{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:zoom-in;border:1px solid var(--line);background:var(--bg2);transition:.4s}
+.g-item.hide{opacity:0;transform:scale(.85);pointer-events:none;position:absolute;visibility:hidden}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .6s}
+.g-item:hover img{transform:scale(1.07);filter:brightness(1.1)}
+.g-item figcaption{position:absolute;inset:auto 0 0 0;padding:2.2rem .9rem .8rem;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  background:linear-gradient(transparent,rgba(8,8,10,.95));color:#f2ece6;transform:translateY(100%);transition:transform .4s}
+.g-item:hover figcaption{transform:translateY(0)}
+.g-item::after{content:"✦";position:absolute;top:.6rem;right:.7rem;color:var(--acc);font-weight:800;opacity:0;transition:.3s}
+.g-item:hover::after{opacity:1}
+
+.movie{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;border:1px solid var(--line);background:var(--bg2);padding:2.2rem}
+.movie img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)}
+.movie h3{font-size:2rem;text-transform:uppercase;margin-bottom:.6rem}
+.movie h3 b{color:var(--acc);font-weight:400}
+.movie p{color:var(--muted);margin-bottom:1rem}
+
+.q-slider{overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.q-track{display:flex;transition:transform .6s ease}
+.q-slide{min-width:100%;padding:3.5rem 2rem;text-align:center}
+.q-text{font-family:'Pirata One';font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.4;max-width:760px;margin:0 auto}
+.q-text::before{content:"✦ ";color:var(--acc)}
+.q-author{display:block;margin-top:1.2rem;color:var(--muted);font-weight:800;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase}
+.q-controls{display:flex;justify-content:center;align-items:center;gap:1rem;padding:0 0 1.6rem}
+.q-btn{border:1px solid var(--line);background:transparent;color:var(--ink);width:42px;height:42px;cursor:pointer;font-size:1rem;transition:.3s}
+.q-btn:hover{border-color:var(--acc);color:var(--acc)}
+.q-dot{width:10px;height:10px;border:1px solid var(--acc);background:transparent;cursor:pointer;padding:0;transition:.3s}
+.q-dot.on{background:var(--acc)}
+
+.ost{border:1px solid var(--line);background:var(--bg2);overflow:hidden}
+.ost-head{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.6rem;border-bottom:1px solid var(--line);background:var(--bg3)}
+.ost-head h4{font-family:'Pirata One';text-transform:uppercase;font-size:1.2rem}
+.ost-track{display:flex;align-items:center;gap:1rem;padding:1rem 1.6rem;border-bottom:1px solid var(--line);transition:.3s;cursor:pointer}
+.ost-track:hover{background:var(--bg3)}
+.ost-track:last-child{border-bottom:none}
+.ost-num{font-family:'Pirata One';color:var(--acc);font-size:1.3rem;width:2.2rem}
+.ost-title{flex:1;font-weight:700}
+.ost-title small{display:block;color:var(--muted);font-size:.78rem;font-weight:500;margin-top:.15rem}
+.ost-time{color:var(--muted);font-size:.88rem;font-weight:700}
+.ost-track.playing{background:var(--bg3)}
+.ost-track.playing .ost-title{color:var(--acc)}
+
+.faq-item{border:1px solid var(--line);background:var(--bg2);margin-bottom:.8rem;overflow:hidden;transition:.3s}
+.faq-item.open{border-color:var(--acc)}
+.faq-q{width:100%;text-align:left;padding:1.2rem 1.4rem;font-weight:800;font-size:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;cursor:pointer;color:var(--ink)}
+.faq-q span{color:var(--acc);font-family:'Pirata One';font-size:1.5rem;transition:transform .3s;line-height:1}
+.faq-item.open .faq-q span{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 1.4rem;color:var(--muted)}
+.faq-item.open .faq-a{max-height:320px;padding:0 1.4rem 1.2rem}
+
+.rev-box{border:1px solid var(--line);background:var(--bg2);padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.rev-score{font-family:'Pirata One';font-size:5rem;color:var(--acc);line-height:1}
+.rev-score small{font-size:1rem;color:var(--muted);font-family:'Alegreya Sans';display:block;letter-spacing:.2em;text-transform:uppercase;margin-top:.6rem}
+.stars{display:flex;gap:.3rem;font-size:1.8rem;color:var(--line);cursor:pointer}
+.stars span{transition:.2s}
+.stars span.on{color:var(--gold)}
+.stars span:hover{transform:scale(1.2)}
+.rev-msg{color:var(--muted);font-size:.95rem;margin-top:1rem}
+
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contato-info p{color:var(--muted);font-size:1.05rem;margin-bottom:1.6rem}
+.social{display:flex;flex-direction:column;gap:.7rem}
+.social a{border:1px solid var(--line);padding:.85rem 1.1rem;font-weight:800;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:.3s;display:flex;justify-content:space-between;background:var(--bg2)}
+.social a:hover{border-color:var(--acc);color:var(--ink);padding-left:1.4rem}
+.social a span{color:var(--acc)}
+.form{display:flex;flex-direction:column;gap:1rem}
+.form label{font-weight:800;font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.form input,.form textarea{background:var(--bg2);border:1px solid var(--line);color:var(--ink);
+  font-family:'Alegreya Sans';font-size:1rem;padding:.85rem 1rem;outline:none;transition:.3s;width:100%}
+.form input:focus,.form textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(255,59,59,.15)}
+.form textarea{resize:vertical;min-height:110px}
+.guest{margin-top:1.6rem;border-top:1px dashed var(--line);padding-top:1.1rem}
+.guest h5{font-family:'Pirata One';text-transform:uppercase;margin-bottom:.7rem;font-size:1.05rem}
+.guest ul{list-style:none}
+.guest li{padding:.55rem 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.92rem}
+.guest li strong{color:var(--acc)}
+
+.footer{background:var(--bg2);border-top:1px solid var(--line);padding:3.5rem 1.5rem 1.5rem}
+.f-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2.5rem}
+.f-grid h5{font-family:'Pirata One';text-transform:uppercase;font-size:1.1rem;margin-bottom:.9rem}
+.f-grid p,.f-grid a{color:var(--muted);font-size:.9rem}
+.f-grid a{display:block;padding:.2rem 0;transition:.25s}
+.f-grid a:hover{color:var(--acc)}
+.f-bottom{max-width:1100px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.f-bottom .cl{color:var(--acc)}
+
+#btt{position:fixed;right:22px;bottom:22px;z-index:80;width:48px;height:48px;border:1px solid var(--acc);background:var(--bg2);
+  color:var(--acc);cursor:pointer;font-size:1.1rem;opacity:0;pointer-events:none;transform:translateY(14px);transition:.35s}
+#btt.show{opacity:1;pointer-events:auto;transform:none}
+#btt:hover{background:var(--acc);color:#fff}
+
+.modal{position:fixed;inset:0;z-index:95;background:var(--overlay);display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:.3s;padding:1.5rem}
+.modal.open{opacity:1;pointer-events:auto}
+.modal-box{background:var(--bg2);border:1px solid var(--line);max-width:720px;width:100%;max-height:86vh;overflow-y:auto;position:relative;animation:pop .4s}
+@keyframes pop{from{transform:scale(.92);opacity:0}to{transform:none;opacity:1}}
+.modal-close{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.2rem;cursor:pointer;transition:.3s;z-index:2}
+.modal-close:hover{border-color:var(--acc);color:var(--acc);transform:rotate(90deg)}
+.m-p-img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.m-p-body{padding:1.8rem}
+.m-p-body h3{font-size:2.2rem;text-transform:uppercase;margin-bottom:.3rem}
+.m-p-role{color:var(--acc);font-weight:800;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem}
+.m-p-body p{color:var(--muted);margin-bottom:.8rem}
+.m-p-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.8rem;margin-top:1.2rem;border-top:1px solid var(--line);padding-top:1.2rem}
+.m-p-stat{padding:.6rem;border:1px solid var(--line)}
+.m-p-stat b{display:block;color:var(--acc);font-family:'Pirata One';font-size:1.15rem}
+.m-p-stat small{color:var(--muted);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800}
+.pin-box{padding:2rem;max-width:480px}
+.pin-box h3{font-size:1.9rem;text-transform:uppercase;margin-bottom:.3rem}
+.pin-box .pin-ico{font-size:1.6rem;margin-bottom:.6rem;display:block}
+.pin-box p{color:var(--muted)}
+
+#lightbox{position:fixed;inset:0;z-index:96;background:rgba(5,5,8,.93);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:1rem;opacity:0;pointer-events:none;transition:.3s;padding:1.5rem}
+#lightbox.open{opacity:1;pointer-events:auto}
+#lb-img{max-width:88vw;max-height:78vh;border:1px solid #333;box-shadow:0 0 80px rgba(255,59,59,.25)}
+#lb-cap{color:#a39494;font-weight:800;letter-spacing:.2em;text-transform:uppercase;font-size:.8rem}
+#toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);z-index:100;background:var(--acc);color:#fff;
+  font-weight:800;letter-spacing:.1em;padding:.9rem 1.5rem;opacity:0;pointer-events:none;transition:.35s;text-transform:uppercase;font-size:.82rem}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .burger{display:block}
+  .nav{position:fixed;top:72px;left:0;right:0;background:var(--header-bg-solid);backdrop-filter:blur(12px);flex-direction:column;gap:0;
+    padding:1rem 1.5rem 1.5rem;transform:translateY(-130%);transition:.4s;border-bottom:1px solid var(--line)}
+  .nav.open{transform:translateY(0)}
+  .nav a{padding:.9rem 0;border-bottom:1px solid var(--line)}
+  .hero-side{display:none}
+  .sinopse-grid,.p-grid,.contato-grid,.ficha-grid,.rev-box,.movie{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .header-right{gap:.5rem}
+  .visits{display:none}
+  .theme-btn{font-size:.65rem;padding:.4rem .5rem}
+  #cur{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="read-bar"><span></span></div>
+<div id="cur"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<header class="header" id="header">
+  <a class="logo" href="#inicio"><span class="logo-flor">☘</span> BLACK CLOVER <span class="logo-sub">Reino Clover</span></a>
+  <div class="header-right">
+    <nav class="nav" id="nav">
+      <a href="#inicio" class="active">Início</a>
+      <a href="#sinopse">Sinopse</a>
+      <a href="#personagens">Elenco</a>
+      <a href="#esquadroes">Esquadrões</a>
+      <a href="#mundo">Reino</a>
+      <a href="#viloes">Vilões</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#filme">Filme</a>
+      <a href="#ost">OST</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="visits" id="visits" title="Visitas registradas">✦ <b id="v-count">0</b> visitas</button>
+    <button class="theme-btn" id="theme-toggle" title="Tema atual — clique para trocar">⚔ Anti-Magia</button>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <span class="hero-label">Anime · Pierrot · 2017</span>
+    <h1><span data-scramble>BLACK</span><br><em><span data-scramble>CLOVER</span></em></h1>
+    <div class="hero-jp" id="hero-jp" title="Clique para traduzir">✦ EU NUNCA DESISTO! ✦</div>
+    <p class="hero-tag">Nascido sem magia em um mundo onde magia é tudo, Asta desperta a <strong>anti-magia</strong> — o poder vermelho-sangue que devora qualquer feitiço — e jura se tornar o <strong>Rei Mago</strong>.</p>
+    <div class="hero-btns">
+      <a class="btn btn--fill" href="#sinopse">Ver sinopse</a>
+      <a class="btn" href="#mundo">Explorar o reino</a>
+      <a class="btn" href="#galeria">Galeria</a>
+    </div>
+  </div>
+  <span class="hero-side">BLACK CLOVER — TOUROS NEGROS — ✦</span>
+  <span class="hero-scroll">▼ role para descer</span>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="mq-group"><span>BLACK BULLS</span><span class="m-x">✦</span><span class="m-acc">ANTI-MAGIC</span><span class="m-x">✦</span><span>GRIMOIRE</span><span class="m-x">✦</span><span class="m-gold">WIZARD KING</span><span class="m-x">✦</span><span class="m-green">MAGIC KNIGHTS</span><span class="m-x">✦</span><span class="m-acc">NEVER GIVE UP</span><span class="m-x">✦</span></div>
+    <div class="mq-group"><span>BLACK BULLS</span><span class="m-x">✦</span><span class="m-acc">ANTI-MAGIC</span><span class="m-x">✦</span><span>GRIMOIRE</span><span class="m-x">✦</span><span class="m-gold">WIZARD KING</span><span class="m-x">✦</span><span class="m-green">MAGIC KNIGHTS</span><span class="m-x">✦</span><span class="m-acc">NEVER GIVE UP</span><span class="m-x">✦</span></div>
+  </div>
+</div>
+
+<section class="section" id="sinopse">
+  <span class="wm" aria-hidden="true">✦</span>
+  <div class="wrap">
+    <div class="sinopse-grid">
+      <div class="sinopse-txt reveal">
+        <span class="sec-label">Sobre o anime</span>
+        <h2 class="sec-title">SEM MAGIA.<br>SEM <b>LIMITES.</b></h2>
+        <p>No Reino Clover, toda criança recebe seu <strong>grimório</strong> aos 15 anos. Menos <strong>Asta</strong> — o órfão barulhento que nasceu sem uma gota de magia. No dia em que o destino ri da sua cara, ele recebe o grimório de <strong>cinco folhas</strong>, habitado por um demônio, e desperta a <strong>anti-magia</strong>.</p>
+        <p>Ao lado do rival <strong>Yuno</strong>, o prodígio do vento, e dos excluídos <strong>Touros Negros</strong> liderados por <strong>Yami Sukehiro</strong>, Asta enfrenta demônios, elfos e o próprio submundo para provar que o sonho de ser <strong>Rei Mago</strong> não precisa de talento — precisa de teimosia.</p>
+        <p>Baseado no mangá de <strong>Yūki Tabata</strong>, Black Clover é um shonen de pura adrenalina sobre nunca desistir.</p>
+        <div class="chips">
+          <span class="chip">🎬 Estúdio <b>Pierrot</b></span>
+          <span class="chip">📺 170 episódios</span>
+          <span class="chip">📅 Outubro de <b>2017</b></span>
+          <span class="chip">🎬 Filme: <b>Sword of the Wizard King</b></span>
+          <span class="chip">🔥 Novo anime <b>anunciado</b></span>
+        </div>
+      </div>
+      <div class="sinopse-poster reveal">
+        <img src="img/19.jpg" alt="Pôster oficial de Black Clover com o elenco">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ficha">
+  <span class="wm" aria-hidden="true">✦</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Dados da obra</span>
+    <h2 class="sec-title reveal">FICHA <b>TÉCNICA</b></h2>
+    <div class="ficha-grid">
+      <dl class="reveal">
+        <div class="ficha-item"><dt>Obra original</dt><dd>Mangá de <b>Yūki Tabata</b> (Shueisha · Weekly Shonen Jump)</dd></div>
+        <div class="ficha-item"><dt>Estúdio</dt><dd><b>Pierrot</b> (Naruto, Bleach)</dd></div>
+        <div class="ficha-item"><dt>Direção</dt><dd>Tatsuya Yoshihara</dd></div>
+        <div class="ficha-item"><dt>Aberturas marcantes</dt><dd>"Haruka Mirai" · "Black Rover" · <b>"Black Catcher"</b></dd></div>
+        <div class="ficha-item"><dt>Transmissão</dt><dd>Out/2017 – Mar/2021 · Streaming: <b>Crunchyroll / Netflix</b></dd></div>
+        <div class="ficha-item"><dt>Filme</dt><dd><b>Black Clover: Sword of the Wizard King</b> (2023, Netflix)</dd></div>
+        <div class="ficha-item"><dt>Status</dt><dd>170 episódios · mangá em andamento · <b>novo anime anunciado</b></dd></div>
+      </dl>
+      <div class="stat-grid reveal">
+        <div class="stat"><span class="count" data-target="170">0</span><small>Episódios</small></div>
+        <div class="stat"><span class="count" data-target="36">0</span><small>Volumes do mangá</small></div>
+        <div class="stat"><span class="count" data-target="9">0</span><small>Esquadrões mágicos</small></div>
+        <div class="stat"><span class="count" data-target="2017">0</span><small>Ano de estreia</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="throne throne--color">
+  <div class="throne-bg"></div>
+  <div class="throne-ov"></div>
+  <div class="throne-inner reveal">
+    <span class="throne-tag">✦ O trono ✦</span>
+    <p class="throne-quote">"Diante do atual <b>Rei Mago</b>, qualquer magia é insignificante."</p>
+    <span class="throne-src">— Reino Clover</span>
+  </div>
+</section>
+
+<section class="section" id="personagens">
+  <span class="wm" aria-hidden="true">☘</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Clique para ver a ficha completa</span>
+    <h2 class="sec-title reveal">ELENCO <b>PRINCIPAL</b></h2>
+    <div class="p-grid">
+      <article class="p-card reveal" data-char="asta">
+        <figure><img src="img/22.jpg" alt="Asta segurando a espada"></figure>
+        <div class="p-body">
+          <h3>Asta</h3>
+          <div class="p-role">Anti-Magia · Touros Negros</div>
+          <p>Sem magia, com dois grimórios de teimosia. Quer ser o Rei Mago.</p>
+        </div>
+      </article>
+      <article class="p-card reveal" data-char="yuno">
+        <figure><img src="img/07.jpg" alt="Yuno com magia de vento"></figure>
+        <div class="p-body">
+          <h3>Yuno Grinberryall</h3>
+          <div class="p-role">Magia de Vento · Alvorecer Dourado</div>
+          <p>O prodígio silencioso. Rival e irmão de promessa de Asta.</p>
+        </div>
+      </article>
+      <article class="p-card reveal" data-char="yami">
+        <figure><img src="img/06.jpg" alt="Yami com grimório sombrio"></figure>
+        <div class="p-body">
+          <h3>Yami Sukehiro</h3>
+          <div class="p-role">Magia de Trevas · Capitão</div>
+          <p>"Ultrapasse seus limites." O capitão que acolhe os excluídos.</p>
+        </div>
+      </article>
+    </div>
+    <div class="p-mini">
+      <div class="mini reveal"><img src="img/25.jpg" alt="Noelle Silva"><h4>Noelle</h4><span>Magia de água, realeza determinada</span></div>
+      <div class="mini reveal"><img src="img/26.jpg" alt="Julius Novachrono"><h4>Julius</h4><span>O atual Rei Mago, magia de tempo</span></div>
+      <div class="mini reveal"><img src="img/27.jpg" alt="Liebe"><h4>Liebe</h4><span>O demônio do grimório de cinco folhas</span></div>
+      <div class="mini reveal"><img src="img/28.jpg" alt="Luck Voltia"><h4>Luck</h4><span>Relâmpago e um sorriso de batalha</span></div>
+      <div class="mini reveal"><img src="img/29.jpg" alt="Magna Swing"><h4>Magna</h4><span>Fogo e coração de irmão mais velho</span></div>
+      <div class="mini reveal"><img src="img/30.jpg" alt="Vanessa Enoteca"><h4>Vanessa</h4><span>Fios do destino e sorte absoluta</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="esquadroes">
+  <span class="wm" aria-hidden="true">♛</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Cavaleiros Mágicos</span>
+    <h2 class="sec-title reveal">OS 9 <b>ESQUADRÕES</b></h2>
+    <div class="sq-grid">
+      <div class="sq-card reveal" style="--sq:#e8b64c"><h4>Touros Negros</h4><div class="cap">Capitão: Yami Sukehiro</div><span class="att">✦ O esquadrão dos excluídos</span></div>
+      <div class="sq-card reveal" style="--sq:#f0c75e"><h4>Alvorecer Dourado</h4><div class="cap">Capitão: William Vangeance</div><span class="att">✦ A elite do reino</span></div>
+      <div class="sq-card reveal" style="--sq:#c0c0c0"><h4>Águias Prateadas</h4><div class="cap">Capitão: Nozel Silva</div><span class="att">✦ Orgulho da casa real</span></div>
+      <div class="sq-card reveal" style="--sq:#e5484d"><h4>Reis Leões Carmesins</h4><div class="cap">Capitão: Fuegoleon Vermillion</div><span class="att">✦ Fogo e honra</span></div>
+      <div class="sq-card reveal" style="--sq:#4f7bd9"><h4>Rosas Azuis</h4><div class="cap">Capitã: Charlotte Roselei</div><span class="att">✦ Guerreiras implacáveis</span></div>
+      <div class="sq-card reveal" style="--sq:#4caf50"><h4>Louva-a-Deus Verdes</h4><div class="cap">Capitão: Jack, o Estripador</div><span class="att">✦ Lâminas cortantes</span></div>
+      <div class="sq-card reveal" style="--sq:#ff7f50"><h4>Pavões Corais</h4><div class="cap">Capitã: Dorothy Unsworth</div><span class="att">✦ Magia de sonhos</span></div>
+      <div class="sq-card reveal" style="--sq:#9e9e9e"><h4>Cervas Cinzentas</h4><div class="cap">Capitão: Kaiser Granvorka</div><span class="att">✦ Estrategistas do reino</span></div>
+      <div class="sq-card reveal" style="--sq:#a855f7"><h4>Orcas Púrpuras</h4><div class="cap">Capitão: Gueldre Poizot</div><span class="att">✦ Comércio e tramoias</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="mundo">
+  <span class="wm" aria-hidden="true">♛</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Lore do reino</span>
+    <h2 class="sec-title reveal">O MUNDO DE <b>BLACK CLOVER</b></h2>
+    <div class="w-grid">
+      <div class="w-card reveal"><img src="img/06.jpg" alt="Grimório sombrio"><h3>Grimórios</h3><p>Livros mágicos que escolhem seu dono. Quanto mais folhas, mais estranho o destino.</p></div>
+      <div class="w-card reveal"><img src="img/04.jpg" alt="Espada de anti-magia"><h3>Anti-Magia</h3><p>O poder de Asta: negar toda magia. A única coisa que o mundo mágico não entende.</p></div>
+      <div class="w-card reveal"><img src="img/07.jpg" alt="Magia de vento verde"><h3>Mana</h3><p>A energia que flui em toda vida. A fonte de cada feitiço do Reino Clover.</p></div>
+      <div class="w-card reveal"><img src="img/09.jpg" alt="Cavaleiros mágicos"><h3>Cavaleiros Mágicos</h3><p>Nove esquadrões que protegem o reino — dos dourados aos temidos Touros Negros.</p></div>
+      <div class="w-card reveal"><img src="img/23.jpg" alt="Trono do Rei Mago"><h3>Rei Mago</h3><p>O mago mais forte do reino. O título que Asta e Yuno juraram conquistar.</p></div>
+      <div class="w-card reveal"><img src="img/10.jpg" alt="Demônio do submundo"><h3>Demônios</h3><p>Seres do submundo que negociam corpos e poder. A raiz do grimório de cinco folhas.</p></div>
+    </div>
+    <span class="sec-label reveal">Mapa interativo</span>
+    <h3 class="sec-title reveal" style="font-size:clamp(1.5rem,3vw,2rem)">CLIQUE NOS <b>PONTOS</b></h3>
+    <div class="map-box reveal">
+      <div class="map-bg"></div>
+      <button class="map-pin" style="top:62%;left:22%" data-pin="hage">H</button>
+      <button class="map-pin" style="top:30%;left:50%" data-pin="capital">C</button>
+      <button class="map-pin" style="top:55%;left:68%" data-pin="base">T</button>
+      <button class="map-pin" style="top:38%;left:78%" data-pin="dungeon">D</button>
+      <button class="map-pin" style="top:70%;left:45%" data-pin="spade">S</button>
+      <div class="map-legend">✦ Clique nos marcadores</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="viloes">
+  <span class="wm" aria-hidden="true">☠</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Ameaças do reino</span>
+    <h2 class="sec-title reveal">VILÕES &amp; <b>DEMONÍACOS</b></h2>
+    <div class="v-grid">
+      <div class="v-card reveal"><img src="img/31.jpg" alt="Dante Zogratis"><h3>Dante Zogratis</h3><div class="v-mag">Magia de Gravidade</div><p>Rei do Reino Spade e hospedeiro de Lucifero. Acredita que o mal liberta a humanidade.</p></div>
+      <div class="v-card reveal"><img src="img/32.jpg" alt="Zenon Zogratis"><h3>Zenon Zogratis</h3><div class="v-mag">Magia de Espaço</div><p>Frio e absoluto. Derrota capitães sem levantar a voz — e sem sentir nada.</p></div>
+      <div class="v-card reveal"><img src="img/33.jpg" alt="Vanica Zogratis"><h3>Vanica Zogratis</h3><div class="v-mag">Magia de Sangue</div><p>Caótica e sorridente, hospedeira de Megicula — o demônio que amaldiçoou Noelle.</p></div>
+      <div class="v-card reveal"><img src="img/34.jpg" alt="Lucifero"><h3>Lucifero</h3><div class="v-mag">O Demônio Supremo</div><p>A manifestação máxima do mal do submundo. Diante dele, até o tempo hesita.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="timeline">
+  <span class="wm" aria-hidden="true">✦</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Cronologia da obra</span>
+    <h2 class="sec-title reveal">TIMELINE <b>CLOVER</b></h2>
+    <div class="tl reveal">
+      <div class="tl-item"><div class="tl-year">2015</div><h4>Mangá começa</h4><p>Yūki Tabata inicia Black Clover na Weekly Shonen Jump em fevereiro.</p></div>
+      <div class="tl-item"><div class="tl-year">2017</div><h4>Anime estreia</h4><p>O estúdio Pierrot leva o Reino Clover à TV em 3 de outubro.</p></div>
+      <div class="tl-item"><div class="tl-year">2021</div><h4>Episódio 170</h4><p>A primeira fase do anime se encerra no confronto contra o Reino Spade.</p></div>
+      <div class="tl-item"><div class="tl-year">2023</div><h4>Filme na Netflix</h4><p>"Black Clover: Sword of the Wizard King" estreia mundialmente em junho.</p></div>
+      <div class="tl-item"><div class="tl-year">2024+</div><h4>Novo anime anunciado</h4><p>A continuação da história de Asta é confirmada pela produção.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="galeria">
+  <span class="wm" aria-hidden="true">✦</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Artes &amp; cenas · clique para ampliar</span>
+    <h2 class="sec-title reveal">GALERIA DO <b>REINO</b></h2>
+    <div class="g-filters">
+      <button class="g-filter on" data-f="all">Todas</button>
+      <button class="g-filter" data-f="poster">Pôsteres</button>
+      <button class="g-filter" data-f="scene">Cenas</button>
+      <button class="g-filter" data-f="art">Artes</button>
+    </div>
+    <div class="g-grid">
+      <figure class="g-item reveal" data-cat="art" data-caption="Forma negra — asas e anti-magia"><img loading="lazy" src="img/01.jpg" alt="Asta com asas negras e aura roxa"></figure>
+      <figure class="g-item reveal" data-cat="art" data-caption="Olho vermelho, aura dourada"><img loading="lazy" src="img/02.jpg" alt="Asta com olho vermelho brilhante"></figure>
+      <figure class="g-item reveal" data-cat="scene" data-caption="A espada matadora de demônios"><img loading="lazy" src="img/03.jpg" alt="Asta empunhando a espada gigante"></figure>
+      <figure class="g-item reveal" data-cat="art" data-caption="Slash de anti-magia"><img loading="lazy" src="img/04.jpg" alt="Asta erguendo a espada com aura roxa"></figure>
+      <figure class="g-item reveal" data-cat="scene" data-caption="Investida dos Touros Negros"><img loading="lazy" src="img/05.jpg" alt="Asta avançando com aura vermelha"></figure>
+      <figure class="g-item reveal" data-cat="art" data-caption="Asas negras no céu rubro"><img loading="lazy" src="img/08.jpg" alt="Asta com asas contra céu vermelho"></figure>
+      <figure class="g-item reveal" data-cat="poster" data-caption="Elenco — Black Clover in Tokyo"><img loading="lazy" src="img/09.jpg" alt="Pôster do elenco"></figure>
+      <figure class="g-item reveal" data-cat="art" data-caption="O demônio do submundo"><img loading="lazy" src="img/10.jpg" alt="Silhueta de demônio em vermelho"></figure>
+      <figure class="g-item reveal" data-cat="scene" data-caption="Duas espadas, um destino"><img loading="lazy" src="img/12.jpg" alt="Asta com duas espadas"></figure>
+      <figure class="g-item reveal" data-cat="art" data-caption="Silhueta alada"><img loading="lazy" src="img/13.jpg" alt="Silhueta de Asta com asas"></figure>
+      <figure class="g-item reveal" data-cat="scene" data-caption="Meio demônio, meio herói"><img loading="lazy" src="img/14.jpg" alt="Close de Asta com um olho vermelho"></figure>
+      <figure class="g-item reveal" data-cat="art" data-caption="Espadas de anti-magia"><img loading="lazy" src="img/16.jpg" alt="Arte estilizada das espadas"></figure>
+      <figure class="g-item reveal" data-cat="scene" data-caption="Yami e Asta vs demônio"><img loading="lazy" src="img/17.jpg" alt="Yami e Asta enfrentando demônio ao pôr do sol"></figure>
+      <figure class="g-item reveal" data-cat="scene" data-caption="Batalha dourada"><img loading="lazy" src="img/18.jpg" alt="Asta lutando contra demônio"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="throne throne--pb">
+  <div class="throne-bg"></div>
+  <div class="throne-ov"></div>
+  <div class="throne-inner reveal">
+    <span class="throne-tag">✦ O juramento ✦</span>
+    <p class="throne-quote">"Eu <b>nunca</b> desisto!"</p>
+    <span class="throne-src">— Asta</span>
+  </div>
+</section>
+
+<section class="section" id="filme">
+  <span class="wm" aria-hidden="true">🎬</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Longa-metragem · Netflix</span>
+    <h2 class="sec-title reveal">SWORD OF THE <b>WIZARD KING</b></h2>
+    <div class="movie reveal">
+      <img src="img/16.jpg" alt="Arte estilizada de Asta com as espadas de anti-magia">
+      <div>
+        <h3>A ESPADA DO <b>REI MAGO</b></h3>
+        <p>Quando novos inimigos surgem questionando o trono de Julius Novachrono, Asta e os Touros Negros enfrentam uma conspiração que ameaça apagar a história do Reino Clover — com batalhas exclusivas supervisionadas pelo próprio Yūki Tabata.</p>
+        <div class="chips">
+          <span class="chip">🎬 Filme · <b>2023</b></span>
+          <span class="chip">📺 <b>Netflix</b></span>
+          <span class="chip">✍️ História original supervisionada</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="frases">
+  <div class="wrap">
+    <span class="sec-label reveal">Palavras do reino</span>
+    <h2 class="sec-title reveal">FRASES <b>MARCANTES</b></h2>
+    <div class="q-slider reveal">
+      <div class="q-track" id="q-track">
+        <div class="q-slide"><p class="q-text">Ultrapasse seus limites.</p><span class="q-author">— Yami Sukehiro</span></div>
+        <div class="q-slide"><p class="q-text">Eu nunca desisto!</p><span class="q-author">— Asta</span></div>
+        <div class="q-slide"><p class="q-text">Eu vou me tornar o Rei Mago.</p><span class="q-author">— Yuno Grinberryall</span></div>
+      </div>
+      <div class="q-controls">
+        <button class="q-btn" id="q-prev" aria-label="Frase anterior">←</button>
+        <span id="q-dots" style="display:flex;gap:.5rem"></span>
+        <button class="q-btn" id="q-next" aria-label="Próxima frase">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ost">
+  <span class="wm" aria-hidden="true">♪</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Trilha sonora</span>
+    <h2 class="sec-title reveal">OST <b>CLOVER</b></h2>
+    <div class="ost reveal">
+      <div class="ost-head"><h4>☘ Aberturas oficiais</h4><span style="color:var(--muted);font-weight:800;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase">2017 – 2021</span></div>
+      <div class="ost-track"><span class="ost-num">01</span><div class="ost-title">Haruka Mirai (OP1)<small>Kankaku Piero</small></div><span class="ost-time">1:30</span></div>
+      <div class="ost-track"><span class="ost-num">02</span><div class="ost-title">Black Rover (OP3)<small>Vickeblanka</small></div><span class="ost-time">1:30</span></div>
+      <div class="ost-track"><span class="ost-num">03</span><div class="ost-title">Guess Who Is Back (OP4)<small>Kumi Koda</small></div><span class="ost-time">1:30</span></div>
+      <div class="ost-track"><span class="ost-num">04</span><div class="ost-title">Aoi Honoo (OP5)<small>Kankaku Piero</small></div><span class="ost-time">1:30</span></div>
+      <div class="ost-track"><span class="ost-num">05</span><div class="ost-title">Black Catcher (OP10)<small>Vickeblanka</small></div><span class="ost-time">1:30</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="review">
+  <div class="wrap">
+    <span class="sec-label reveal">Avaliação</span>
+    <h2 class="sec-title reveal">DEIXE SEU <b>VOTO</b></h2>
+    <div class="rev-box reveal">
+      <div>
+        <div class="rev-score">8.7<small>Média da comunidade</small></div>
+        <p class="rev-msg" id="rev-msg">Clique nas estrelas para avaliar o anime de 1 a 5.</p>
+      </div>
+      <div>
+        <div class="stars" id="stars">
+          <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+        </div>
+        <p class="rev-msg" style="margin-top:1.2rem">Seu voto é salvo localmente no navegador.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <span class="wm" aria-hidden="true">?</span>
+  <div class="wrap">
+    <span class="sec-label reveal">Perguntas frequentes</span>
+    <h2 class="sec-title reveal">FAQ <b>CLOVER</b></h2>
+    <div class="faq-list">
+      <div class="faq-item reveal"><button class="faq-q">Onde assistir Black Clover? <span>+</span></button><div class="faq-a"><p>O anime está disponível no Brasil pela <b>Crunchyroll</b> e pela <b>Netflix</b>, com dublagem em português.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Quantos episódios tem o anime? <span>+</span></button><div class="faq-a"><p>São <b>170 episódios</b> na primeira fase, além do filme "Sword of the Wizard King" (2023).</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Asta consegue usar magia? <span>+</span></button><div class="faq-a"><p>Não — e esse é o ponto! Asta usa <b>anti-magia</b> vinda do seu grimório de cinco folhas, que anula qualquer feitiço.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Quem é o atual Rei Mago? <span>+</span></button><div class="faq-a"><p><b>Julius Novachrono</b>, o mago do tempo. Diante dele, qualquer magia é insignificante.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">O que são os Touros Negros? <span>+</span></button><div class="faq-a"><p>O esquadrão de Cavaleiros Mágicos mais caótico do reino, liderado por <b>Yami Sukehiro</b> — onde todos os excluídos encontram família.</p></div></div>
+      <div class="faq-item reveal"><button class="faq-q">Vai ter continuação do anime? <span>+</span></button><div class="faq-a"><p>Sim! Um <b>novo anime</b> de Black Clover já foi oficialmente anunciado pela produção.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <span class="wm" aria-hidden="true">✉</span>
+  <div class="wrap">
+    <div class="contato-grid">
+      <div class="contato-info reveal">
+        <span class="sec-label">Contato</span>
+        <h2 class="sec-title">FALE COM A <b>GENTE</b></h2>
+        <p>Quer trocar ideias sobre o anime, sugerir melhorias no site ou jurar que também vai ser Rei Mago? Mande uma mensagem — ela vai pro mural online (banco Supabase).</p>
+        <div class="social">
+          <a href="https://bclover-anime.com/" target="_blank" rel="noopener">Site oficial do anime <span>↗</span></a>
+          <a href="https://shonenjumpplus.com/" target="_blank" rel="noopener">Mangá na Shonen Jump+ <span>↗</span></a>
+          <a href="https://www.crunchyroll.com/pt-br/series/black-clover" target="_blank" rel="noopener">Assistir na Crunchyroll <span>↗</span></a>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="form" id="form-contato">
+          <div><label for="f-nome">Nome</label><input id="f-nome" name="nome" type="text" placeholder="Seu nome" required></div>
+          <div><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" placeholder="voce@exemplo.com" required></div>
+          <div><label for="f-msg">Mensagem</label><textarea id="f-msg" name="mensagem" placeholder="Escreva sua mensagem..." required></textarea></div>
+          <button class="btn btn--fill" type="submit">Enviar mensagem ✦</button>
+        </form>
+        <div class="guest">
+          <h5>☘ Mural de mensagens</h5>
+          <ul id="guest-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="f-grid">
+    <div>
+      <h5>☘ Black Clover</h5>
+      <p>Site não oficial, feito por <strong>[SEU NOME AQUI]</strong> como projeto da disciplina de Desenvolvimento Web. Imagens © Yūki Tabata / Shueisha / Studio Pierrot — <em>Black Clover</em>; retratos adicionais gerados por IA. Uso educacional.</p>
+    </div>
+    <div>
+      <h5>Navegação</h5>
+      <a href="#inicio">Início</a><a href="#sinopse">Sinopse</a><a href="#personagens">Elenco</a><a href="#esquadroes">Esquadrões</a>
+      <a href="#mundo">Reino</a><a href="#viloes">Vilões</a><a href="#timeline">Timeline</a><a href="#galeria">Galeria</a>
+      <a href="#filme">Filme</a><a href="#ost">OST</a><a href="#faq">FAQ</a><a href="#contato">Contato</a>
+    </div>
+    <div>
+      <h5>Fontes &amp; créditos</h5>
+      <p>Tipografia: Google Fonts (Pirata One, Alegreya Sans).<br>Efeitos: trevos caindo + anti-magia em canvas puro.<br>Banco de dados: Supabase.<br>Modos: Anti-Magia (vermelho/preto) ✦ Reino Clover (verde).</p>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>Black Clover — <span class="cl">☘</span></span>
+    <span>© <span id="ano">2026</span> · Eu nunca desisto!</span>
+  </div>
+</footer>
+
+<button id="btt" aria-label="Voltar ao topo">↑</button>
+
+<div class="modal" id="char-modal" aria-hidden="true">
+  <div class="modal-box">
+    <button class="modal-close" data-close>✕</button>
+    <img class="m-p-img" id="m-p-img" alt="">
+    <div class="m-p-body">
+      <h3 id="m-p-name"></h3>
+      <div class="m-p-role" id="m-p-role"></div>
+      <p id="m-p-bio"></p>
+      <p id="m-p-bio2"></p>
+      <div class="m-p-stats" id="m-p-stats"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="pin-modal" aria-hidden="true">
+  <div class="modal-box pin-box">
+    <button class="modal-close" data-close>✕</button>
+    <span class="pin-ico" id="pin-ico"></span>
+    <h3 id="pin-name"></h3>
+    <p id="pin-desc"></p>
+  </div>
+</div>
+
+<div id="lightbox" aria-hidden="true">
+  <img id="lb-img" alt="Imagem ampliada">
+  <p id="lb-cap"></p>
+</div>
+<div id="toast">✦ Mensagem registrada!</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var cur = document.getElementById('cur');
+  var isTouch = window.matchMedia('(hover: none)').matches;
+  if(!isTouch){
+    document.body.classList.add('cursor-mode');
+    document.addEventListener('mousemove', function(e){ cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px'; });
+    document.addEventListener('mouseover', function(e){
+      if(e.target.closest('a,button,.p-card,.g-item,.map-pin,.faq-q,.stars span,.mini,.chip,.g-filter,.sq-card,.v-card,.w-card')){ cur.classList.add('big'); }
+      else{ cur.classList.remove('big'); }
+    });
+  } else { cur.style.display='none'; }
+
+  var rb = document.querySelector('#read-bar span');
+  function updBar(){ var h=document.documentElement.scrollHeight-window.innerHeight; rb.style.width=(h>0?(window.scrollY/h)*100:0)+'%'; }
+  window.addEventListener('scroll', updBar, {passive:true}); updBar();
+
+  var vc = document.getElementById('v-count');
+  try{ var vv=parseInt(localStorage.getItem('bc_visits')||'0',10); vv++; localStorage.setItem('bc_visits',vv); vc.textContent=vv; }catch(e){ vc.textContent='∞'; }
+
+  var header = document.getElementById('header');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); burger.classList.remove('open'); burger.setAttribute('aria-expanded','false'); });
+  });
+
+  var tBtn = document.getElementById('theme-toggle');
+  try{ if(localStorage.getItem('bc_tema') === 'reino') document.body.classList.add('reino'); }catch(e){}
+  function updBtn(){ tBtn.textContent = document.body.classList.contains('reino') ? '☘ Reino Clover' : '⚔ Anti-Magia'; }
+  tBtn.addEventListener('click', function(){
+    var on = document.body.classList.toggle('reino');
+    try{ localStorage.setItem('bc_tema', on ? 'reino' : 'antimagia'); }catch(e){}
+    updBtn();
+    toast.show(on ? '☘ Reino Clover ativado' : '⚔ Anti-Magia ativada');
+  });
+  updBtn();
+
+  var jpEl = document.getElementById('hero-jp');
+  var jpState = 0;
+  var jpTexts = ['✦ EU NUNCA DESISTO! ✦', '✦ I WILL NEVER GIVE UP! ✦', '✦ 魔法帝になる! ✦', '✦ EU NUNCA DESISTO! ✦'];
+  jpEl.addEventListener('click', function(){ jpState=(jpState+1)%jpTexts.length; jpEl.textContent=jpTexts[jpState]; });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#'+e.target.id); }); }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(s){ spy.observe(s); });
+
+  var ro = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
+
+  var CH = '✦01BLACKOVER';
+  document.querySelectorAll('[data-scramble]').forEach(function(el, idx){
+    var orig = el.textContent;
+    if(reduce) return;
+    var frame = 0;
+    setTimeout(function(){
+      var t = setInterval(function(){
+        frame++;
+        var out='';
+        for(var i=0;i<orig.length;i++){ out += (i < frame/2) ? orig[i] : CH[Math.floor(Math.random()*CH.length)]; }
+        el.textContent = out;
+        if(frame/2 >= orig.length){ clearInterval(t); el.textContent = orig; }
+      }, 30);
+    }, 200 + idx*350);
+  });
+
+  var heroBg = document.querySelector('.hero-bg');
+  if(heroBg && !reduce){
+    window.addEventListener('scroll', function(){
+      var y = window.scrollY;
+      if(y < window.innerHeight){ heroBg.style.transform = 'translateY(' + (y*0.25) + 'px)'; }
+    }, {passive:true});
+  }
+
+  var co = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el=e.target, target=parseInt(el.getAttribute('data-target'),10), start=null;
+      co.unobserve(el);
+      function step(ts){ if(!start) start=ts; var p=Math.min((ts-start)/1200,1); el.textContent=Math.floor(p*target); if(p<1) requestAnimationFrame(step); else el.textContent=target; }
+      if(reduce){ el.textContent=target; } else requestAnimationFrame(step);
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('.count').forEach(function(el){ co.observe(el); });
+
+  var charModal = document.getElementById('char-modal');
+  var charData = {
+    asta:{ name:'Asta', role:'Anti-Magia · Touros Negros', img:'img/22.jpg',
+      bio:'Órfão de Hage, nasceu sem mana em um mundo movido a magia. Recebeu o grimório de cinco folhas e a anti-magia do demônio Liebe.',
+      bio2:'Barulhento, teimoso e impossível de quebrar: seu sonho é se tornar o Rei Mago e provar que valor não se mede por talento.',
+      stats:[{k:'Magia',v:'Nenhuma'},{k:'Poder',v:'Anti-Magia'},{k:'Arma',v:'Espadas 3'},{k:'Esquadrão',v:'Touros Negros'}]},
+    yuno:{ name:'Yuno Grinberryall', role:'Magia de Vento · Alvorecer Dourado', img:'img/07.jpg',
+      bio:'Cresceu ao lado de Asta em Hage e recebeu o grimório de quatro folhas no mesmo dia. Prodígio absoluto do vento.',
+      bio2:'Silencioso e elegante, carrega o sangue do Reino Spade e a promessa de disputar o trono de Rei Mago com Asta.',
+      stats:[{k:'Magia',v:'Vento'},{k:'Grimório',v:'4 folhas'},{k:'Espírito',v:'Sylph'},{k:'Esquadrão',v:'Alvorecer'}]},
+    yami:{ name:'Yami Sukehiro', role:'Magia de Trevas · Capitão', img:'img/06.jpg',
+      bio:'Estrangeiro vindo do outro lado do mar, capitão dos Touros Negros. Mestre da magia de trevas e do "ki".',
+      bio2:'"Ultrapasse seus limites." Sob seu comando, os piores excluídos do reino viram a família mais forte de todas.',
+      stats:[{k:'Magia',v:'Trevas'},{k:'Arma',v:'Katana'},{k:'Posto',v:'Capitão'},{k:'Lema',v:'Limites?'}]}
+  };
+  document.querySelectorAll('.p-card[data-char]').forEach(function(card){
+    card.addEventListener('click', function(){
+      var d = charData[card.getAttribute('data-char')];
+      if(!d) return;
+      document.getElementById('m-p-img').src = d.img;
+      document.getElementById('m-p-name').textContent = d.name;
+      document.getElementById('m-p-role').textContent = d.role;
+      document.getElementById('m-p-bio').textContent = d.bio;
+      document.getElementById('m-p-bio2').textContent = d.bio2;
+      var sb = document.getElementById('m-p-stats');
+      sb.innerHTML = '';
+      d.stats.forEach(function(s){
+        var el = document.createElement('div');
+        el.className = 'm-p-stat';
+        el.innerHTML = '<b>'+s.v+'</b><small>'+s.k+'</small>';
+        sb.appendChild(el);
+      });
+      charModal.classList.add('open'); charModal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  var pinModal = document.getElementById('pin-modal');
+  var pinData = {
+    hage:{ico:'🏡', name:'Vila de Hage', desc:'Onde Asta e Yuno cresceram e receberam seus grimórios. O ponto zero de toda a jornada.'},
+    capital:{ico:'👑', name:'Capital Real', desc:'Sede do Rei Mago e do exame dos Cavaleiros Mágicos. Onde sonhos são testados em público.'},
+    base:{ico:'🐂', name:'Base dos Touros Negros', desc:'A casa caótica do esquadrão de Yami. Bagunça, brigas e a família que Asta escolheu.'},
+    dungeon:{ico:'🗝️', name:'Masmorra', desc:'O primeiro calabouço do Reino, onde Asta encontrou a espada matadora de demônios.'},
+    spade:{ico:'⚔️', name:'Reino Spade', desc:'Território do ataque dos demônios e do passado secreto de Yuno. O palco do arco final.'}
+  };
+  document.querySelectorAll('.map-pin').forEach(function(pin){
+    pin.addEventListener('click', function(){
+      var d = pinData[pin.getAttribute('data-pin')];
+      if(!d) return;
+      document.getElementById('pin-ico').textContent = d.ico;
+      document.getElementById('pin-name').textContent = d.name;
+      document.getElementById('pin-desc').textContent = d.desc;
+      pinModal.classList.add('open'); pinModal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.querySelectorAll('[data-close]').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); });
+      document.body.style.overflow='';
+    });
+  });
+  document.querySelectorAll('.modal').forEach(function(m){
+    m.addEventListener('click', function(e){ if(e.target === m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; } });
+  });
+
+  var gItems = document.querySelectorAll('.g-item');
+  document.querySelectorAll('.g-filter').forEach(function(f){
+    f.addEventListener('click', function(){
+      document.querySelectorAll('.g-filter').forEach(function(x){ x.classList.remove('on'); });
+      f.classList.add('on');
+      var cat = f.getAttribute('data-f');
+      gItems.forEach(function(it){
+        if(cat === 'all' || it.getAttribute('data-cat') === cat){ it.classList.remove('hide'); }
+        else{ it.classList.add('hide'); }
+      });
+    });
+  });
+
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  var lbCap = document.getElementById('lb-cap');
+  document.querySelectorAll('.g-item').forEach(function(f){
+    f.addEventListener('click', function(){
+      var img = f.querySelector('img');
+      lbImg.src = img.src;
+      lbCap.textContent = f.getAttribute('data-caption') || '';
+      lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+  lb.addEventListener('click', function(e){ if(e.target !== lbImg) closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeLb(); document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; }
+  });
+
+  var track = document.getElementById('q-track');
+  var slides = track.children.length;
+  var dotsBox = document.getElementById('q-dots');
+  var qi = 0;
+  for(var d=0; d<slides; d++){
+    var dot = document.createElement('button');
+    dot.className = 'q-dot'; dot.setAttribute('aria-label', 'Frase ' + (d+1));
+    (function(dd){ dot.addEventListener('click', function(){ go(dd); }); })(d);
+    dotsBox.appendChild(dot);
+  }
+  function go(i){
+    qi = (i + slides) % slides;
+    track.style.transform = 'translateX(-' + (qi*100) + '%)';
+    dotsBox.querySelectorAll('.q-dot').forEach(function(dt, k){ dt.classList.toggle('on', k === qi); });
+  }
+  document.getElementById('q-prev').addEventListener('click', function(){ go(qi-1); });
+  document.getElementById('q-next').addEventListener('click', function(){ go(qi+1); });
+  go(0);
+  if(!reduce) setInterval(function(){ go(qi+1); }, 7000);
+
+  document.querySelectorAll('.ost-track').forEach(function(t){
+    t.addEventListener('click', function(){
+      document.querySelectorAll('.ost-track').forEach(function(x){ x.classList.remove('playing'); });
+      t.classList.add('playing');
+      toast.show('♫ Tocando: ' + t.querySelector('.ost-title').textContent.split('\n')[0].trim());
+    });
+  });
+
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.parentElement;
+      document.querySelectorAll('.faq-item').forEach(function(it){ if(it !== item) it.classList.remove('open'); });
+      item.classList.toggle('open');
+    });
+  });
+
+  var stars = document.getElementById('stars').querySelectorAll('span');
+  var revMsg = document.getElementById('rev-msg');
+  var msgs = ['Péssimo','Ruim','Médio','Bom','Obra-prima'];
+  try{
+    var sv = parseInt(localStorage.getItem('bc_voto') || '0', 10);
+    if(sv > 0){ for(var si=0; si<sv; si++) stars[si].classList.add('on'); revMsg.textContent='Você avaliou: '+msgs[sv-1]+' ('+sv+'/5)'; }
+  }catch(e){}
+  stars.forEach(function(s){
+    s.addEventListener('click', function(){
+      var v = parseInt(s.getAttribute('data-v'), 10);
+      stars.forEach(function(x, i){ x.classList.toggle('on', i < v); });
+      try{ localStorage.setItem('bc_voto', v); }catch(e){}
+      revMsg.textContent = 'Você avaliou: ' + msgs[v-1] + ' ('+v+'/5)';
+      toast.show('★ Avaliação registrada: ' + v + '/5');
+    });
+    s.addEventListener('mouseenter', function(){
+      var v = parseInt(s.getAttribute('data-v'), 10);
+      stars.forEach(function(x, i){ x.classList.toggle('on', i < v); });
+    });
+  });
+  document.getElementById('stars').addEventListener('mouseleave', function(){
+    var sv = 0; try{ sv = parseInt(localStorage.getItem('bc_voto') || '0', 10); }catch(e){}
+    stars.forEach(function(x, i){ x.classList.toggle('on', i < sv); });
+  });
+
+  var btt = document.getElementById('btt');
+  window.addEventListener('scroll', function(){ btt.classList.toggle('show', window.scrollY > 600); }, {passive:true});
+  btt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+  toast.show = function(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2800);
+  };
+
+  var SUPA_URL  = 'https://aprqqarlpygylwmyjcci.supabase.co';
+  var SUPA_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwcnFxYXJscHlneWx3bXlqY2NpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTIzMDcsImV4cCI6MjEwMjA2ODMwN30.qCs9dFCBPe96_HKkBWactaD9o3FNoYUIFG5SaEL9Sx0';
+  var supa = null;
+  try{
+    if(window.supabase && SUPA_URL.indexOf('https://') === 0 && SUPA_URL.length > 25){
+      supa = window.supabase.createClient(SUPA_URL, SUPA_ANON);
+    }
+  }catch(e){ supa = null; }
+
+  var form = document.getElementById('form-contato');
+  function paint(list, rows){
+    list.innerHTML = '';
+    if(!rows || !rows.length){
+      var li0 = document.createElement('li');
+      li0.textContent = 'Nenhuma mensagem ainda. Seja o primeiro Trevo do reino. ☘';
+      list.appendChild(li0);
+      return;
+    }
+    rows.forEach(function(m){
+      var li = document.createElement('li');
+      var b = document.createElement('strong');
+      b.textContent = m.nome + ': ';
+      li.appendChild(b);
+      li.appendChild(document.createTextNode((m.msg||'').length > 70 ? m.msg.slice(0,70) + '…' : m.msg));
+      list.appendChild(li);
+    });
+  }
+  function renderGuest(){
+    var list = document.getElementById('guest-list');
+    function local(){
+      var all = [];
+      try{ all = JSON.parse(localStorage.getItem('bc_mensagens') || '[]'); }catch(e){}
+      paint(list, all.slice(-3).reverse());
+    }
+    if(supa){
+      supa.from('mensagens').select('nome,msg').order('id',{ascending:false}).limit(3)
+        .then(function(res){ if(res.error) throw res.error; paint(list, res.data || []); })
+        .catch(function(){ local(); });
+    } else { local(); }
+  }
+  renderGuest();
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = { nome: form.nome.value.trim(), email: form.email.value.trim(), msg: form.mensagem.value.trim(), quando: new Date().toISOString() };
+    if(!data.nome || !data.email || !data.msg) return;
+    try{
+      var all = JSON.parse(localStorage.getItem('bc_mensagens') || '[]');
+      all.push(data);
+      localStorage.setItem('bc_mensagens', JSON.stringify(all));
+    }catch(err){}
+    form.reset();
+    if(supa){
+      supa.from('mensagens').insert({ nome:data.nome, email:data.email, msg:data.msg })
+        .then(function(res){
+          if(res.error){ toast.show('☘ Salvo localmente!'); }
+          else { toast.show('☘ Mensagem publicada no banco online!'); }
+          renderGuest();
+        })
+        .catch(function(){ toast.show('☘ Salvo localmente!'); renderGuest(); });
+    } else {
+      renderGuest();
+      toast.show('☘ Mensagem registrada no mural!');
+    }
+  });
+
+  var canvas = document.getElementById('fx');
+  var ctx = canvas.getContext('2d');
+  var W, H, parts = [];
+  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  window.addEventListener('resize', resize); resize();
+  function rnd(a,b){ return a + Math.random()*(b-a); }
+  function makeP(type){
+    if(type === 'clover'){ return {t:0, x:rnd(0,W), y:rnd(-H,0), s:rnd(4,8), a:rnd(0,6.28), va:rnd(-.02,.02), vy:rnd(.4,1.1), vx:rnd(-.4,.4), o:rnd(.2,.5)}; }
+    return {t:1, x:rnd(0,W), y:rnd(H,H*1.4), s:rnd(1,2.6), vy:rnd(.5,1.4), vx:rnd(-.25,.25), o:rnd(.2,.6), f:rnd(0,6.28)};
+  }
+  function cloverColor(){ return document.body.classList.contains('reino') ? '#2e7d32' : '#d92626'; }
+  function emberColor(f){
+    if(document.body.classList.contains('reino')) return (f % 2 < 1) ? '#3fa34d' : '#8a6d1c';
+    return (f % 2 < 1) ? '#ff6b6b' : '#7a0c0c';
+  }
+  if(!reduce){
+    for(var i=0;i<24;i++) parts.push(makeP('clover'));
+    for(var j=0;j<20;j++) parts.push(makeP('ember'));
+    (function loop(){
+      ctx.clearRect(0,0,W,H);
+      for(var k=0;k<parts.length;k++){
+        var p = parts[k];
+        if(p.t === 0){
+          p.y += p.vy; p.x += p.vx + Math.sin(p.y*.01)*.6; p.a += p.va;
+          if(p.y > H+20){ parts[k] = makeP('clover'); parts[k].y = -20; continue; }
+          ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a); ctx.globalAlpha = p.o;
+          ctx.fillStyle = cloverColor();
+          for(var l=0;l<4;l++){
+            ctx.rotate(Math.PI/2);
+            ctx.beginPath();
+            ctx.ellipse(0,-p.s*0.8,p.s*0.55,p.s*0.75,0,0,Math.PI*2);
+            ctx.fill();
+          }
+          ctx.restore();
+        } else {
+          p.y -= p.vy; p.x += p.vx; p.f += .05;
+          if(p.y < -10){ parts[k] = makeP('ember'); continue; }
+          ctx.globalAlpha = p.o * (0.6 + Math.sin(p.f)*0.4);
+          ctx.fillStyle = emberColor(p.f);
+          ctx.fillRect(p.x, p.y, p.s, p.s);
+          ctx.globalAlpha = 1;
+        }
+      }
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  var seq = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  var pos = 0;
+  document.addEventListener('keydown', function(e){
+    var k = e.key.toLowerCase ? e.key.toLowerCase() : e.key;
+    if(k === seq[pos].toLowerCase()){
+      pos++;
+      if(pos === seq.length){
+        pos = 0;
+        for(var e1=0; e1<60; e1++) parts.push(makeP('clover'));
+        toast.show('☘ MODO TREVO ATIVADO! +60 trevos extras');
+      }
+    } else { pos = 0; }
+  });
+
+  document.getElementById('ano').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+  </html>
