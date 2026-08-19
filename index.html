@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Black Clover — Reino Clover | ✦</title>
-<meta name="description" content="Site não oficial de Black Clover com mini-jogo de batalha com bonequinhos chibi equipáveis, mapa dos reinos em código, sons, sinopse, esquadrões, vilões, OST e galeria. Eu nunca desisto!">
+<meta name="description" content="Site não oficial de Black Clover com mini-jogo de batalha com som, mapa dos reinos em código, grimórios animados, sinopse, esquadrões, vilões, OST e galeria. Eu nunca desisto!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -78,14 +78,13 @@ body.reino .hero-overlay{background:linear-gradient(180deg,rgba(242,245,236,.4) 
 .section{position:relative;padding:6.5rem 1.5rem;overflow:hidden}
 .wrap{max-width:1100px;margin:0 auto;position:relative;z-index:2}
 .wm{position:absolute;top:1rem;right:-1rem;font-family:'Pirata One';font-size:clamp(7rem,22vw,17rem);color:rgba(255,59,59,.05);writing-mode:vertical-rl;user-select:none;pointer-events:none;z-index:1}
-body.reino .wm{color:rgba(46,125,50,.08)}
+body.reino .wm{color:rgba(46,125,125,50,.08)}
 .sec-label{display:inline-block;font-weight:800;font-size:.78rem;letter-spacing:.45em;text-transform:uppercase;color:var(--acc);margin-bottom:.8rem}
 .sec-label::before{content:"✦ ";color:var(--muted)}
 .sec-title{font-size:clamp(2.4rem,6vw,4.2rem);text-transform:uppercase;line-height:1.05;margin-bottom:1.6rem}
 .sec-title b{color:var(--acc);font-weight:400}
 .deit{position:relative;overflow:hidden;aspect-ratio:16/10;background:var(--bg);border:1px solid var(--line)}
 .deit img{position:absolute;top:50%;left:50%;height:185%;aspect-ratio:9/16;object-fit:cover;transform:translate(-50%,-50%) rotate(90deg)}
-.deit img.rl{transform:translate(-50%,-50%) rotate(-90deg)}
 .fig-normal{aspect-ratio:16/10;overflow:hidden;border:1px solid var(--line)}
 .fig-normal img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;position:relative}
@@ -137,11 +136,12 @@ body.reino .throne-ov{background:linear-gradient(180deg,rgba(242,245,236,.8),rgb
 .p-role{color:var(--acc);font-weight:800;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;margin:.3rem 0 .8rem}
 .p-body p{color:var(--muted);font-size:.98rem}
 .p-mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem}
-.mini{border:1px solid var(--line);background:var(--bg2);padding:1rem;transition:.3s;overflow:hidden}
-.mini:hover{border-color:var(--acc);transform:translateY(-4px)}
+.mini{border:1px solid var(--line);background:var(--bg2);padding:1rem;transition:.3s;overflow:hidden;cursor:pointer}
+.mini:hover{border-color:var(--acc);transform:translateY(-4px);box-shadow:0 12px 30px rgba(255,59,59,.12)}
 .mini img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;border:1px solid var(--line);margin-bottom:.7rem}
 .mini h4{font-family:'Pirata One';font-size:1.15rem;text-transform:uppercase}
 .mini span{display:block;color:var(--muted);font-size:.82rem;font-weight:700;margin-top:.25rem}
+.mini i{font-style:normal;color:var(--acc);font-size:.7rem;letter-spacing:.2em;font-weight:800}
 .sq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
 .sq-card{border:1px solid var(--line);border-left:4px solid var(--sq,#888);background:var(--bg2);padding:1.2rem 1.1rem;transition:.3s}
 .sq-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,.25)}
@@ -151,10 +151,10 @@ body.reino .throne-ov{background:linear-gradient(180deg,rgba(242,245,236,.8),rgb
 .w-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-bottom:3rem}
 .w-card{border:1px solid var(--line);background:var(--bg2);padding:1.2rem;transition:.3s;overflow:hidden}
 .w-card:hover{border-color:var(--acc);transform:translateY(-6px)}
-.w-ico{width:100%;aspect-ratio:16/10;display:block;margin-bottom:.8rem;border:1px solid var(--line);background:var(--bg)}
+.w-card img,.w-card .deit{width:100%;margin-bottom:.8rem}
+.w-card img{aspect-ratio:16/10;object-fit:cover;object-position:center;border:1px solid var(--line)}
 .w-card h3{font-size:1.25rem;text-transform:uppercase;margin-bottom:.5rem}
 .w-card p{color:var(--muted);font-size:.94rem}
-/* MAPA EM CÓDIGO */
 .map-box{position:relative;border:1px solid var(--line);background:var(--map-bg);aspect-ratio:16/9;overflow:hidden;transition:background .4s}
 .map-svg{position:absolute;inset:0;width:100%;height:100%}
 .map-pin{position:absolute;width:38px;height:38px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;cursor:pointer;border:2px solid #141414;box-shadow:0 0 0 0 rgba(255,59,59,.6);animation:pulse-pin 2s infinite;transform:translate(-50%,-50%);font-family:'Pirata One';font-size:1.05rem;z-index:3}
@@ -190,21 +190,21 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 .hp-bar{flex:1;height:10px;border:1px solid var(--line);background:#1a1212}
 .hp-bar i{display:block;height:100%;width:100%;background:var(--green);transition:width .3s}
 .hp-bar.foe i{background:var(--acc)}
-.arena{position:relative;height:260px;margin:1rem 1.2rem;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 100%,rgba(255,59,59,.18),transparent 60%),#0d0d0d;overflow:hidden}
-.fighter{position:absolute;bottom:10px;width:140px;cursor:pointer}
-.fighter svg{width:100%;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+.arena{position:relative;height:280px;margin:1rem 1.2rem;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 100%,rgba(255,59,59,.18),transparent 60%),#0d0d0d;overflow:hidden}
+.fighter{position:absolute;bottom:10px;width:150px;cursor:pointer}
+.fighter svg{width:100%;display:block;filter:drop-shadow(0 8px 16px rgba(0,0,0,.6))}
 .fighter.you{left:5%;animation:idle 1.6s ease-in-out infinite}
 .fighter.foe{right:5%;transform:scaleX(-1);animation:idle 1.8s ease-in-out infinite}
 @keyframes idle{0%,100%{translate:0 0}50%{translate:0 -8px}}
 .fighter.lunge-y{animation:lungeY .35s ease}
-@keyframes lungeY{40%{translate:120px 0}}
+@keyframes lungeY{40%{translate:130px 0}}
 .fighter.lunge-f{animation:lungeF .35s ease}
-@keyframes lungeF{40%{translate:-120px 0}}
+@keyframes lungeF{40%{translate:-130px 0}}
 .fighter.hurt{animation:hurt .3s}
-@keyframes hurt{25%{translate:-6px 0;filter:brightness(2.4)}75%{translate:6px 0}}
-.slash{position:absolute;width:90px;height:6px;background:linear-gradient(90deg,transparent,#fff,transparent);transform:rotate(-25deg);animation:sl .3s forwards}
-@keyframes sl{to{opacity:0;transform:rotate(-25deg) translateX(46px)}}
-.dmg{position:absolute;font-family:'Pirata One';color:var(--gold);font-size:1.5rem;animation:rise .7s forwards}
+@keyframes hurt{25%{translate:-6px 0;filter:brightness(2.4) saturate(2)}75%{translate:6px 0}}
+.slash{position:absolute;width:100px;height:7px;background:linear-gradient(90deg,transparent,#fff,transparent);transform:rotate(-25deg);animation:sl .3s forwards}
+@keyframes sl{to{opacity:0;transform:rotate(-25deg) translateX(50px)}}
+.dmg{position:absolute;font-family:'Pirata One';color:var(--gold);font-size:1.6rem;animation:rise .7s forwards}
 @keyframes rise{to{transform:translateY(-70px);opacity:0}}
 #b-log{color:var(--muted);text-align:center;margin:0 1.2rem .8rem;font-weight:700}
 .b-btns{display:flex;gap:.8rem;justify-content:center;padding:0 1.2rem 1.4rem}
@@ -214,21 +214,40 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 #b-end p{color:var(--muted)}
 #b-end p b{color:var(--ink)}
 #b-end .chibi{width:150px;margin:1rem auto;animation:idle 1.6s ease-in-out infinite}
-/* TERROR */
-#horror .modal-box{max-width:640px;background:#050303;border-color:#401010;text-align:center;box-shadow:inset 0 0 120px rgba(255,0,0,.25);animation:pop .4s,shakeX .6s .1s}
+/* TERROR ANIMADO */
+#horror .modal-box{max-width:640px;background:#050303;border-color:#401010;text-align:center;box-shadow:inset 0 0 140px rgba(255,0,0,.28);animation:pop .4s,shakeX .6s .1s}
 @keyframes shakeX{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
-.demon{width:64%;margin:1.2rem auto 0;animation:demonIn 1s ease;filter:drop-shadow(0 0 30px rgba(255,0,0,.6))}
-@keyframes demonIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
-.demon .eye{animation:eyeGlow 1.4s infinite}
-@keyframes eyeGlow{0%,100%{opacity:1}50%{opacity:.35}}
-#horror h3{color:#ff1a1a;margin-top:1rem;letter-spacing:.1em}
+#horror svg *{transform-box:fill-box}
+.demon{width:66%;margin:1.2rem auto 0;filter:drop-shadow(0 0 34px rgba(255,0,0,.65));animation:demonIn .9s ease}
+@keyframes demonIn{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+.h-body{animation:hFloat 2.2s ease-in-out infinite}
+@keyframes hFloat{50%{transform:translateY(-12px)}}
+.h-eye{transform-origin:center;animation:hBlink 2.8s infinite}
+@keyframes hBlink{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.08)}}
+.h-mouth{transform-origin:center 60%;animation:hChomp .9s infinite}
+@keyframes hChomp{50%{transform:scaleY(.35)}}
+.h-tail{transform-origin:10% 90%;animation:hWag 1.6s ease-in-out infinite}
+@keyframes hWag{50%{transform:rotate(14deg)}}
+.h-arm{transform-origin:center 20%;animation:hArm 2s ease-in-out infinite}
+@keyframes hArm{50%{transform:rotate(-8deg)}}
+.h-aura{animation:hPulse 1.3s infinite}
+@keyframes hPulse{50%{opacity:.3}}
+#horror h3{color:#ff1a1a;margin-top:1rem;letter-spacing:.1em;animation:flick 3s infinite}
+@keyframes flick{0%,100%{opacity:1}45%{opacity:1}48%{opacity:.4}50%{opacity:1}72%{opacity:.6}74%{opacity:1}}
 #horror p{color:#c9a0a0;padding:0 1.4rem 1.6rem}
 /* GRIMÓRIOS */
-#grim-modal .modal-box{max-width:560px;text-align:center;background:#0a0a0b;border-color:var(--gold)}
-.grim-stage svg{width:190px;margin:1.4rem auto 0;display:block;animation:pop .5s}
-.grim-stage svg.glow{animation:grimShake .35s infinite;filter:drop-shadow(0 0 28px rgba(255,59,59,.85))}
-@keyframes grimShake{0%,100%{transform:translate(0,0)}25%{transform:translate(-2px,1px)}75%{transform:translate(2px,-1px)}}
-.grim-cap{padding:1rem 1.4rem 1.6rem;font-family:'Pirata One';font-size:1.25rem;color:var(--gold);line-height:1.4}
+#grim-modal .modal-box{max-width:560px;text-align:center;background:#0a0a0b;border-color:var(--gold);overflow:hidden}
+#grim-flash{position:absolute;inset:0;background:radial-gradient(circle,rgba(255,59,59,.5),transparent 70%);opacity:0;pointer-events:none}
+#grim-flash.on{animation:gflash .7s ease}
+@keyframes gflash{0%{opacity:0}30%{opacity:1}100%{opacity:0}}
+.grim-stage svg{width:200px;margin:1.4rem auto 0;display:block;animation:grimIn .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes grimIn{from{opacity:0;transform:scale(.3) rotate(-540deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+.grim-stage svg *{transform-box:fill-box}
+.grim-stage .leaf{animation:leafPulse .8s infinite alternate;transform-origin:center}
+@keyframes leafPulse{to{transform:scale(1.25)}}
+.grim-stage svg.glow{animation:grimIn .5s cubic-bezier(.2,1.6,.4,1),grimShake .3s .5s infinite;filter:drop-shadow(0 0 30px rgba(255,59,59,.9))}
+@keyframes grimShake{0%,100%{transform:translate(0,0)}25%{transform:translate(-3px,2px)}75%{transform:translate(3px,-2px)}}
+.grim-cap{padding:1rem 1.4rem 1.6rem;font-family:'Pirata One';font-size:1.3rem;color:var(--gold);line-height:1.4}
 .v-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
 .v-card{border:1px solid var(--line);background:var(--bg2);padding:1.2rem;transition:.3s;overflow:hidden}
 .v-card:hover{border-color:var(--acc);transform:translateY(-6px)}
@@ -425,7 +444,7 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <h2 class="sec-title reveal">ASTA <b>×</b> YUNO</h2>
 <div class="duo-grid reveal">
 <span class="duo-vs">VS</span>
-<div class="duo-card duo-asta"><div class="deit"><img class="rl" src="img/22.jpg" alt="Asta com a espada"></div><h3>Asta</h3><p>Anti-magia pura. A quinta folha do trevo.</p></div>
+<div class="duo-card duo-asta"><div class="deit"><img src="img/22.jpg" alt="Asta com a espada"></div><h3>Asta</h3><p>Anti-magia pura. A quinta folha do trevo.</p></div>
 <div class="duo-card duo-yuno"><div class="deit"><img src="img/07.jpg" alt="Yuno com magia de vento"></div><h3>Yuno</h3><p>O vento que nunca para. A quarta folha.</p></div>
 </div>
 </div>
@@ -442,7 +461,7 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <div class="ficha-item"><dt>Aberturas marcantes</dt><dd>"Haruka Mirai" · "Black Rover" · <b>"Black Catcher"</b></dd></div>
 <div class="ficha-item"><dt>Transmissão</dt><dd>Out/2017 – Mar/2021 · Streaming: <b>Crunchyroll / Netflix</b></dd></div>
 <div class="ficha-item"><dt>Filme</dt><dd><b>Black Clover: Sword of the Wizard King</b> (2023, Netflix)</dd></div>
-<div class="ficha-item"><dt>Status</dt><dd>170 episódios · mangá em andamento · <b>novo anime anunciado</b></dd></div>
+<div class="ficha-item"><dt>Status</dt><dd>170 episódios · mangá em andamento · <b>2ª temporada em 2026</b></dd></div>
 </dl>
 <div class="stat-grid reveal">
 <div class="stat"><span class="count" data-target="170">0</span><small>Episódios</small></div>
@@ -465,7 +484,7 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <span class="sec-label reveal">Clique para ver a ficha completa</span>
 <h2 class="sec-title reveal">ELENCO <b>PRINCIPAL</b></h2>
 <div class="p-grid">
-<article class="p-card reveal" data-char="asta"><div class="deit"><img class="rl" src="img/22.jpg" alt="Asta segurando a espada"></div>
+<article class="p-card reveal" data-char="asta"><div class="deit"><img src="img/22.jpg" alt="Asta segurando a espada"></div>
 <div class="p-body"><h3>Asta</h3><div class="p-role">Anti-Magia · Touros Negros</div><p>Sem magia, com dois grimórios de teimosia. Quer ser o Rei Mago.</p></div></article>
 <article class="p-card reveal" data-char="yuno"><div class="deit"><img src="img/07.jpg" alt="Yuno com magia de vento"></div>
 <div class="p-body"><h3>Yuno Grinberryall</h3><div class="p-role">Magia de Vento · Alvorecer Dourado</div><p>O prodígio silencioso. Rival e irmão de promessa de Asta.</p></div></article>
@@ -473,12 +492,12 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <div class="p-body"><h3>Yami Sukehiro</h3><div class="p-role">Magia de Trevas · Capitão</div><p>"Ultrapasse seus limites." O capitão que acolhe os excluídos.</p></div></article>
 </div>
 <div class="p-mini">
-<div class="mini reveal"><img src="img/25.jpg" alt="Noelle Silva"><h4>Noelle</h4><span>Magia de água, realeza determinada</span></div>
-<div class="mini reveal"><img src="img/26.jpg" alt="Julius Novachrono"><h4>Julius</h4><span>O atual Rei Mago, magia de tempo</span></div>
-<div class="mini reveal"><img src="img/27.jpg" alt="Liebe"><h4>Liebe</h4><span>O demônio do grimório de cinco folhas</span></div>
-<div class="mini reveal"><img src="img/28.jpg" alt="Luck Voltia"><h4>Luck</h4><span>Relâmpago e um sorriso de batalha</span></div>
-<div class="mini reveal"><img src="img/29.jpg" alt="Magna Swing"><h4>Magna</h4><span>Fogo e coração de irmão mais velho</span></div>
-<div class="mini reveal"><img src="img/30.jpg" alt="Vanessa Enoteca"><h4>Vanessa</h4><span>Fios do destino e sorte absoluta</span></div>
+<div class="mini reveal" data-char="noelle"><i>✦ VER FICHA</i><img src="img/25.jpg" alt="Noelle Silva"><h4>Noelle</h4><span>Magia de água, realeza determinada</span></div>
+<div class="mini reveal" data-char="julius"><i>✦ VER FICHA</i><img src="img/26.jpg" alt="Julius Novachrono"><h4>Julius</h4><span>O atual Rei Mago, magia de tempo</span></div>
+<div class="mini reveal" data-char="liebe"><i>✦ VER FICHA</i><img src="img/27.jpg" alt="Liebe"><h4>Liebe</h4><span>O demônio do grimório de cinco folhas</span></div>
+<div class="mini reveal" data-char="luck"><i>✦ VER FICHA</i><img src="img/28.jpg" alt="Luck Voltia"><h4>Luck</h4><span>Relâmpago e um sorriso de batalha</span></div>
+<div class="mini reveal" data-char="magna"><i>✦ VER FICHA</i><img src="img/29.jpg" alt="Magna Swing"><h4>Magna</h4><span>Fogo e coração de irmão mais velho</span></div>
+<div class="mini reveal" data-char="vanessa"><i>✦ VER FICHA</i><img src="img/30.jpg" alt="Vanessa Enoteca"><h4>Vanessa</h4><span>Fios do destino e sorte absoluta</span></div>
 </div>
 </div>
 </section>
@@ -504,12 +523,12 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <span class="sec-label reveal">Lore do reino</span>
 <h2 class="sec-title reveal">O MUNDO DE <b>BLACK CLOVER</b></h2>
 <div class="w-grid">
-<div class="w-card reveal"><svg class="w-ico" viewBox="0 0 160 100"><rect x="45" y="12" width="70" height="76" rx="6" fill="#1d3524" stroke="#4caf50" stroke-width="3"/><rect x="45" y="12" width="12" height="76" rx="6" fill="rgba(0,0,0,.35)"/><circle cx="84" cy="40" r="8" fill="#4caf50"/><circle cx="74" cy="56" r="8" fill="#4caf50"/><circle cx="94" cy="56" r="8" fill="#4caf50"/></svg><h3>Grimórios</h3><p>Livros mágicos que escolhem seu dono. Quanto mais folhas, mais estranho o destino.</p></div>
-<div class="w-card reveal"><svg class="w-ico" viewBox="0 0 160 100"><rect x="74" y="8" width="12" height="62" rx="3" fill="#3a3f44" stroke="#000" stroke-width="2"/><rect x="60" y="70" width="40" height="8" rx="3" fill="#20242a"/><rect x="76" y="78" width="8" height="14" fill="#5a3a22"/><path d="M40 28 l80 44 M120 28 l-80 44" stroke="#ff3b3b" stroke-width="4" opacity=".85"/></svg><h3>Anti-Magia</h3><p>O poder de Asta: negar toda magia. A única coisa que o mundo mágico não entende.</p></div>
-<div class="w-card reveal"><svg class="w-ico" viewBox="0 0 160 100"><circle cx="80" cy="50" r="26" fill="none" stroke="#4caf50" stroke-width="3"/><path d="M80 24 v52 M54 50 h52 M62 32 l36 36 M98 32 l-36 36" stroke="#4caf50" stroke-width="3"/><circle cx="80" cy="50" r="7" fill="#8ce99a"/></svg><h3>Mana</h3><p>A energia que flui em toda vida. A fonte de cada feitiço do Reino Clover.</p></div>
-<div class="w-card reveal"><svg class="w-ico" viewBox="0 0 160 100"><path d="M80 10 l34 12 v28 q0 26 -34 40 q-34 -14 -34 -40 v-28 z" fill="#17181c" stroke="#e8b64c" stroke-width="3"/><path d="M80 34 l6 12 13 2 -9 9 2 13 -12 -6 -12 6 2 -13 -9 -9 13 -2 z" fill="#e8b64c"/></svg><h3>Cavaleiros Mágicos</h3><p>Nove esquadrões que protegem o reino — dos dourados aos temidos Touros Negros.</p></div>
-<div class="w-card reveal"><svg class="w-ico" viewBox="0 0 160 100"><path d="M45 70 l6 -40 16 18 13 -26 13 26 16 -18 6 40 z" fill="#e8b64c" stroke="#8a6d1c" stroke-width="3"/><circle cx="51" cy="66" r="4" fill="#8a6d1c"/><circle cx="80" cy="66" r="4" fill="#8a6d1c"/><circle cx="109" cy="66" r="4" fill="#8a6d1c"/></svg><h3>Rei Mago</h3><p>O mago mais forte do reino. O título que Asta e Yuno juraram conquistar.</p></div>
-<div class="w-card reveal"><svg class="w-ico" viewBox="0 0 160 100"><path d="M62 26 L52 6 L74 20 Z" fill="#101014" stroke="#000" stroke-width="2"/><path d="M98 26 L108 6 L86 20 Z" fill="#101014" stroke="#000" stroke-width="2"/><circle cx="80" cy="46" r="24" fill="#101014" stroke="#000" stroke-width="2"/><ellipse cx="71" cy="44" rx="5" ry="7" fill="#ff3b3b"/><ellipse cx="89" cy="44" rx="5" ry="7" fill="#ff3b3b"/><path d="M68 60 l6 6 6 -6 6 6 6 -6" stroke="#ff3b3b" stroke-width="3" fill="none"/></svg><h3>Demônios</h3><p>Seres do submundo que negociam corpos e poder. A raiz do grimório de cinco folhas.</p></div>
+<div class="w-card reveal"><img src="img/16.jpg" alt="Espadas de anti-magia"><h3>Grimórios</h3><p>Livros mágicos que escolhem seu dono. Quanto mais folhas, mais estranho o destino.</p></div>
+<div class="w-card reveal"><img src="img/04.jpg" alt="Slash de anti-magia"><h3>Anti-Magia</h3><p>O poder de Asta: negar toda magia. A única coisa que o mundo mágico não entende.</p></div>
+<div class="w-card reveal"><img src="img/15.jpg" alt="Asta com aura de fogo"><h3>Mana</h3><p>A energia que flui em toda vida. A fonte de cada feitiço do Reino Clover.</p></div>
+<div class="w-card reveal"><div class="deit"><img src="img/09.jpg" alt="Cavaleiros mágicos"></div><h3>Cavaleiros Mágicos</h3><p>Nove esquadrões que protegem o reino — dos dourados aos temidos Touros Negros.</p></div>
+<div class="w-card reveal"><img src="img/23.jpg" alt="Trono do Rei Mago"><h3>Rei Mago</h3><p>O mago mais forte do reino. O título que Asta e Yuno juraram conquistar.</p></div>
+<div class="w-card reveal"><img src="img/10.jpg" alt="Demônio do submundo"><h3>Demônios</h3><p>Seres do submundo que negociam corpos e poder. A raiz do grimório de cinco folhas.</p></div>
 </div>
 <span class="sec-label reveal">Mapa dos quatro reinos · desenhado em código</span>
 <h3 class="sec-title reveal" style="font-size:clamp(1.5rem,3vw,2rem)">CLIQUE NOS <b>PONTOS</b></h3>
@@ -627,7 +646,7 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <div class="tl-item"><div class="tl-year">2017</div><h4>Anime estreia</h4><p>O estúdio Pierrot leva o Reino Clover à TV em 3 de outubro.</p></div>
 <div class="tl-item"><div class="tl-year">2021</div><h4>Episódio 170</h4><p>A primeira fase do anime se encerra no confronto contra o Reino Spade.</p></div>
 <div class="tl-item"><div class="tl-year">2023</div><h4>Filme na Netflix</h4><p>"Black Clover: Sword of the Wizard King" estreia mundialmente em junho.</p></div>
-<div class="tl-item"><div class="tl-year">2024+</div><h4>Novo anime anunciado</h4><p>A continuação da história de Asta é confirmada pela produção.</p></div>
+<div class="tl-item"><div class="tl-year">2026</div><h4>2ª temporada</h4><p>O anime retorna em outubro de 2026 na TV japonesa — e o novo arco chega ao site!</p></div>
 </div>
 </div>
 </section>
@@ -736,7 +755,7 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <div class="faq-item reveal"><button class="faq-q">Asta consegue usar magia? <span>+</span></button><div class="faq-a"><p>Não — e esse é o ponto! Asta usa <b>anti-magia</b> vinda do seu grimório de cinco folhas, que anula qualquer feitiço.</p></div></div>
 <div class="faq-item reveal"><button class="faq-q">Quem é o atual Rei Mago? <span>+</span></button><div class="faq-a"><p><b>Julius Novachrono</b>, o mago do tempo. Diante dele, qualquer magia é insignificante.</p></div></div>
 <div class="faq-item reveal"><button class="faq-q">O que são os Touros Negros? <span>+</span></button><div class="faq-a"><p>O esquadrão de Cavaleiros Mágicos mais caótico do reino, liderado por <b>Yami Sukehiro</b> — onde todos os excluídos encontram família.</p></div></div>
-<div class="faq-item reveal"><button class="faq-q">Vai ter continuação do anime? <span>+</span></button><div class="faq-a"><p>Sim! Um <b>novo anime</b> de Black Clover já foi oficialmente anunciado pela produção.</p></div></div>
+<div class="faq-item reveal"><button class="faq-q">Vai ter continuação do anime? <span>+</span></button><div class="faq-a"><p>Sim! A <b>2ª temporada</b> estreia em outubro de 2026 no Japão.</p></div></div>
 </div>
 </div>
 </section>
@@ -747,10 +766,10 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <h2 class="sec-title">FALE COM A <b>GENTE</b></h2>
 <p>Quer trocar ideias sobre o anime, sugerir melhorias no site ou jurar que também vai ser Rei Mago? Mande uma mensagem — ela vai pro mural online (banco Supabase).</p>
 <div class="social">
-<a href="https://bclover-anime.com/" target="_blank" rel="noopener">Site oficial do anime <span>↗</span></a>
-<a href="https://shonenjumpplus.com/" target="_blank" rel="noopener">Mangá na Shonen Jump+ <span>↗</span></a>
+<a href="https://bclover.jp/" target="_blank" rel="noopener">Site oficial do anime <span>↗</span></a>
+<a href="https://www.viz.com/black-clover" target="_blank" rel="noopener">Mangá oficial (VIZ) <span>↗</span></a>
 <a href="https://www.netflix.com/title/80238012" target="_blank" rel="noopener">Assistir na Netflix <span>↗</span></a>
-<a href="https://www.crunchyroll.com/pt-br/series/black-clover" target="_blank" rel="noopener">Assistir na Crunchyroll <span>↗</span></a>
+<a href="https://www.crunchyroll.com/series/GRE50KV36/black-clover" target="_blank" rel="noopener">Assistir na Crunchyroll <span>↗</span></a>
 </div>
 </div>
 <div class="reveal">
@@ -768,7 +787,7 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <footer class="footer">
 <div class="f-grid">
 <div><h5>Black Clover</h5>
-<p>Site não oficial, feito por <strong>POLLY, MASHA, MAH E MILE.</strong> como projeto da disciplina de Desenvolvimento Web. Imagens © Yūki Tabata / Shueisha / Studio Pierrot — <em>Black Clover</em>; retratos adicionais gerados por IA. Uso educacional.</p></div>
+<p>Site não oficial, feito por <strong>POLLY, MASHA, MAH E MILE.</strong> como projeto da disciplina de Desenvolvimento Web. Imagens © Yūki Tabata / Shueisha / Studio Pierrot — <em>Black Clover</em>. Uso educacional.</p></div>
 <div><h5>Navegação</h5>
 <a href="#inicio">Início</a><a href="#sinopse">Sinopse</a><a href="#personagens">Elenco</a><a href="#esquadroes">Esquadrões</a>
 <a href="#mundo">Reino</a><a href="#viloes">Vilões</a><a href="#medidor">Maratona</a><a href="#jogo">Jogo</a>
@@ -791,12 +810,27 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 </div></div>
 <div class="modal" id="horror" aria-hidden="true"><div class="modal-box">
 <button class="modal-close" data-close>✕</button>
-<svg class="demon" viewBox="0 0 200 220"><path d="M60 40 L38 4 L80 28 Z" fill="#0a0505"/><path d="M140 40 L162 4 L120 28 Z" fill="#0a0505"/><path d="M100 18 Q152 30 162 92 Q172 162 100 212 Q28 162 38 92 Q48 30 100 18 Z" fill="#0a0505"/><ellipse class="eye" cx="78" cy="92" rx="14" ry="10" fill="#ff1a1a"/><ellipse class="eye" cx="122" cy="92" rx="14" ry="10" fill="#ff1a1a"/><path d="M60 132 l10 12 l10 -12 l10 12 l10 -12 l10 12 l10 -12 l10 12" stroke="#ff1a1a" stroke-width="5" fill="none"/></svg>
+<svg class="demon" viewBox="0 0 200 240">
+<circle class="h-aura" cx="100" cy="110" r="86" fill="#ff1a1a" opacity=".14"/>
+<g class="h-body">
+<path class="h-tail" d="M60 190 q-30 14 -34 34 q22 -6 40 -22 z" fill="#0a0505"/>
+<path class="h-arm" d="M40 120 q-22 8 -26 26 q18 -2 30 -12 z" fill="#0a0505"/>
+<path class="h-arm" d="M160 120 q22 8 26 26 q-18 -2 -30 -12 z" fill="#0a0505"/>
+<path d="M62 42 L38 6 L82 30 Z" fill="#0a0505"/>
+<path d="M138 42 L162 6 L118 30 Z" fill="#0a0505"/>
+<path d="M100 22 Q154 34 164 96 Q174 168 100 218 Q26 168 36 96 Q46 34 100 22 Z" fill="#0a0505"/>
+<ellipse class="h-eye" cx="78" cy="96" rx="14" ry="10" fill="#ff1a1a"/>
+<ellipse class="h-eye" cx="122" cy="96" rx="14" ry="10" fill="#ff1a1a"/>
+<circle cx="81" cy="94" r="3" fill="#fff"/><circle cx="125" cy="94" r="3" fill="#fff"/>
+<path class="h-mouth" d="M62 138 l9 11 l9 -11 l9 11 l9 -11 l9 11 l9 -11 l9 11 l9 -11" stroke="#ff1a1a" stroke-width="5" fill="none"/>
+</g>
+</svg>
 <h3>A REAL INCÓGNITA DO REINO</h3>
 <p>Por trás da paz do Reino Clover existe um segredo: o Elfo da Reencarnação manipulou o Alvorecer Dourado, e a Tríade Negra quer abrir o submundo para libertar os demônios — entre eles <b style="color:#ff1a1a">Lucifero</b>. E a quinta folha do grimório de Asta não nasceu do trevo: ela foi corrompida pelo desespero… dentro dela habita <b style="color:#ff1a1a">Liebe</b>, o demônio da anti-magia.</p>
 </div></div>
 <div class="modal" id="grim-modal" aria-hidden="true"><div class="modal-box">
 <button class="modal-close" data-close>✕</button>
+<div id="grim-flash"></div>
 <div class="grim-stage" id="grim-stage"></div>
 <p class="grim-cap" id="grim-cap"></p>
 </div></div>
@@ -822,41 +856,48 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 (function(){
 "use strict";
 var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var CORTE = 14; /* segundos: corta a música do final do seu áudio. Mude aqui se precisar. */
 var AC=null;
 function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&&AC.state==='suspended'){ AC.resume(); } return AC; }
 document.addEventListener('pointerdown',function(){ ac(); },{once:true});
+function noise(c,now,dur,vol,f0,f1){ var n=Math.floor(c.sampleRate*dur); var b=c.createBuffer(1,n,c.sampleRate); var d=b.getChannelData(0); for(var i=0;i<n;i++){ d[i]=(Math.random()*2-1)*(1-i/n); } var s=c.createBufferSource(); s.buffer=b; var f=c.createBiquadFilter(); f.type='lowpass'; f.frequency.setValueAtTime(f0,now); f.frequency.exponentialRampToValueAtTime(f1,now+dur); var g=c.createGain(); g.gain.value=vol; s.connect(f); f.connect(g); g.connect(c.destination); s.start(now); }
 function sfx(t){
- var c=ac(); if(!c) return;
+ var c=ac(); if(!c) return; if(c.state==='suspended') c.resume();
  var now=c.currentTime, o, g, i;
- if(t==='click'){ o=c.createOscillator(); g=c.createGain(); o.type='square'; o.frequency.value=620; g.gain.setValueAtTime(.15,now); g.gain.exponentialRampToValueAtTime(.001,now+.08); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.09); }
- if(t==='slash'){ o=c.createOscillator(); g=c.createGain(); o.type='sawtooth'; o.frequency.setValueAtTime(1100,now); o.frequency.exponentialRampToValueAtTime(140,now+.16); g.gain.setValueAtTime(.4,now); g.gain.exponentialRampToValueAtTime(.001,now+.2); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.22); }
- if(t==='hit'){ o=c.createOscillator(); g=c.createGain(); o.type='triangle'; o.frequency.setValueAtTime(220,now); o.frequency.exponentialRampToValueAtTime(50,now+.15); g.gain.setValueAtTime(.5,now); g.gain.exponentialRampToValueAtTime(.001,now+.18); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.2);
-  var o2=c.createOscillator(); var g2=c.createGain(); o2.type='square'; o2.frequency.setValueAtTime(90,now); o2.frequency.exponentialRampToValueAtTime(40,now+.12); g2.gain.setValueAtTime(.4,now); g2.gain.exponentialRampToValueAtTime(.001,now+.14); o2.connect(g2); g2.connect(c.destination); o2.start(now); o2.stop(now+.15); }
- if(t==='magic'){ o=c.createOscillator(); g=c.createGain(); o.type='sine'; o.frequency.setValueAtTime(300,now); o.frequency.exponentialRampToValueAtTime(1400,now+.5); g.gain.setValueAtTime(.3,now); g.gain.exponentialRampToValueAtTime(.001,now+.6); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.65); }
- if(t==='horror'){ var o1=c.createOscillator(),g1=c.createGain(); o1.type='sawtooth'; o1.frequency.setValueAtTime(55,now); g1.gain.setValueAtTime(.35,now); g1.gain.exponentialRampToValueAtTime(.001,now+2.2); o1.connect(g1); g1.connect(c.destination); o1.start(now); o1.stop(now+2.3);
-  var o3=c.createOscillator(),g3=c.createGain(); o3.type='square'; o3.frequency.setValueAtTime(666,now); o3.frequency.exponentialRampToValueAtTime(111,now+1.4); g3.gain.setValueAtTime(.12,now); g3.gain.exponentialRampToValueAtTime(.001,now+1.5); o3.connect(g3); g3.connect(c.destination); o3.start(now); o3.stop(now+1.6); }
- if(t==='win'){ var n=[523,659,784,1047,1319]; for(i=0;i<n.length;i++){ o=c.createOscillator(); g=c.createGain(); o.type='triangle'; o.frequency.value=n[i]; var t0=now+i*.12; g.gain.setValueAtTime(.0001,t0); g.gain.exponentialRampToValueAtTime(.4,t0+.02); g.gain.exponentialRampToValueAtTime(.001,t0+.4); o.connect(g); g.connect(c.destination); o.start(t0); o.stop(t0+.45); } }
- if(t==='lose'){ var m=[330,262,196,131]; for(i=0;i<m.length;i++){ o=c.createOscillator(); g=c.createGain(); o.type='sawtooth'; o.frequency.value=m[i]; var t1=now+i*.15; g.gain.setValueAtTime(.0001,t1); g.gain.exponentialRampToValueAtTime(.3,t1+.02); g.gain.exponentialRampToValueAtTime(.001,t1+.3); o.connect(g); g.connect(c.destination); o.start(t1); o.stop(t1+.32); } }
+ if(t==='click'){ o=c.createOscillator(); g=c.createGain(); o.type='square'; o.frequency.value=620; g.gain.setValueAtTime(.18,now); g.gain.exponentialRampToValueAtTime(.001,now+.08); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.09); }
+ if(t==='slash'){ noise(c,now,.18,.5,6000,800); o=c.createOscillator(); g=c.createGain(); o.type='sawtooth'; o.frequency.setValueAtTime(1200,now); o.frequency.exponentialRampToValueAtTime(140,now+.16); g.gain.setValueAtTime(.45,now); g.gain.exponentialRampToValueAtTime(.001,now+.2); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.22); }
+ if(t==='hit'){ noise(c,now,.25,.6,2500,200); o=c.createOscillator(); g=c.createGain(); o.type='triangle'; o.frequency.setValueAtTime(220,now); o.frequency.exponentialRampToValueAtTime(45,now+.16); g.gain.setValueAtTime(.6,now); g.gain.exponentialRampToValueAtTime(.001,now+.2); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.22);
+  var o2=c.createOscillator(); var g2=c.createGain(); o2.type='square'; o2.frequency.setValueAtTime(90,now); o2.frequency.exponentialRampToValueAtTime(38,now+.12); g2.gain.setValueAtTime(.5,now); g2.gain.exponentialRampToValueAtTime(.001,now+.15); o2.connect(g2); g2.connect(c.destination); o2.start(now); o2.stop(now+.16); }
+ if(t==='magic'){ o=c.createOscillator(); g=c.createGain(); o.type='sine'; o.frequency.setValueAtTime(300,now); o.frequency.exponentialRampToValueAtTime(1500,now+.5); g.gain.setValueAtTime(.35,now); g.gain.exponentialRampToValueAtTime(.001,now+.6); o.connect(g); g.connect(c.destination); o.start(now); o.stop(now+.65); }
+ if(t==='horror'){ var o1=c.createOscillator(),g1=c.createGain(); o1.type='sawtooth'; o1.frequency.setValueAtTime(55,now); g1.gain.setValueAtTime(.4,now); g1.gain.exponentialRampToValueAtTime(.001,now+2.2); o1.connect(g1); g1.connect(c.destination); o1.start(now); o1.stop(now+2.3);
+  var o3=c.createOscillator(),g3=c.createGain(); o3.type='square'; o3.frequency.setValueAtTime(666,now); o3.frequency.exponentialRampToValueAtTime(111,now+1.4); g3.gain.setValueAtTime(.14,now); g3.gain.exponentialRampToValueAtTime(.001,now+1.5); o3.connect(g3); g3.connect(c.destination); o3.start(now); o3.stop(now+1.6);
+  noise(c,now,1.2,.2,900,80); }
+ if(t==='win'){ var n=[523,659,784,1047,1319]; for(i=0;i<n.length;i++){ o=c.createOscillator(); g=c.createGain(); o.type='triangle'; o.frequency.value=n[i]; var t0=now+i*.12; g.gain.setValueAtTime(.0001,t0); g.gain.exponentialRampToValueAtTime(.45,t0+.02); g.gain.exponentialRampToValueAtTime(.001,t0+.4); o.connect(g); g.connect(c.destination); o.start(t0); o.stop(t0+.45); } }
+ if(t==='lose'){ var m=[330,262,196,131]; for(i=0;i<m.length;i++){ o=c.createOscillator(); g=c.createGain(); o.type='sawtooth'; o.frequency.value=m[i]; var t1=now+i*.15; g.gain.setValueAtTime(.0001,t1); g.gain.exponentialRampToValueAtTime(.35,t1+.02); g.gain.exponentialRampToValueAtTime(.001,t1+.3); o.connect(g); g.connect(c.destination); o.start(t1); o.stop(t1+.32); } }
 }
-function speak(txt){ try{ if(!('speechSynthesis' in window)) return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(txt); u.lang='pt-BR'; u.rate=.92; u.pitch=.8; window.speechSynthesis.speak(u); }catch(e){} }
+function speak(txt){ try{ if(!('speechSynthesis' in window)) return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(txt); u.lang='pt-BR'; u.rate=1.2; u.pitch=.85; window.speechSynthesis.speak(u); }catch(e){} }
 var FRASE='As três folhas do trevo representam, juntas, fé, esperança e amor. Dentro de uma quarta folha reside um bom agouro. Dentro de uma quinta folha reside um demônio.';
 var reiAudio=null;
-/* ===== CHIBI EQUIPÁVEL (código) ===== */
+/* CHIBI PROFISSIONAL EQUIPÁVEL */
 function chibiYou(){
  var sq={'Touros Negros':['#17181c','#e8b64c'],'Alvorecer Dourado':['#8a6d1c','#f0c75e'],'Águias Prateadas':['#5c6470','#c0c0c0'],'Reis Leões Carmesins':['#7a1216','#e5484d']}[G.sq]||['#17181c','#e8b64c'];
+ var defs='<defs><linearGradient id="gh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#9aa2a9"/></linearGradient><linearGradient id="gc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#33343b"/><stop offset="1" stop-color="#0b0c0f"/></linearGradient><linearGradient id="gb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b7279"/><stop offset="1" stop-color="#20242a"/></linearGradient><radialGradient id="gf" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#fff3b0"/><stop offset=".5" stop-color="#ffd166"/><stop offset="1" stop-color="#ff9e2c"/></radialGradient><radialGradient id="ga" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#e6f2ff"/><stop offset=".5" stop-color="#8ab6ff"/><stop offset="1" stop-color="#4f7bd9"/></radialGradient></defs>';
  var weapon='';
- if(G.arma==='Espada Matadora de Demônios') weapon='<g transform="rotate(24 108 70)"><rect x="102" y="14" width="13" height="90" rx="4" fill="#3a3f44" stroke="#14161a" stroke-width="3"/><rect x="93" y="98" width="30" height="9" rx="4" fill="#20242a" stroke="#14161a" stroke-width="3"/><rect x="104" y="107" width="9" height="16" fill="#5a3a22" stroke="#14161a" stroke-width="3"/></g>';
- if(G.arma==='Katana de trevas') weapon='<g transform="rotate(30 108 70)"><rect x="106" y="10" width="6" height="95" rx="3" fill="#cfd2d6" stroke="#14161a" stroke-width="2"/><rect x="100" y="100" width="18" height="6" fill="#20242a"/><rect x="106" y="106" width="6" height="18" fill="#111"/></g>';
- if(G.arma==='Arco de vento') weapon='<path d="M112 20 q26 50 0 100" stroke="#8a6d1c" stroke-width="5" fill="none"/><line x1="112" y1="20" x2="112" y2="120" stroke="#e8e8e8" stroke-width="2"/>';
- if(G.arma==='Magia de fogo') weapon='<circle cx="108" cy="58" r="16" fill="#ff9e2c"/><circle cx="108" cy="50" r="9" fill="#ffd166"/><circle cx="108" cy="44" r="4" fill="#fff3b0"/>';
- if(G.arma==='Magia de água') weapon='<circle cx="108" cy="58" r="16" fill="#4f7bd9"/><circle cx="108" cy="50" r="9" fill="#8ab6ff"/><circle cx="108" cy="44" r="4" fill="#e6f2ff"/>';
+ if(G.arma==='Espada Matadora de Demônios') weapon='<g transform="rotate(22 112 70)"><rect x="105" y="8" width="15" height="96" rx="4" fill="url(#gb)" stroke="#0d0f12" stroke-width="3"/><path d="M107 10 v90" stroke="#ff3b3b" stroke-width="2" opacity=".8"/><rect x="96" y="102" width="33" height="9" rx="4" fill="#20242a" stroke="#0d0f12" stroke-width="3"/><rect x="108" y="111" width="9" height="17" rx="3" fill="#5a3a22" stroke="#0d0f12" stroke-width="3"/></g>';
+ if(G.arma==='Katana de trevas') weapon='<g transform="rotate(28 112 70)"><path d="M110 6 q8 50 2 100" stroke="url(#gb)" stroke-width="7" fill="none" stroke-linecap="round"/><rect x="104" y="104" width="16" height="6" rx="3" fill="#20242a"/><rect x="109" y="110" width="7" height="18" rx="3" fill="#7a1216" stroke="#0d0f12" stroke-width="2"/></g>';
+ if(G.arma==='Arco de vento') weapon='<path d="M116 16 q30 54 0 108" stroke="#8a6d1c" stroke-width="6" fill="none" stroke-linecap="round"/><line x1="116" y1="16" x2="116" y2="124" stroke="#e8e8e8" stroke-width="2"/><line x1="104" y1="70" x2="128" y2="70" stroke="#cfd2d6" stroke-width="3"/><path d="M128 70 l-6 -4 v8 z" fill="#cfd2d6"/>';
+ if(G.arma==='Magia de fogo') weapon='<circle cx="112" cy="56" r="18" fill="url(#gf)"/><path d="M104 50 q4 -10 8 0 q4 -8 8 0" stroke="#fff3b0" stroke-width="3" fill="none"/>';
+ if(G.arma==='Magia de água') weapon='<circle cx="112" cy="56" r="18" fill="url(#ga)"/><path d="M104 52 q8 6 16 0" stroke="#e6f2ff" stroke-width="3" fill="none"/>';
  var gn = G.grim==='5 folhas'?5:(G.grim==='4 folhas'?4:3);
  var gcol = gn===5?'#ff3b3b':(gn===4?'#f0c75e':'#4caf50');
- var leaves=''; for(var i=0;i<gn;i++){ var a=(-90+i*(360/gn))*Math.PI/180; leaves+='<circle cx="'+(20+Math.cos(a)*6)+'" cy="'+(108+Math.sin(a)*6)+'" r="3.4" fill="'+gcol+'"/>'; }
- var grim='<rect x="12" y="99" width="16" height="19" rx="2" fill="#101014" stroke="'+gcol+'" stroke-width="2"/>'+leaves;
- return '<svg viewBox="0 0 140 150"><ellipse cx="70" cy="142" rx="36" ry="7" fill="rgba(0,0,0,.35)"/>'+weapon+'<path d="M46 96 q24 -12 48 0 l6 34 q-30 12 -60 0 z" fill="'+sq[0]+'" stroke="#000" stroke-width="3"/><path d="M46 96 q24 -12 48 0" fill="none" stroke="'+sq[1]+'" stroke-width="3"/><circle cx="70" cy="101" r="4" fill="'+sq[1]+'"/><circle cx="44" cy="110" r="7" fill="#f6d7b8" stroke="#000" stroke-width="3"/><circle cx="96" cy="110" r="7" fill="#f6d7b8" stroke="#000" stroke-width="3"/><circle cx="70" cy="62" r="30" fill="#f6d7b8" stroke="#000" stroke-width="3"/><path d="M40 52 L28 34 L48 44 L44 20 L58 38 L60 12 L70 34 L80 12 L82 38 L96 20 L92 44 L112 34 L100 52 Z" fill="#cfd2d6" stroke="#000" stroke-width="3"/><path d="M42 50 q28 -14 56 0 l0 10 q-28 -12 -56 0 z" fill="#17181c" stroke="#000" stroke-width="3"/><circle cx="88" cy="52" r="5" fill="#e8b64c" stroke="#000" stroke-width="2"/><ellipse cx="58" cy="66" rx="7" ry="9" fill="#fff" stroke="#000" stroke-width="2.5"/><ellipse cx="82" cy="66" rx="7" ry="9" fill="#fff" stroke="#000" stroke-width="2.5"/><circle cx="59" cy="68" r="4.5" fill="#3fa34d"/><circle cx="81" cy="68" r="4.5" fill="#3fa34d"/><circle cx="60.5" cy="66.5" r="1.6" fill="#fff"/><circle cx="82.5" cy="66.5" r="1.6" fill="#fff"/><path d="M50 55 l14 4 M90 55 l-14 4" stroke="#000" stroke-width="3" fill="none"/><path d="M62 80 q8 8 16 0" stroke="#7a4a2b" stroke-width="3" fill="none"/><circle cx="47" cy="76" r="4" fill="rgba(255,120,120,.5)"/><circle cx="93" cy="76" r="4" fill="rgba(255,120,120,.5)"/>'+grim+'</svg>';
+ var leaves=''; for(var i=0;i<gn;i++){ var a=(-90+i*(360/gn))*Math.PI/180; leaves+='<circle cx="'+(21+Math.cos(a)*6)+'" cy="'+(109+Math.sin(a)*6)+'" r="3.5" fill="'+gcol+'"/>'; }
+ var grim='<rect x="12" y="99" width="17" height="20" rx="2" fill="#101014" stroke="'+gcol+'" stroke-width="2"/>'+leaves+(gn===5?'<circle cx="20" cy="109" r="10" fill="none" stroke="#ff3b3b" stroke-width="1.5" opacity=".6"/>':'');
+ var emblem='<path d="M64 106 q6 -6 12 0" stroke="'+sq[1]+'" stroke-width="2.5" fill="none"/><circle cx="70" cy="110" r="3.5" fill="'+sq[1]+'"/><path d="M63 110 l-4 3 M77 110 l4 3" stroke="'+sq[1]+'" stroke-width="2"/>';
+ return '<svg viewBox="0 0 150 160">'+defs+'<ellipse cx="75" cy="150" rx="40" ry="8" fill="rgba(0,0,0,.4)"/>'+weapon+'<path d="M50 100 q25 -13 50 0 l7 38 q-32 13 -64 0 z" fill="url(#gc)" stroke="#000" stroke-width="3"/><path d="M50 100 q25 -13 50 0" fill="none" stroke="'+sq[1]+'" stroke-width="3"/>'+emblem+'<circle cx="48" cy="114" r="7.5" fill="#f6d7b8" stroke="#000" stroke-width="3"/><circle cx="102" cy="114" r="7.5" fill="#f6d7b8" stroke="#000" stroke-width="3"/><circle cx="75" cy="64" r="31" fill="#f6d7b8" stroke="#000" stroke-width="3"/><path d="M52 52 q23 -10 46 0" stroke="rgba(0,0,0,.15)" stroke-width="6" fill="none"/><path d="M44 54 L30 34 L52 46 L48 20 L62 40 L64 12 L75 36 L86 12 L88 40 L102 20 L98 46 L120 34 L106 54 Z" fill="url(#gh)" stroke="#000" stroke-width="3"/><path d="M46 52 q29 -15 58 0 l0 11 q-29 -13 -58 0 z" fill="#17181c" stroke="#000" stroke-width="3"/><path d="M60 56 l6 3 M90 56 l-6 3" stroke="#c92c2c" stroke-width="3"/><circle cx="93" cy="54" r="5" fill="'+sq[1]+'" stroke="#000" stroke-width="2"/><ellipse cx="62" cy="68" rx="7.5" ry="9.5" fill="#fff" stroke="#000" stroke-width="2.5"/><ellipse cx="88" cy="68" rx="7.5" ry="9.5" fill="#fff" stroke="#000" stroke-width="2.5"/><circle cx="63" cy="70" r="5" fill="#3fa34d"/><circle cx="87" cy="70" r="5" fill="#3fa34d"/><circle cx="64.5" cy="68" r="1.8" fill="#fff"/><circle cx="88.5" cy="68" r="1.8" fill="#fff"/><path d="M67 84 q8 8 16 0" stroke="#7a4a2b" stroke-width="3" fill="none"/><circle cx="51" cy="79" r="4.5" fill="rgba(255,120,120,.5)"/><circle cx="99" cy="79" r="4.5" fill="rgba(255,120,120,.5)"/>'+grim+'</svg>';
 }
-function chibiFoe(c){ return '<svg viewBox="0 0 140 150"><ellipse cx="70" cy="142" rx="36" ry="7" fill="rgba(0,0,0,.35)"/><circle cx="70" cy="72" r="44" fill="'+c+'" opacity=".16"/><path d="M44 34 L32 8 L56 26 Z" fill="#101014" stroke="#000" stroke-width="3"/><path d="M96 34 L108 8 L84 26 Z" fill="#101014" stroke="#000" stroke-width="3"/><circle cx="70" cy="58" r="28" fill="#101014" stroke="#000" stroke-width="3"/><ellipse cx="59" cy="56" rx="6" ry="8" fill="'+c+'"/><ellipse cx="81" cy="56" rx="6" ry="8" fill="'+c+'"/><circle cx="60" cy="54" r="2" fill="#fff"/><circle cx="82" cy="54" r="2" fill="#fff"/><path d="M55 72 l5 5 l5 -5 l5 5 l5 -5 l5 5" stroke="'+c+'" fill="none" stroke-width="3"/><path d="M46 92 q24 -10 48 0 l6 34 q-30 12 -60 0 z" fill="#101014" stroke="#000" stroke-width="3"/><path d="M46 92 q24 -10 48 0" stroke="'+c+'" fill="none" stroke-width="3"/><circle cx="44" cy="108" r="7" fill="#101014" stroke="#000" stroke-width="3"/><circle cx="96" cy="108" r="7" fill="#101014" stroke="#000" stroke-width="3"/></svg>'; }
+function chibiFoe(c){
+ return '<svg viewBox="0 0 150 160"><defs><linearGradient id="fgc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#23242b"/><stop offset="1" stop-color="#07080c"/></linearGradient><radialGradient id="fau" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="'+c+'" stop-opacity=".5"/><stop offset="1" stop-color="'+c+'" stop-opacity="0"/></radialGradient></defs><ellipse cx="75" cy="150" rx="40" ry="8" fill="rgba(0,0,0,.4)"/><circle cx="75" cy="80" r="52" fill="url(#fau)"/><path d="M48 36 L34 8 L60 26 Z" fill="#101014" stroke="#000" stroke-width="3"/><path d="M102 36 L116 8 L90 26 Z" fill="#101014" stroke="#000" stroke-width="3"/><circle cx="75" cy="60" r="29" fill="url(#fgc)" stroke="#000" stroke-width="3"/><ellipse cx="64" cy="58" rx="6.5" ry="8.5" fill="'+c+'"/><ellipse cx="86" cy="58" rx="6.5" ry="8.5" fill="'+c+'"/><circle cx="65" cy="56" r="2" fill="#fff"/><circle cx="87" cy="56" r="2" fill="#fff"/><path d="M60 74 l6 6 l6 -6 l6 6 l6 -6 l6 6" stroke="'+c+'" stroke-width="3.5" fill="none"/><path d="M50 94 q25 -11 50 0 l7 40 q-32 13 -64 0 z" fill="url(#fgc)" stroke="#000" stroke-width="3"/><path d="M50 94 q25 -11 50 0" stroke="'+c+'" stroke-width="3" fill="none"/><circle cx="48" cy="112" r="7.5" fill="#101014" stroke="#000" stroke-width="3"/><circle cx="102" cy="112" r="7.5" fill="#101014" stroke="#000" stroke-width="3"/></svg>';
+}
 var FOE_COLOR={Dante:'#e5484d',Zenon:'#7c9cff',Vanica:'#ff2e63',Lucifero:'#a855f7'};
 var rb=document.querySelector('#read-bar span');
 function updBar(){ var h=document.documentElement.scrollHeight-window.innerHeight; rb.style.width=(h>0?(window.scrollY/h)*100:0)+'%'; }
@@ -897,7 +938,6 @@ function medUpd(){ var ep=parseInt(epR.value,10), min=ep*24, h=min/60, d=h/24, w
  document.getElementById('m-d').textContent=d.toLocaleString('pt-BR',{maximumFractionDigits:1});
  document.getElementById('m-w').textContent=w; }
 epR.addEventListener('input',medUpd); medUpd();
-/* ===== JOGO ===== */
 var G={grim:null,arma:null,sq:null,ini:null,quiz:0,qi:0,youHP:100,foeHP:100,timer:null,over:false};
 var FOES={Dante:{hp:100,atk:9},Zenon:{hp:110,atk:10},Vanica:{hp:105,atk:9},Lucifero:{hp:130,atk:12}};
 var QUIZ=[
@@ -973,7 +1013,7 @@ function win(){
  var ranks=['Cavaleiro Mágico de 3ª Classe','Cavaleiro Mágico de 2ª Classe','Cavaleiro Mágico de 1ª Classe','Cavaleiro Real','Futuro Rei Mago'];
  var rank=ranks[Math.min(4,G.quiz+(G.grim==='5 folhas'?1:0))];
  document.getElementById('b-end-title').textContent='PARABÉNS PELA LUTA, DIGNA DE UM CAVALEIRO!';
- document.getElementById('b-end-txt').innerHTML='Você venceu <b>'+G.ini+'</b>! Rank: <b>'+rank+'</b>.<br>Seu cavaleiro equipado: grimório de <b>'+G.grim+'</b> · <b>'+G.arma+'</b> · <b>'+G.sq+'</b>. Eu nunca desisto!';
+ document.getElementById('b-end-txt').innerHTML='Você venceu <b>'+G.ini+'</b>! Rank: <b>'+rank+'</b>.<br>Equipado: grimório de <b>'+G.grim+'</b> · <b>'+G.arma+'</b> · <b>'+G.sq+'</b>. Eu nunca desisto!';
  document.getElementById('b-chibi').innerHTML=chibiYou();
  document.getElementById('b-end').classList.add('show');
  var r=document.getElementById('game-result');
@@ -995,16 +1035,15 @@ var grimTimers=[];
 function stopAll(){ clearInterval(G.timer); grimTimers.forEach(clearTimeout); grimTimers=[]; if(reiAudio){ reiAudio.pause(); reiAudio=null; } try{ window.speechSynthesis.cancel(); }catch(e){} }
 document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; stopAll(); }); });
 document.querySelectorAll('.modal').forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; stopAll(); } }); });
-/* ===== TERROR (incógnita) ===== */
 document.getElementById('btn-incognita').addEventListener('click',function(){
  var m=document.getElementById('horror');
  m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
  sfx('horror');
 });
-/* ===== GRIMÓRIOS EM SEQUÊNCIA (Rei Mago) ===== */
+/* GRIMÓRIOS RÁPIDOS + ANIMADOS + CORTE DA MÚSICA */
 var curStage=0;
 function grimSVG(n,col,glow){
- var leaves=''; for(var i=0;i<n;i++){ var a=(-90+i*(360/n))*Math.PI/180; leaves+='<circle cx="'+(70+Math.cos(a)*16)+'" cy="'+(64+Math.sin(a)*16)+'" r="9" fill="'+col+'"/>'; }
+ var leaves=''; for(var i=0;i<n;i++){ var a=(-90+i*(360/n))*Math.PI/180; leaves+='<circle class="leaf" cx="'+(70+Math.cos(a)*16)+'" cy="'+(64+Math.sin(a)*16)+'" r="9" fill="'+col+'"/>'; }
  return '<svg viewBox="0 0 140 150" class="'+(glow?'glow':'')+'"><rect x="25" y="18" width="90" height="112" rx="8" fill="'+(glow?'#101014':'#1d3524')+'" stroke="'+col+'" stroke-width="4"/><rect x="25" y="18" width="14" height="112" rx="7" fill="rgba(0,0,0,.35)"/>'+leaves+'<rect x="66" y="118" width="8" height="14" fill="'+col+'"/></svg>';
 }
 function setStage(n){
@@ -1012,32 +1051,36 @@ function setStage(n){
  var st=document.getElementById('grim-stage'), cap=document.getElementById('grim-cap');
  if(n===1){ st.innerHTML=grimSVG(3,'#4caf50',false); cap.textContent='As três folhas: fé, esperança e amor…'; }
  if(n===2){ st.innerHTML=grimSVG(4,'#f0c75e',false); cap.textContent='Dentro de uma quarta folha reside um bom agouro.'; }
- if(n===3){ st.innerHTML=grimSVG(5,'#ff3b3b',true); cap.textContent='DENTRO DE UMA QUINTA FOLHA RESIDE UM DEMÔNIO.'; sfx('horror'); }
+ if(n===3){ st.innerHTML=grimSVG(5,'#ff3b3b',true); cap.textContent='DENTRO DE UMA QUINTA FOLHA RESIDE UM DEMÔNIO.'; var fl=document.getElementById('grim-flash'); fl.classList.remove('on'); void fl.offsetWidth; fl.classList.add('on'); sfx('horror'); }
 }
 document.getElementById('btn-rei').addEventListener('click',function(){
  sfx('magic');
  var m=document.getElementById('grim-modal');
  m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
  curStage=0; setStage(1);
+ grimTimers.push(setTimeout(function(){ setStage(2); },1100));
+ grimTimers.push(setTimeout(function(){ setStage(3); },2400));
  reiAudio=new Audio('audio/rei-mago.mp3');
  reiAudio.addEventListener('timeupdate',function(){
-  var d=reiAudio.duration||1, t=reiAudio.currentTime;
-  setStage(t<d*.42?1:(t<d*.72?2:3));
+  var t=reiAudio.currentTime;
+  if(t>CORTE-0.6){ reiAudio.volume=Math.max(0,(CORTE-t)/0.6); }
+  if(t>=CORTE){ reiAudio.pause(); }
  });
- reiAudio.play().catch(function(){
-  speak(FRASE);
-  grimTimers.push(setTimeout(function(){ setStage(2); },5200));
-  grimTimers.push(setTimeout(function(){ setStage(3); },9500));
- });
+ reiAudio.play().catch(function(){ speak(FRASE); });
 });
-/* ===== resto ===== */
 var charModal=document.getElementById('char-modal');
 var charData={
  asta:{name:'Asta',role:'Anti-Magia · Touros Negros',img:'img/22.jpg',bio:'Órfão de Hage, nasceu sem mana em um mundo movido a magia. Recebeu o grimório de cinco folhas e a anti-magia do demônio Liebe.',bio2:'Barulhento, teimoso e impossível de quebrar: seu sonho é se tornar o Rei Mago e provar que valor não se mede por talento.',stats:[{k:'Magia',v:'Nenhuma'},{k:'Poder',v:'Anti-Magia'},{k:'Arma',v:'Espadas 3'},{k:'Esquadrão',v:'Touros Negros'}]},
  yuno:{name:'Yuno Grinberryall',role:'Magia de Vento · Alvorecer Dourado',img:'img/07.jpg',bio:'Cresceu ao lado de Asta em Hage e recebeu o grimório de quatro folhas no mesmo dia. Prodígio absoluto do vento.',bio2:'Silencioso e elegante, carrega o sangue do Reino Spade e a promessa de disputar o trono de Rei Mago com Asta.',stats:[{k:'Magia',v:'Vento'},{k:'Grimório',v:'4 folhas'},{k:'Espírito',v:'Sylph'},{k:'Esquadrão',v:'Alvorecer'}]},
- yami:{name:'Yami Sukehiro',role:'Magia de Trevas · Capitão',img:'img/17.jpg',bio:'Estrangeiro vindo do outro lado do mar, capitão dos Touros Negros. Mestre da magia de trevas e do "ki".',bio2:'"Ultrapasse seus limites." Sob seu comando, os piores excluídos do reino viram a família mais forte de todas.',stats:[{k:'Magia',v:'Trevas'},{k:'Arma',v:'Katana'},{k:'Posto',v:'Capitão'},{k:'Lema',v:'Limites?'}]}
+ yami:{name:'Yami Sukehiro',role:'Magia de Trevas · Capitão',img:'img/17.jpg',bio:'Estrangeiro vindo do outro lado do mar, capitão dos Touros Negros. Mestre da magia de trevas e do "ki".',bio2:'"Ultrapasse seus limites." Sob seu comando, os piores excluídos do reino viram a família mais forte de todas.',stats:[{k:'Magia',v:'Trevas'},{k:'Arma',v:'Katana'},{k:'Posto',v:'Capitão'},{k:'Lema',v:'Limites?'}]},
+ noelle:{name:'Noelle Silva',role:'Magia de Água · Touros Negros',img:'img/25.jpg',bio:'Princesa do Reino Clover e membro dos Touros Negros. Domina a Magia de Água e desperta o Vestido da Valquíria.',bio2:'Orgulhosa, gentil e cada vez mais forte: prova que sangue real não precisa de coroa para brilhar.',stats:[{k:'Magia',v:'Água'},{k:'Forma',v:'Valquíria'},{k:'Casa',v:'Silva'},{k:'Esquadrão',v:'Touros Negros'}]},
+ julius:{name:'Julius Novachrono',role:'Magia de Tempo · Rei Mago',img:'img/26.jpg',bio:'O atual Rei Mago. Domina a Magia de Tempo e guarda segredos que nem o Conselho conhece.',bio2:'Sob a máscara, um passado misterioso — e um destino que muda o reino para sempre.',stats:[{k:'Magia',v:'Tempo'},{k:'Posto',v:'Rei Mago'},{k:'Marca',v:'Máscara'},{k:'Legado',v:'Eterno'}]},
+ liebe:{name:'Liebe',role:'Demônio da Anti-Magia',img:'img/27.jpg',bio:'O demônio que habita o grimório de cinco folhas de Asta. Fonte da anti-magia.',bio2:'Odiava os humanos, encontrou em Asta um irmão. Juntos, viram a arma contra o submundo.',stats:[{k:'Poder',v:'Anti-Magia'},{k:'Casa',v:'Grimório 5'},{k:'União',v:'Asta'},{k:'Origem',v:'Submundo'}]},
+ luck:{name:'Luck Voltia',role:'Magia de Relâmpago · Touros Negros',img:'img/28.jpg',bio:'Relâmpago veloz dos Touros Negros, sorridente e obcecado por lutar.',bio2:'Por trás do sorriso elétrico, um coração que aprendeu o valor dos amigos.',stats:[{k:'Magia',v:'Relâmpago'},{k:'Estilo',v:'Velocidade'},{k:'Marca',v:'Sorriso'},{k:'Esquadrão',v:'Touros Negros'}]},
+ magna:{name:'Magna Swing',role:'Magia de Fogo · Touros Negros',img:'img/29.jpg',bio:'Fogo quente dos Touros Negros, o "irmão mais velho" da equipe.',bio2:'Briguento e leal: seu fogo protege quem ele ama.',stats:[{k:'Magia',v:'Fogo'},{k:'Técnica',v:'Soul Chain'},{k:'Alma',v:'Quente'},{k:'Esquadrão',v:'Touros Negros'}]},
+ vanessa:{name:'Vanessa Enoteca',role:'Fios do Destino · Touros Negros',img:'img/30.jpg',bio:'A bruxa dos fios do destino, com sua gata de magia espacial.',bio2:'Sorte absoluta e coragem: tece o destino dos Touros Negros.',stats:[{k:'Magia',v:'Fios'},{k:'Companheira',v:'Gata'},{k:'Dom',v:'Sorte'},{k:'Esquadrão',v:'Touros Negros'}]}
 };
-document.querySelectorAll('.p-card[data-char]').forEach(function(card){ card.addEventListener('click',function(){ var d=charData[card.getAttribute('data-char')]; if(!d) return; sfx('click');
+document.querySelectorAll('[data-char]').forEach(function(card){ card.addEventListener('click',function(){ var d=charData[card.getAttribute('data-char')]; if(!d) return; sfx('click');
  document.getElementById('m-p-img').src=d.img; document.getElementById('m-p-name').textContent=d.name; document.getElementById('m-p-role').textContent=d.role; document.getElementById('m-p-bio').textContent=d.bio; document.getElementById('m-p-bio2').textContent=d.bio2;
  var sb=document.getElementById('m-p-stats'); sb.innerHTML=''; d.stats.forEach(function(s){ var el=document.createElement('div'); el.className='m-p-stat'; el.innerHTML='<b>'+s.v+'</b><small>'+s.k+'</small>'; sb.appendChild(el); });
  charModal.classList.add('open'); charModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
