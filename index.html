@@ -149,6 +149,13 @@ body.reino .throne-ov{background:linear-gradient(180deg,rgba(242,245,236,.8),rgb
 .sq-card h4{font-family:'Pirata One';font-size:1.25rem;text-transform:uppercase}
 .sq-card .cap{color:var(--muted);font-size:.85rem;font-weight:700;margin-top:.2rem}
 .sq-card .att{display:inline-block;margin-top:.6rem;font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sq)}
+.w-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-bottom:3rem}
+.w-card{border:1px solid var(--line);background:var(--bg2);padding:1.2rem;transition:.3s;overflow:hidden}
+.w-card:hover{border-color:var(--acc);transform:translateY(-6px)}
+.w-card img,.w-card .deit{width:100%;margin-bottom:.8rem}
+.w-card img{aspect-ratio:16/10;object-fit:cover;object-position:center;border:1px solid var(--line)}
+.w-card h3{font-size:1.25rem;text-transform:uppercase;margin-bottom:.5rem}
+.w-card p{color:var(--muted);font-size:.94rem}
 /* MAPA PROFISSIONAL */
 .map-box{position:relative;border:1px solid var(--line);background:var(--map-sea);aspect-ratio:16/10;overflow:hidden;transition:background .4s;box-shadow:inset 0 0 80px rgba(0,0,0,.4)}
 .map-svg{position:absolute;inset:0;width:100%;height:100%}
@@ -518,6 +525,11 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <button class="map-pin" style="top:52%;left:81%" data-pin="diamond">D</button>
 <div class="map-legend">Toque nos selos dos quatro reinos</div>
 </div>
+<div class="incognita-wrap reveal">
+<div class="incognita-divider"></div>
+<p class="incognita-text">Por trás da paz do Reino Clover existe um segredo milenar: o <strong>Elfo da Reencarnação</strong> manipulou o Alvorecer Dourado, e a <strong>Tríade Negra</strong> do Reino Spade quer abrir o submundo para libertar forças ocultas — entre elas <b>Lucifero</b>, a maior ameaça do mundo. E a quinta folha do grimório de Asta não nasceu do trevo: ela foi corrompida pelo desespero de alguém que um dia amou os humanos e foi traído — dentro dela habita <b>Liebe</b>, a origem da anti-magia.</p>
+<div class="incognita-divider"></div>
+</div>
 </div>
 </section>
 <section class="section" id="viloes"><span class="wm" aria-hidden="true">✦</span>
@@ -798,7 +810,6 @@ function medUpd(){ var ep=parseInt(epR.value,10), min=ep*24, h=min/60, d=h/24, w
  document.getElementById('m-d').textContent=d.toLocaleString('pt-BR',{maximumFractionDigits:1});
  document.getElementById('m-w').textContent=w; }
 epR.addEventListener('input',medUpd); medUpd();
-/* Rei Mago: abre o vídeo puro, sem áudio */
 document.getElementById('btn-rei').addEventListener('click',function(){
  var m=document.getElementById('rei-modal');
  m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
@@ -806,16 +817,6 @@ document.getElementById('btn-rei').addEventListener('click',function(){
  v.muted=true;
  v.play().catch(function(){});
 });
-/* Incógnita abre animação preto/vermelho + verde/branco */
-document.getElementById('btn-incognita').addEventListener('click',function(){
- var m=document.getElementById('inc-modal');
- m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
-});
-/* Modais: close */
-function stopAll(){ var v=document.getElementById('rei-video'); if(v){v.pause();v.currentTime=0;} }
-document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; stopAll(); }); });
-document.querySelectorAll('.modal').forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; stopAll(); } }); });
-/* Mapa pins */
 var pinModal=document.getElementById('pin-modal');
 var pinData={
  spade:{name:'Reino Spade',desc:'Lar da Tríade Negra e do passado secreto de Yuno. O palco do arco final.'},
@@ -826,7 +827,9 @@ var pinData={
 document.querySelectorAll('.map-pin').forEach(function(pin){ pin.addEventListener('click',function(){ var d=pinData[pin.getAttribute('data-pin')]; if(!d) return;
  document.getElementById('pin-name').textContent=d.name; document.getElementById('pin-desc').textContent=d.desc;
  pinModal.classList.add('open'); pinModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
-/* Fichas */
+function stopAll(){ var v=document.getElementById('rei-video'); if(v){v.pause();v.currentTime=0;} }
+document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; stopAll(); }); });
+document.querySelectorAll('.modal').forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; stopAll(); } }); });
 var charModal=document.getElementById('char-modal');
 var charData={
  asta:{name:'Asta',role:'Anti-Magia · Touros Negros',img:'img/22.jpg',bio:'Órfão de Hage, nasceu sem mana. Recebeu o grimório de cinco folhas e despertou a anti-magia.',bio2:'Barulhento, teimoso e impossível de quebrar: seu sonho é se tornar o Rei Mago.',stats:[{k:'Magia',v:'Nenhuma'},{k:'Poder',v:'Anti-Magia'},{k:'Arma',v:'Espadas 3'},{k:'Esquadrão',v:'Touros Negros'}]},
