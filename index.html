@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Black Clover — Reino Clover | ✦</title>
-<meta name="description" content="Site não oficial de Black Clover com mini-jogo de batalha, mapa real do reino, sons, sinopse, esquadrões, vilões, OST e galeria. Eu nunca desisto!">
+<meta name="description" content="Site não oficial de Black Clover com mini-jogo de batalha com bonequinhos chibi, mapa real do reino, sons, sinopse, esquadrões, vilões, OST e galeria. Eu nunca desisto!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Alegreya+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -81,7 +81,6 @@ body.reino .wm{color:rgba(46,125,50,.08)}
 .sec-label::before{content:"✦ ";color:var(--muted)}
 .sec-title{font-size:clamp(2.4rem,6vw,4.2rem);text-transform:uppercase;line-height:1.05;margin-bottom:1.6rem}
 .sec-title b{color:var(--acc);font-weight:400}
-/* FOTOS DEITADAS / CENTRADAS */
 img.r90{transform:rotate(90deg) scale(1.22);object-position:50% 50%}
 .w-card img.r90{transform:rotate(90deg) scale(1.8)}
 .g-item img.r90{transform:rotate(90deg) scale(1.3)}
@@ -159,7 +158,6 @@ body.reino .throne-ov{background:linear-gradient(180deg,rgba(242,245,236,.8),rgb
 .w-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line);margin-bottom:.8rem}
 .w-card h3{font-size:1.25rem;text-transform:uppercase;margin-bottom:.5rem}
 .w-card p{color:var(--muted);font-size:.94rem}
-/* MAPA REAL */
 .map-box{position:relative;border:1px solid var(--line);background:var(--bg2);aspect-ratio:16/9;overflow:hidden}
 .map-bg{position:absolute;inset:0;background:url('img/35.jpg') center/cover no-repeat;filter:saturate(1.05) contrast(1.05)}
 body.reino .map-bg{filter:saturate(1.1) brightness(1.05)}
@@ -175,7 +173,6 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 .med-item{border:1px solid var(--line);padding:1rem;text-align:center}
 .med-item b{display:block;font-family:'Pirata One';font-size:2rem;color:var(--acc)}
 .med-item small{color:var(--muted);font-weight:800;letter-spacing:.15em;text-transform:uppercase;font-size:.68rem}
-/* JOGO */
 .game-box{border:1px solid var(--line);background:var(--bg2);padding:2.2rem}
 .game-step{margin-bottom:1.6rem}
 .game-step h4{font-family:'Pirata One';font-size:1.1rem;text-transform:uppercase;margin-bottom:.7rem;color:var(--gold)}
@@ -191,23 +188,23 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 .game-result h3{font-size:1.8rem;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
 .game-result p{color:var(--muted)}
 .game-result p b{color:var(--ink)}
-.game-result .chibi{width:120px;margin:0 auto 1rem;animation:idle 1.6s ease-in-out infinite}
-/* BATALHA */
+.game-result .chibi{width:130px;margin:0 auto 1rem;animation:idle 1.6s ease-in-out infinite}
+.game-result .chibi img{width:100%;object-fit:contain}
 .battle-box{max-width:640px;background:#0a0a0b;border-color:var(--acc)}
 .hp-row{display:flex;align-items:center;gap:.6rem;margin:.5rem 1.2rem;font-weight:800;font-size:.7rem;letter-spacing:.15em;color:var(--ink)}
 .hp-bar{flex:1;height:10px;border:1px solid var(--line);background:#1a1212}
 .hp-bar i{display:block;height:100%;width:100%;background:var(--green);transition:width .3s}
 .hp-bar.foe i{background:var(--acc)}
-.arena{position:relative;height:250px;margin:1rem 1.2rem;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 100%,rgba(255,59,59,.18),transparent 60%),#0d0d0d;overflow:hidden}
-.fighter{position:absolute;bottom:12px;width:110px;cursor:pointer}
-.fighter svg{width:100%;display:block}
-.fighter.you{left:8%;animation:idle 1.6s ease-in-out infinite}
-.fighter.foe{right:8%;transform:scaleX(-1);animation:idle 1.8s ease-in-out infinite}
+.arena{position:relative;height:260px;margin:1rem 1.2rem;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 100%,rgba(255,59,59,.18),transparent 60%),#0d0d0d;overflow:hidden}
+.fighter{position:absolute;bottom:12px;width:130px;cursor:pointer}
+.fighter img{width:100%;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 6px 16px rgba(0,0,0,.55))}
+.fighter.you{left:6%;animation:idle 1.6s ease-in-out infinite}
+.fighter.foe{right:6%;transform:scaleX(-1);animation:idle 1.8s ease-in-out infinite}
 @keyframes idle{0%,100%{translate:0 0}50%{translate:0 -8px}}
 .fighter.lunge-y{animation:lungeY .35s ease}
-@keyframes lungeY{40%{translate:130px 0}}
+@keyframes lungeY{40%{translate:120px 0}}
 .fighter.lunge-f{animation:lungeF .35s ease}
-@keyframes lungeF{40%{translate:-130px 0}}
+@keyframes lungeF{40%{translate:-120px 0}}
 .fighter.hurt{animation:hurt .3s}
 @keyframes hurt{25%{translate:-6px 0;filter:brightness(2.4)}75%{translate:6px 0}}
 .slash{position:absolute;width:90px;height:6px;background:linear-gradient(90deg,transparent,#fff,transparent);transform:rotate(-25deg);animation:sl .3s forwards}
@@ -221,6 +218,8 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 #b-end h3{color:var(--gold);font-size:1.6rem;margin-bottom:.6rem}
 #b-end p{color:var(--muted)}
 #b-end p b{color:var(--ink)}
+#b-end .chibi{width:130px;margin:1rem auto;animation:idle 1.6s ease-in-out infinite}
+#b-end .chibi img{width:100%;object-fit:contain}
 .v-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
 .v-card{border:1px solid var(--line);background:var(--bg2);padding:1.2rem;transition:.3s;overflow:hidden}
 .v-card:hover{border-color:var(--acc);transform:translateY(-6px)}
@@ -518,7 +517,7 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <button class="map-pin" style="top:84%;left:60%" data-pin="base">T</button>
 <div class="map-legend">Clique nos marcadores</div>
 </div>
-<div style="margin-top:2rem;text-align:center" class="reveal">
+<div style="margin-top:6rem;text-align:center" class="reveal">
 <button class="btn" id="btn-incognita">CLIQUE AQUI — A REAL INCÓGNITA DO REINO</button>
 </div>
 </div>
@@ -793,17 +792,13 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 <div class="hp-row"><span>VOCÊ</span><div class="hp-bar"><i id="hp-you"></i></div></div>
 <div class="hp-row"><span id="b-foe-name">INIMIGO</span><div class="hp-bar foe"><i id="hp-foe"></i></div></div>
 <div class="arena" id="arena">
-<div class="fighter you" id="f-you">
-<svg viewBox="0 0 100 120"><polygon points="50,6 30,26 38,18 34,34 44,24 42,40 50,28 58,40 56,24 66,34 62,18 70,26" fill="#cfd2d6"/><rect x="30" y="22" width="40" height="8" fill="#111"/><polygon points="46,24 50,28 54,24 50,20" fill="#ff3b3b"/><circle cx="50" cy="44" r="16" fill="#f6d7b8"/><circle cx="44" cy="44" r="3" fill="#2e7d32"/><circle cx="56" cy="44" r="3" fill="#2e7d32"/><path d="M44 52 q6 5 12 0" stroke="#7a4a2b" fill="none" stroke-width="2"/><path d="M30 62 q20 -8 40 0 l6 42 q-26 10 -52 0 z" fill="#151515"/><rect x="72" y="50" width="6" height="44" fill="#9aa0a6"/><rect x="66" y="48" width="18" height="5" fill="#333"/></svg>
-</div>
-<div class="fighter foe" id="f-foe">
-<svg viewBox="0 0 100 120"><polygon points="32,18 24,0 42,12" fill="#111"/><polygon points="68,18 76,0 58,12" fill="#111"/><circle cx="50" cy="40" r="18" fill="#0d0d0d"/><circle cx="43" cy="38" r="4" fill="#ff3b3b"/><circle cx="57" cy="38" r="4" fill="#ff3b3b"/><path d="M40 50 l4 4 l4 -4 l4 4 l4 -4 l4 4" stroke="#ff3b3b" fill="none" stroke-width="2"/><path d="M28 62 q22 -10 44 0 l8 46 q-30 12 -60 0 z" fill="#0d0d0d"/></svg>
-</div>
+<div class="fighter you" id="f-you"><img src="img/36.jpg" alt="Seu bonequinho chibi"></div>
+<div class="fighter foe" id="f-foe"><img src="img/37.jpg" alt="Bonequinho inimigo chibi"></div>
 </div>
 <p id="b-log">Toque no SEU bonequinho (ou no botão) para atacar!</p>
 <div class="b-btns"><button class="btn btn--fill" id="b-atk">ATACAR!</button></div>
 <div id="b-end"><h3 id="b-end-title"></h3><p id="b-end-txt"></p>
-<div class="chibi" id="b-chibi" style="width:120px;margin:1rem auto;animation:idle 1.6s ease-in-out infinite"></div>
+<div class="chibi" id="b-chibi"></div>
 <button class="btn" id="b-again">LUTAR DE NOVO</button></div>
 </div></div>
 <div id="lightbox" aria-hidden="true"><img id="lb-img" alt="Imagem ampliada"><p id="lb-cap"></p></div>
@@ -813,7 +808,6 @@ body.reino .map-legend{background:rgba(242,245,236,.9)}
 (function(){
 "use strict";
 var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-/* ===== SOM (WebAudio, sem arquivos) ===== */
 var AC=null;
 function ac(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(AC&&AC.state==='suspended'){ AC.resume(); } return AC; }
 function sfx(t){
@@ -827,7 +821,8 @@ function sfx(t){
  if(t==='lose'){ var m=[330,262,196,131]; for(i=0;i<m.length;i++){ o=c.createOscillator(); g=c.createGain(); o.type='sawtooth'; o.frequency.value=m[i]; var t1=now+i*.15; g.gain.setValueAtTime(.0001,t1); g.gain.exponentialRampToValueAtTime(.2,t1+.02); g.gain.exponentialRampToValueAtTime(.001,t1+.3); o.connect(g); g.connect(c.destination); o.start(t1); o.stop(t1+.32); } }
 }
 function speak(txt){ try{ if(!('speechSynthesis' in window)) return; window.speechSynthesis.cancel(); var u=new SpeechSynthesisUtterance(txt); u.lang='pt-BR'; u.rate=.92; u.pitch=.8; window.speechSynthesis.speak(u); }catch(e){} }
-/* ===== base ===== */
+var FRASE='As três folhas do trevo representam, juntas, fé, esperança e amor. Dentro de uma quarta folha reside um bom agouro. Dentro de uma quinta folha reside um demônio.';
+var reiAudio=null;
 var rb=document.querySelector('#read-bar span');
 function updBar(){ var h=document.documentElement.scrollHeight-window.innerHeight; rb.style.width=(h>0?(window.scrollY/h)*100:0)+'%'; }
 window.addEventListener('scroll',updBar,{passive:true}); updBar();
@@ -859,7 +854,6 @@ var heroBg=document.querySelector('.hero-bg');
 if(heroBg&&!reduce){ window.addEventListener('scroll',function(){ var y=window.scrollY; if(y<window.innerHeight){ heroBg.style.transform='translateY('+(y*.25)+'px)'; } },{passive:true}); }
 var co=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; var el=e.target, target=parseInt(el.getAttribute('data-target'),10), start=null; co.unobserve(el); function step(ts){ if(!start) start=ts; var p=Math.min((ts-start)/1200,1); el.textContent=Math.floor(p*target); if(p<1) requestAnimationFrame(step); else el.textContent=target; } if(reduce){ el.textContent=target; } else requestAnimationFrame(step); }); },{threshold:.5});
 document.querySelectorAll('.count').forEach(function(el){ co.observe(el); });
-/* medidor */
 var epR=document.getElementById('ep-range');
 function medUpd(){ var ep=parseInt(epR.value,10), min=ep*24, h=min/60, d=h/24, w=Math.ceil(ep/14);
  document.getElementById('m-ep').textContent=ep;
@@ -868,7 +862,6 @@ function medUpd(){ var ep=parseInt(epR.value,10), min=ep*24, h=min/60, d=h/24, w
  document.getElementById('m-d').textContent=d.toLocaleString('pt-BR',{maximumFractionDigits:1});
  document.getElementById('m-w').textContent=w; }
 epR.addEventListener('input',medUpd); medUpd();
-/* ===== JOGO EM FASES ===== */
 var G={grim:null,arma:null,sq:null,ini:null,quiz:0,qi:0,youHP:100,foeHP:100,timer:null,over:false};
 var FOES={Dante:{hp:100,atk:9},Zenon:{hp:110,atk:10},Vanica:{hp:105,atk:9},Lucifero:{hp:130,atk:12}};
 var QUIZ=[
@@ -891,7 +884,7 @@ function showQ(){ var q=QUIZ[G.qi]; document.getElementById('q-title').textConte
   b.addEventListener('click',function(){ sfx(i===q.a?'win':'hit'); if(i===q.a){ G.quiz++; document.getElementById('q-feed').textContent='Acertou! +3 de força na batalha!'; } else { document.getElementById('q-feed').textContent='Errou! O inimigo ficou mais confiante...'; }
    setTimeout(function(){ G.qi++; if(G.qi<QUIZ.length){ showQ(); } else { startBattle(); } },900); });
   box.appendChild(b); }); }
-var CHIBI='<svg viewBox="0 0 100 120"><polygon points="50,6 30,26 38,18 34,34 44,24 42,40 50,28 58,40 56,24 66,34 62,18 70,26" fill="#cfd2d6"/><rect x="30" y="22" width="40" height="8" fill="#111"/><polygon points="46,24 50,28 54,24 50,20" fill="#ff3b3b"/><circle cx="50" cy="44" r="16" fill="#f6d7b8"/><circle cx="44" cy="44" r="3" fill="#2e7d32"/><circle cx="56" cy="44" r="3" fill="#2e7d32"/><path d="M44 52 q6 5 12 0" stroke="#7a4a2b" fill="none" stroke-width="2"/><path d="M30 62 q20 -8 40 0 l6 42 q-26 10 -52 0 z" fill="#151515"/><rect x="72" y="50" width="6" height="44" fill="#9aa0a6"/><rect x="66" y="48" width="18" height="5" fill="#333"/></svg>';
+var CHIBI='<img src="img/36.jpg" alt="Asta chibi">';
 var battleModal=document.getElementById('battle-modal');
 function startBattle(){
  document.getElementById('g-phase2').style.display='none';
@@ -961,18 +954,18 @@ function lose(){
  document.getElementById('b-end').classList.add('show');
 }
 document.getElementById('b-again').addEventListener('click',function(){ sfx('click'); startBattle(); });
-/* modais genéricos */
-document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; clearInterval(G.timer); try{ window.speechSynthesis.cancel(); }catch(e){} }); });
-document.querySelectorAll('.modal').forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; clearInterval(G.timer); } }); });
-/* Rei Mago: som + voz + transformação */
+function stopAll(){ clearInterval(G.timer); if(reiAudio){ reiAudio.pause(); reiAudio=null; } try{ window.speechSynthesis.cancel(); }catch(e){} }
+document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; stopAll(); }); });
+document.querySelectorAll('.modal').forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; stopAll(); } }); });
+/* REI MAGO: toca SEU áudio do TikTok (audio/rei-mago.mp3); se não existir, usa a voz reserva */
 document.getElementById('btn-rei').addEventListener('click',function(){
  sfx('magic');
  var tf=document.getElementById('tf-modal');
  tf.classList.add('open'); tf.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
- speak('As três folhas do trevo representam, juntas, fé, esperança e amor. Dentro de uma quarta folha reside um bom agouro. Dentro de uma quinta folha reside um demônio.');
+ reiAudio=new Audio('audio/rei-mago.mp3');
+ reiAudio.play().catch(function(){ speak(FRASE); });
 });
 document.getElementById('btn-incognita').addEventListener('click',function(){ sfx('magic'); var m=document.getElementById('inc-modal'); m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; });
-/* personagens */
 var charModal=document.getElementById('char-modal');
 var charData={
  asta:{name:'Asta',role:'Anti-Magia · Touros Negros',img:'img/22.jpg',bio:'Órfão de Hage, nasceu sem mana em um mundo movido a magia. Recebeu o grimório de cinco folhas e a anti-magia do demônio Liebe.',bio2:'Barulhento, teimoso e impossível de quebrar: seu sonho é se tornar o Rei Mago e provar que valor não se mede por talento.',stats:[{k:'Magia',v:'Nenhuma'},{k:'Poder',v:'Anti-Magia'},{k:'Arma',v:'Espadas 3'},{k:'Esquadrão',v:'Touros Negros'}]},
@@ -983,7 +976,6 @@ document.querySelectorAll('.p-card[data-char]').forEach(function(card){ card.add
  document.getElementById('m-p-img').src=d.img; document.getElementById('m-p-name').textContent=d.name; document.getElementById('m-p-role').textContent=d.role; document.getElementById('m-p-bio').textContent=d.bio; document.getElementById('m-p-bio2').textContent=d.bio2;
  var sb=document.getElementById('m-p-stats'); sb.innerHTML=''; d.stats.forEach(function(s){ var el=document.createElement('div'); el.className='m-p-stat'; el.innerHTML='<b>'+s.v+'</b><small>'+s.k+'</small>'; sb.appendChild(el); });
  charModal.classList.add('open'); charModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
-/* mapa */
 var pinModal=document.getElementById('pin-modal');
 var pinData={
  hage:{name:'Vila de Hage',desc:'Onde Asta e Yuno cresceram e receberam seus grimórios. O ponto zero de toda a jornada. (Reino Clover)'},
@@ -995,7 +987,6 @@ var pinData={
 document.querySelectorAll('.map-pin').forEach(function(pin){ pin.addEventListener('click',function(){ var d=pinData[pin.getAttribute('data-pin')]; if(!d) return; sfx('click');
  document.getElementById('pin-name').textContent=d.name; document.getElementById('pin-desc').textContent=d.desc;
  pinModal.classList.add('open'); pinModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
-/* galeria */
 var gItems=document.querySelectorAll('.g-item');
 document.querySelectorAll('.g-filter').forEach(function(f){ f.addEventListener('click',function(){ document.querySelectorAll('.g-filter').forEach(function(x){ x.classList.remove('on'); }); f.classList.add('on'); sfx('click');
  var cat=f.getAttribute('data-f'); gItems.forEach(function(it){ if(cat==='all'||it.getAttribute('data-cat')===cat){ it.classList.remove('hide'); } else { it.classList.add('hide'); } }); }); });
@@ -1003,8 +994,7 @@ var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lb-im
 document.querySelectorAll('.g-item').forEach(function(f){ f.addEventListener('click',function(){ var img=f.querySelector('img'); lbImg.src=img.src; lbCap.textContent=f.getAttribute('data-caption')||''; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
 function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
 lb.addEventListener('click',function(e){ if(e.target!==lbImg) closeLb(); });
-document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeLb(); document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; clearInterval(G.timer); } });
-/* frases */
+document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeLb(); document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; stopAll(); } });
 var track=document.getElementById('q-track'), slides=track.children.length, dotsBox=document.getElementById('q-dots'), qi=0;
 for(var d=0; d<slides; d++){ var dot=document.createElement('button'); dot.className='q-dot'; dot.setAttribute('aria-label','Frase '+(d+1)); (function(dd){ dot.addEventListener('click',function(){ go(dd); }); })(d); dotsBox.appendChild(dot); }
 function go(i){ qi=(i+slides)%slides; track.style.transform='translateX(-'+(qi*100)+'%)'; dotsBox.querySelectorAll('.q-dot').forEach(function(dt,k){ dt.classList.toggle('on',k===qi); }); }
@@ -1012,26 +1002,20 @@ document.getElementById('q-prev').addEventListener('click',function(){ go(qi-1);
 document.getElementById('q-next').addEventListener('click',function(){ go(qi+1); });
 go(0);
 if(!reduce) setInterval(function(){ go(qi+1); },7000);
-/* OST */
 document.querySelectorAll('.ost-track').forEach(function(t){ t.addEventListener('click',function(){ document.querySelectorAll('.ost-track').forEach(function(x){ x.classList.remove('playing'); }); t.classList.add('playing'); sfx('click');
  toast.show('Abrindo a abertura oficial no YouTube…'); window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(t.getAttribute('data-q')),'_blank'); }); });
-/* FAQ */
 document.querySelectorAll('.faq-q').forEach(function(q){ q.addEventListener('click',function(){ var item=q.parentElement; document.querySelectorAll('.faq-item').forEach(function(it){ if(it!==item) it.classList.remove('open'); }); item.classList.toggle('open'); sfx('click'); }); });
-/* estrelas */
 var stars=document.getElementById('stars').querySelectorAll('span'), revMsg=document.getElementById('rev-msg');
 var msgs=['Péssimo','Ruim','Médio','Bom','Obra-prima'];
 try{ var sv=parseInt(localStorage.getItem('bc_voto')||'0',10); if(sv>0){ for(var si=0; si<sv; si++) stars[si].classList.add('on'); revMsg.textContent='Você avaliou: '+msgs[sv-1]+' ('+sv+'/5)'; } }catch(e){}
 stars.forEach(function(s){ s.addEventListener('click',function(){ var v=parseInt(s.getAttribute('data-v'),10); stars.forEach(function(x,i){ x.classList.toggle('on',i<v); }); try{ localStorage.setItem('bc_voto',v); }catch(e){} revMsg.textContent='Você avaliou: '+msgs[v-1]+' ('+v+'/5)'; sfx('win'); toast.show('Avaliação registrada: '+v+'/5'); });
  s.addEventListener('mouseenter',function(){ var v=parseInt(s.getAttribute('data-v'),10); stars.forEach(function(x,i){ x.classList.toggle('on',i<v); }); }); });
 document.getElementById('stars').addEventListener('mouseleave',function(){ var sv2=0; try{ sv2=parseInt(localStorage.getItem('bc_voto')||'0',10); }catch(e){} stars.forEach(function(x,i){ x.classList.toggle('on',i<sv2); }); });
-/* topo */
 var btt=document.getElementById('btt');
 window.addEventListener('scroll',function(){ btt.classList.toggle('show',window.scrollY>600); },{passive:true});
 btt.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-/* toast */
 var toast=document.getElementById('toast'), toastTimer=null;
 toast.show=function(msg){ toast.textContent=msg; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ toast.classList.remove('show'); },2800); };
-/* supabase */
 var SUPA_URL='https://aprqqarlpygylwmyjcci.supabase.co';
 var SUPA_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwcnFxYXJscHlneWx3bXlqY2NpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTIzMDcsImV4cCI6MjEwMjA2ODMwN30.qCs9dFCBPe96_HKkBWactaD9o3FNoYUIFG5SaEL9Sx0';
 var supa=null;
@@ -1049,7 +1033,6 @@ form.addEventListener('submit',function(e){ e.preventDefault();
  form.reset();
  if(supa){ supa.from('mensagens').insert({nome:data.nome,email:data.email,msg:data.msg}).then(function(res){ if(res.error){ toast.show('Salvo localmente!'); } else { sfx('win'); toast.show('Mensagem publicada no banco online!'); } renderGuest(); }).catch(function(){ toast.show('Salvo localmente!'); renderGuest(); }); }
  else { renderGuest(); toast.show('Mensagem registrada no mural!'); } });
-/* canvas trevos */
 var canvas=document.getElementById('fx'), ctx=canvas.getContext('2d'), W, H, parts=[];
 function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
 window.addEventListener('resize',resize); resize();
@@ -1062,7 +1045,6 @@ if(!reduce){ for(var i2=0;i2<24;i2++) parts.push(makeP('clover')); for(var j2=0;
   if(p.t===0){ p.y+=p.vy; p.x+=p.vx+Math.sin(p.y*.01)*.6; p.a+=p.va; if(p.y>H+20){ parts[k]=makeP('clover'); parts[k].y=-20; continue; } ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a); ctx.globalAlpha=p.o; ctx.fillStyle=cloverColor(); for(var l=0;l<4;l++){ ctx.rotate(Math.PI/2); ctx.beginPath(); ctx.ellipse(0,-p.s*.8,p.s*.55,p.s*.75,0,0,Math.PI*2); ctx.fill(); } ctx.restore(); }
   else { p.y-=p.vy; p.x+=p.vx; p.f+=.05; if(p.y<-10){ parts[k]=makeP('ember'); continue; } ctx.globalAlpha=p.o*(0.6+Math.sin(p.f)*0.4); ctx.fillStyle=emberColor(p.f); ctx.fillRect(p.x,p.y,p.s,p.s); ctx.globalAlpha=1; } }
   requestAnimationFrame(loop); })(); }
-/* konami */
 var seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'], pos=0;
 document.addEventListener('keydown',function(e){ var k=e.key.toLowerCase?e.key.toLowerCase():e.key; if(k===seq[pos].toLowerCase()){ pos++; if(pos===seq.length){ pos=0; sfx('win'); for(var e1=0;e1<60;e1++) parts.push(makeP('clover')); toast.show('MODO TREVO ATIVADO! +60 trevos extras'); } } else { pos=0; } });
 document.getElementById('ano').textContent=new Date().getFullYear();
