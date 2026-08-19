@@ -16,7 +16,7 @@ body.reino{--bg:#f2f5ec;--bg2:#fafcf5;--bg3:#e8eede;--line:#cfdcc0;--ink:#17201a
 --map-sea:#dfe8d2;--map-land:#f5ecca;--map-border:#8a6f45;--map-text:#6b5322;--map-accent:#8a6d1c}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{background:var(--bg);color:var(--ink);font-family:'Alegreya Sans',sans-serif;font-weight:500;line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s;-webkit-user-select:none;user-select:none}
+body{background:var(--bg);color:var(--ink);font-family:'Alegreya Sans',sans-serif;font-weight:500;line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea{-webkit-user-select:text;user-select:text}
 ::selection{background:var(--acc);color:#fff}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#332020;border:2px solid var(--bg)}body.reino ::-webkit-scrollbar-thumb{background:#b9c9a9}
@@ -49,6 +49,16 @@ body.reino .logo-flor{color:var(--green)}
 .burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:26px}
 .burger.open span:nth-child(1){top:21px;transform:rotate(45deg);background:var(--acc)}
 .burger.open span:nth-child(2){top:21px;transform:rotate(-45deg);background:var(--acc)}
+.btn{display:inline-block;font-weight:800;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;padding:.95rem 1.7rem;border:1px solid var(--acc);color:var(--ink);transition:transform .15s,box-shadow .3s,background .3s,color .3s;background:transparent;position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover::after{left:130%}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,59,59,.35)}
+.btn:active{transform:translateY(-1px) scale(.96)}
+.btn--fill{background:var(--acc);color:#fff}
+.btn--gold{border-color:var(--gold);color:var(--gold)}
+.btn--gold:hover{background:var(--gold);color:#141414;box-shadow:0 10px 30px rgba(232,182,76,.35)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.4);transform:scale(0);animation:rip .6s ease forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(1);opacity:0}}
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;will-change:transform;background-color:#0a0a0b;background-image:url('img/20.jpg'),radial-gradient(ellipse at 75% 25%,rgba(255,59,59,.22),transparent 60%),radial-gradient(ellipse at 15% 75%,rgba(76,175,80,.15),transparent 55%);background-position:center 25%,center,center;background-size:cover,auto,auto;background-repeat:no-repeat}
 body.reino .hero-bg{background-color:#f2f5ec;background-image:url('img/11.jpg'),radial-gradient(ellipse at 75% 25%,rgba(46,125,50,.18),transparent 60%),radial-gradient(ellipse at 15% 75%,rgba(138,109,28,.12),transparent 55%)}
@@ -63,11 +73,6 @@ body.reino .hero-overlay{background:linear-gradient(180deg,rgba(242,245,236,.4) 
 .hero-jp:hover{color:var(--acc);letter-spacing:.8em}
 .hero-tag{margin:1.4rem 0 2.2rem;max-width:560px;color:var(--muted);font-size:1.12rem;border-left:2px solid var(--acc);padding-left:1rem}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn{display:inline-block;font-weight:800;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;padding:.95rem 1.7rem;border:1px solid var(--acc);color:var(--ink);transition:.3s;background:transparent}
-.btn--fill{background:var(--acc);color:#fff}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,59,59,.35)}
-.btn--gold{border-color:var(--gold);color:var(--gold)}
-.btn--gold:hover{background:var(--gold);color:#141414}
 .hero-side{position:absolute;right:1.2rem;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;letter-spacing:.6em;font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--muted);z-index:2}
 .hero-scroll{position:absolute;bottom:1.4rem;left:50%;transform:translateX(-50%);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted);animation:pulse 2s infinite;z-index:2}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
@@ -87,8 +92,7 @@ body.reino .wm{color:rgba(46,125,50,.08)}
 .sec-title b{color:var(--acc);font-weight:400}
 .deit{position:relative;overflow:hidden;aspect-ratio:16/10;background:var(--bg);border:1px solid var(--line)}
 .deit img{position:absolute;top:50%;left:50%;height:185%;aspect-ratio:9/16;object-fit:cover;transform:translate(-50%,-50%) rotate(90deg)}
-.fig-normal{aspect-ratio:16/10;overflow:hidden;border:1px solid var(--line)}
-.fig-normal img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.deit img.flip{transform:translate(-50%,-50%) rotate(-90deg)}
 .duo-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;position:relative}
 .duo-card{position:relative;text-align:center;padding:1.5rem 1rem 1.2rem;border:1px solid var(--line);background:var(--bg2);overflow:hidden}
 .duo-asta .deit{animation:floatA 3.2s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(255,59,59,.45))}
@@ -154,19 +158,18 @@ body.reino .throne-ov{background:linear-gradient(180deg,rgba(242,245,236,.8),rgb
 .w-card:hover{border-color:var(--acc);transform:translateY(-6px)}
 .w-card img,.w-card .deit{width:100%;margin-bottom:.8rem}
 .w-card img{aspect-ratio:16/10;object-fit:cover;object-position:center;border:1px solid var(--line)}
+.w-card img.mana{object-position:78% 50%}
 .w-card h3{font-size:1.25rem;text-transform:uppercase;margin-bottom:.5rem}
 .w-card p{color:var(--muted);font-size:.94rem}
-/* MAPA PROFISSIONAL */
 .map-box{position:relative;border:1px solid var(--line);background:var(--map-sea);aspect-ratio:16/10;overflow:hidden;transition:background .4s;box-shadow:inset 0 0 80px rgba(0,0,0,.4)}
 .map-svg{position:absolute;inset:0;width:100%;height:100%}
-.map-pin{position:absolute;width:40px;height:40px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #141414;box-shadow:0 0 0 0 rgba(255,59,59,.6);animation:pulse-pin 2s infinite;transform:translate(-50%,-50%);font-family:'Pirata One';font-size:.95rem;z-index:3}
+.map-pin{position:absolute;width:40px;height:40px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;border:2px solid #141414;box-shadow:0 0 0 0 rgba(255,59,59,.6);animation:pulse-pin 2s infinite;transform:translate(-50%,-50%);font-family:'Pirata One';font-size:.95rem;z-index:3;overflow:hidden}
 .map-pin:hover{transform:translate(-50%,-50%) scale(1.2);background:var(--acc2)}
 @keyframes pulse-pin{0%{box-shadow:0 0 0 0 rgba(255,59,59,.6)}70%{box-shadow:0 0 0 18px rgba(255,59,59,0)}100%{box-shadow:0 0 0 0 rgba(255,59,59,0)}}
 .map-legend{position:absolute;bottom:1rem;left:1rem;background:rgba(10,10,11,.85);border:1px solid var(--line);padding:.7rem 1rem;font-size:.72rem;color:var(--muted);font-weight:800;letter-spacing:.08em;text-transform:uppercase;z-index:3}
 body.reino .map-legend{background:rgba(242,245,236,.92)}
-/* VÍDEO REI MAGO */
 .video-box{border:1px solid var(--line);background:#000;aspect-ratio:16/9;position:relative;overflow:hidden}
-.video-box video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.video-box video{width:100%;height:100%;object-fit:contain;display:block;background:#000}
 .med-box{border:1px solid var(--line);background:var(--bg2);padding:2.2rem}
 .med-box label{font-weight:800;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
 #ep-range{width:100%;margin:1.4rem 0;accent-color:var(--acc);height:6px;cursor:pointer}
@@ -194,7 +197,7 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 .g-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}
 .g-item{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:zoom-in;border:1px solid var(--line);background:var(--bg2);transition:.4s}
 .g-item.hide{opacity:0;transform:scale(.85);pointer-events:none;position:absolute;visibility:hidden}
-.g-item img{width:100%;height:100%;object-fit:cover;object-position:top;transition:filter .6s}
+.g-item img{width:100%;height:100%;object-fit:cover;object-position:top;transition:filter .6s;pointer-events:none}
 .g-item:hover img{filter:brightness(1.1)}
 .g-item figcaption{position:absolute;inset:auto 0 0 0;padding:2.2rem .9rem .8rem;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;background:linear-gradient(transparent,rgba(8,8,10,.95));color:#f2ece6;transform:translateY(100%);transition:transform .4s}
 .g-item:hover figcaption{transform:translateY(0)}
@@ -243,7 +246,6 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 .stars span.on{color:var(--gold)}
 .stars span:hover{transform:scale(1.2)}
 .rev-msg{color:var(--muted);font-size:.95rem;margin-top:1rem}
-/* INCÓGNITA — APENAS TEXTO, SEM CAIXA */
 .incognita-wrap{max-width:720px;margin:2rem auto 0;text-align:center}
 .incognita-text{font-size:1.08rem;line-height:1.7;color:var(--muted);padding:1rem 0}
 .incognita-text strong{color:var(--ink)}
@@ -273,7 +275,7 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 .f-grid a:hover{color:var(--acc)}
 .f-bottom{max-width:1100px;margin:2.5rem auto 0;padding-top:1.2rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
 .f-bottom .cl{color:var(--acc)}
-#btt{position:fixed;right:22px;bottom:22px;z-index:80;width:48px;height:48px;border:1px solid var(--acc);background:var(--bg2);color:var(--acc);font-size:1.1rem;opacity:0;pointer-events:none;transform:translateY(14px);transition:.35s}
+#btt{position:fixed;right:22px;bottom:22px;z-index:80;width:48px;height:48px;border:1px solid var(--acc);background:var(--bg2);color:var(--acc);font-size:1.1rem;opacity:0;pointer-events:none;transform:translateY(14px);transition:.35s;overflow:hidden}
 #btt.show{opacity:1;pointer-events:auto;transform:none}
 #btt:hover{background:var(--acc);color:#fff}
 .modal{position:fixed;inset:0;z-index:95;background:var(--overlay);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.3s;padding:1.5rem}
@@ -282,7 +284,9 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 @keyframes pop{from{transform:scale(.92);opacity:0}to{transform:none;opacity:1}}
 .modal-close{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.2rem;z-index:2}
 .modal-close:hover{border-color:var(--acc);color:var(--acc);transform:rotate(90deg)}
-.m-p-img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.m-p-imgwrap{width:100%}
+.m-p-imgwrap .deit{aspect-ratio:16/10}
+.m-p-imgwrap img.sq{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;border:1px solid var(--line)}
 .m-p-body{padding:1.8rem}
 .m-p-body h3{font-size:2.2rem;text-transform:uppercase;margin-bottom:.3rem}
 .m-p-role{color:var(--acc);font-weight:800;font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem}
@@ -294,7 +298,6 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 .pin-box{padding:2rem;max-width:620px}
 .pin-box h3{font-size:1.9rem;text-transform:uppercase;margin-bottom:.3rem}
 .pin-box p{color:var(--muted)}
-/* ANIMAÇÃO CINEMATOGRÁFICA INCÓGNITA */
 #inc-modal .modal-box{max-width:640px;background:#050505;border-color:#1a0a0a;text-align:center;box-shadow:inset 0 0 140px rgba(255,0,0,.2)}
 .inc-cin{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .inc-cin svg{position:absolute;inset:0;width:100%;height:100%}
@@ -330,7 +333,7 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 <div id="read-bar"><span></span></div>
 <canvas id="fx" aria-hidden="true"></canvas>
 <header class="header" id="header">
@@ -433,10 +436,8 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <div class="p-body"><h3>Asta</h3><div class="p-role">Anti-Magia · Touros Negros</div><p>Sem magia, com dois grimórios de teimosia. Quer ser o Rei Mago.</p></div></article>
 <article class="p-card reveal" data-char="yuno"><div class="deit"><img src="img/07.jpg" alt="Yuno"></div>
 <div class="p-body"><h3>Yuno Grinberryall</h3><div class="p-role">Magia de Vento · Alvorecer Dourado</div><p>O prodígio silencioso. Rival e irmão de promessa de Asta.</p></div></article>
-<article class="p-card reveal" data-char="yami"><div class="deit"><img src="img/06.jpg" alt="Yami"></div>
+<article class="p-card reveal" data-char="yami"><div class="deit"><img class="flip" src="img/06.jpg" alt="Yami"></div>
 <div class="p-body"><h3>Yami Sukehiro</h3><div class="p-role">Magia de Trevas · Capitão</div><p>"Ultrapasse seus limites." O capitão que acolhe os excluídos.</p></div></article>
-<article class="p-card reveal" data-char="aura"><div class="deit"><img src="img/aura.jpg" onerror="this.onerror=null;this.src='img/25.jpg'" alt="Aura"></div>
-<div class="p-body"><h3>Aura</h3><div class="p-role">Cavaleira Mágica · Reino Clover</div><p>Padrão visual uniforme com o restante do elenco principal.</p></div></article>
 </div>
 <div class="p-mini">
 <div class="mini reveal" data-char="noelle"><img src="img/25.jpg" alt="Noelle Silva"><h4>Noelle</h4><span>Magia de água, realeza determinada</span></div>
@@ -472,7 +473,7 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <div class="w-grid">
 <div class="w-card reveal"><img src="img/16.jpg" alt="Espadas de anti-magia"><h3>Grimórios</h3><p>Livros mágicos que escolhem seu dono. Quanto mais folhas, mais estranho o destino.</p></div>
 <div class="w-card reveal"><img src="img/04.jpg" alt="Slash de anti-magia"><h3>Anti-Magia</h3><p>O poder de Asta: negar toda magia. A única coisa que o mundo mágico não entende.</p></div>
-<div class="w-card reveal"><img src="img/15.jpg" alt="Asta com aura"><h3>Mana</h3><p>A energia que flui em toda vida. A fonte de cada feitiço do Reino Clover.</p></div>
+<div class="w-card reveal"><img class="mana" src="img/07.jpg" alt="Mana — energia verde"><h3>Mana</h3><p>A energia que flui em toda vida. A fonte de cada feitiço do Reino Clover.</p></div>
 <div class="w-card reveal"><div class="deit"><img src="img/09.jpg" alt="Cavaleiros mágicos"></div><h3>Cavaleiros Mágicos</h3><p>Nove esquadrões que protegem o reino — dos dourados aos temidos Touros Negros.</p></div>
 <div class="w-card reveal"><img src="img/23.jpg" alt="Trono do Rei Mago"><h3>Rei Mago</h3><p>O mago mais forte do reino. O título que Asta e Yuno juraram conquistar.</p></div>
 <div class="w-card reveal"><img src="img/10.jpg" alt="Ameaça do submundo"><h3>Entidades do Submundo</h3><p>Forças ocultas que negociam corpos e poder. A raiz do grimório de cinco folhas.</p></div>
@@ -721,7 +722,7 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <button id="btt" aria-label="Voltar ao topo">↑</button>
 <div class="modal" id="char-modal" aria-hidden="true"><div class="modal-box">
 <button class="modal-close" data-close>✕</button>
-<img class="m-p-img" id="m-p-img" alt="">
+<div class="m-p-imgwrap" id="m-p-imgwrap"></div>
 <div class="m-p-body"><h3 id="m-p-name"></h3><div class="m-p-role" id="m-p-role"></div>
 <p id="m-p-bio"></p><p id="m-p-bio2"></p><div class="m-p-stats" id="m-p-stats"></div></div>
 </div></div>
@@ -744,7 +745,7 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <div class="modal" id="rei-modal" aria-hidden="true"><div class="modal-box">
 <button class="modal-close" data-close>✕</button>
 <div class="video-box">
-<video id="rei-video" controls muted playsinline preload="metadata" poster="img/23.jpg" src="video/rei-mago.mp4"></video>
+<video id="rei-video" controls muted playsinline preload="metadata" poster="img/23.jpg" controlsList="nodownload" src="https://archive.org/download/rei-mago/rei-mago.mp4"></video>
 </div>
 </div></div>
 <div id="lightbox" aria-hidden="true"><img id="lb-img" alt=""><p id="lb-cap"></p></div>
@@ -753,70 +754,87 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <script>
 (function(){
 "use strict";
-var _0x={b:['keydown','F12','ctrlKey','shiftKey','metaKey','preventDefault','ctrlKey','ctrlKey','contextmenu','selectstart','dragstart','copy']};
-document.addEventListener(_0x.b[8],function(e){e[_0x.b[7]]()});
-document.addEventListener(_0x.b[9],function(e){if(!/INPUT|TEXTAREA/.test(e.target.tagName))e[_0x.b[7]]()});
-document.addEventListener(_0x.b[10],function(e){e[_0x.b[7]]()});
-document.addEventListener(_0x.b[11],function(e){e[_0x.b[7]]()});
-document.addEventListener(_0x.b[0],function(e){
- if(e.key==='F12'){e[_0x.b[7]]();return}
+// SEGURANÇA MÁXIMA: bloqueia F12, Ctrl+U, Ctrl+S, Ctrl+P, Ctrl+C, Ctrl+A, Ctrl+Shift+I/J/C, clique direito, seleção, arrastar
+document.addEventListener('contextmenu',function(e){e.preventDefault()});
+document.addEventListener('selectstart',function(e){if(!/INPUT|TEXTAREA/.test(e.target.tagName))e.preventDefault()});
+document.addEventListener('dragstart',function(e){e.preventDefault()});
+document.addEventListener('copy',function(e){e.preventDefault()});
+document.addEventListener('keydown',function(e){
  var k=(e.key||'').toUpperCase();
- if(e[_0x.b[2]]&&e[_0x.b[3]]&&['I','J','C','K'].indexOf(k)>-1){e[_0x.b[7]]();return}
- if((e[_0x.b[2]]||e[_0x.b[4]])&&['U','S','P'].indexOf(k)>-1){e[_0x.b[7]]();return}
+ if(e.key==='F12'){e.preventDefault();return}
+ if(e.ctrlKey&&e.shiftKey&&['I','J','C','K'].indexOf(k)>-1){e.preventDefault();return}
+ if((e.ctrlKey||e.metaKey)&&['U','S','P','A'].indexOf(k)>-1){e.preventDefault();return}
 });
 setInterval(function(){
- (function(){
-  var _d=window['dev'+'tools'+'Open'];
-  if(typeof _d==='undefined'&&window.outerWidth-window.innerWidth>160){history.back()}
- })();
+ var threshold=160;
+ if(window.outerWidth-window.innerWidth>threshold||window.outerHeight-window.innerHeight>threshold){
+  document.body.innerHTML='<div style="padding:4rem;text-align:center;font-family:sans-serif"><h1 style="color:#ff3b3b">Acesso negado</h1><p>Feche as ferramentas de desenvolvedor para continuar.</p></div>';
+ }
 },1000);
-var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var rb=document.querySelector('#read-bar span');
-function updBar(){ var h=document.documentElement.scrollHeight-window.innerHeight; rb.style.width=(h>0?(window.scrollY/h)*100:0)+'%'; }
-window.addEventListener('scroll',updBar,{passive:true}); updBar();
+function updBar(){var h=document.documentElement.scrollHeight-window.innerHeight;rb.style.width=(h>0?(window.scrollY/h)*100:0)+'%';}
+window.addEventListener('scroll',updBar,{passive:true});updBar();
 var vc=document.getElementById('v-count');
-try{ var vv=parseInt(localStorage.getItem('bc_visits')||'0',10); vv++; localStorage.setItem('bc_visits',vv); vc.textContent=vv; }catch(e){ vc.textContent='—'; }
+try{var vv=parseInt(localStorage.getItem('bc_visits')||'0',10);vv++;localStorage.setItem('bc_visits',vv);vc.textContent=vv;}catch(e){vc.textContent='—';}
 var header=document.getElementById('header');
-function onScroll(){ header.classList.toggle('scrolled',window.scrollY>40); }
-window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-var burger=document.getElementById('burger'), nav=document.getElementById('nav');
-burger.addEventListener('click',function(){ var o=nav.classList.toggle('open'); burger.classList.toggle('open',o); burger.setAttribute('aria-expanded',o?'true':'false'); });
-nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); burger.classList.remove('open'); }); });
+function onScroll(){header.classList.toggle('scrolled',window.scrollY>40);}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+var burger=document.getElementById('burger'),nav=document.getElementById('nav');
+burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false');});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');burger.classList.remove('open');});});
 var tBtn=document.getElementById('theme-toggle');
-try{ if(localStorage.getItem('bc_tema')==='reino') document.body.classList.add('reino'); }catch(e){}
-function updBtn(){ tBtn.textContent=document.body.classList.contains('reino')?'Reino Clover':'Anti-Magia'; }
-tBtn.addEventListener('click',function(){ var on=document.body.classList.toggle('reino'); try{ localStorage.setItem('bc_tema',on?'reino':'antimagia'); }catch(e){} updBtn(); toast.show(on?'Reino Clover ativado':'Anti-Magia ativada'); });
+try{if(localStorage.getItem('bc_tema')==='reino')document.body.classList.add('reino');}catch(e){}
+function updBtn(){tBtn.textContent=document.body.classList.contains('reino')?'Reino Clover':'Anti-Magia';}
+tBtn.addEventListener('click',function(){var on=document.body.classList.toggle('reino');try{localStorage.setItem('bc_tema',on?'reino':'antimagia');}catch(e){}updBtn();toast.show(on?'Reino Clover ativado':'Anti-Magia ativada');});
 updBtn();
-var jpEl=document.getElementById('hero-jp'), jpState=0;
+var jpEl=document.getElementById('hero-jp'),jpState=0;
 var jpTexts=['EU NUNCA DESISTO!','I WILL NEVER GIVE UP!','EU NUNCA DESISTO!'];
-jpEl.addEventListener('click',function(){ jpState=(jpState+1)%jpTexts.length; jpEl.textContent=jpTexts[jpState]; });
+jpEl.addEventListener('click',function(){jpState=(jpState+1)%jpTexts.length;jpEl.textContent=jpTexts[jpState];});
 var links=Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
-var secs=links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
-var spy=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(a){ a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id); }); } }); },{rootMargin:'-45% 0px -50% 0px'});
-secs.forEach(function(s){ spy.observe(s); });
-var ro=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }); },{threshold:.1});
-document.querySelectorAll('.reveal').forEach(function(el){ ro.observe(el); });
-var CH='X01BLACKCLOVER';
-document.querySelectorAll('[data-scramble]').forEach(function(el,idx){ var orig=el.textContent; if(reduce) return; var frame=0; setTimeout(function(){ var t=setInterval(function(){ frame++; var out=''; for(var i=0;i<orig.length;i++){ out+=(i<frame/2)?orig[i]:CH[Math.floor(Math.random()*CH.length)]; } el.textContent=out; if(frame/2>=orig.length){ clearInterval(t); el.textContent=orig; } },30); },200+idx*350); });
+var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(function(s){spy.observe(s);});
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+var CH='✦01BLACKCLOVER';
+document.querySelectorAll('[data-scramble]').forEach(function(el,idx){var orig=el.textContent;if(reduce)return;var frame=0;setTimeout(function(){var t=setInterval(function(){frame++;var out='';for(var i=0;i<orig.length;i++){out+=(i<frame/2)?orig[i]:CH[Math.floor(Math.random()*CH.length)];}el.textContent=out;if(frame/2>=orig.length){clearInterval(t);el.textContent=orig;}},30);},200+idx*350);});
 var heroBg=document.querySelector('.hero-bg');
-if(heroBg&&!reduce){ window.addEventListener('scroll',function(){ var y=window.scrollY; if(y<window.innerHeight){ heroBg.style.transform='translateY('+(y*.25)+'px)'; } },{passive:true}); }
-var co=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; var el=e.target, target=parseInt(el.getAttribute('data-target'),10), start=null; co.unobserve(el); function step(ts){ if(!start) start=ts; var p=Math.min((ts-start)/1200,1); el.textContent=Math.floor(p*target); if(p<1) requestAnimationFrame(step); else el.textContent=target; } if(reduce){ el.textContent=target; } else requestAnimationFrame(step); }); },{threshold:.5});
-document.querySelectorAll('.count').forEach(function(el){ co.observe(el); });
+if(heroBg&&!reduce){window.addEventListener('scroll',function(){var y=window.scrollY;if(y<window.innerHeight){heroBg.style.transform='translateY('+(y*.25)+'px)';}},{passive:true});}
+var co=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var el=e.target,target=parseInt(el.getAttribute('data-target'),10),start=null;co.unobserve(el);function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/1200,1);el.textContent=Math.floor(p*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;}if(reduce){el.textContent=target;}else requestAnimationFrame(step);});},{threshold:.5});
+document.querySelectorAll('.count').forEach(function(el){co.observe(el);});
 var epR=document.getElementById('ep-range');
-function medUpd(){ var ep=parseInt(epR.value,10), min=ep*24, h=min/60, d=h/24, w=Math.ceil(ep/14);
- document.getElementById('m-ep').textContent=ep;
- document.getElementById('m-min').textContent=min.toLocaleString('pt-BR');
- document.getElementById('m-h').textContent=Math.round(h);
- document.getElementById('m-d').textContent=d.toLocaleString('pt-BR',{maximumFractionDigits:1});
- document.getElementById('m-w').textContent=w; }
-epR.addEventListener('input',medUpd); medUpd();
+function medUpd(){var ep=parseInt(epR.value,10),min=ep*24,h=min/60,d=h/24,w=Math.ceil(ep/14);
+document.getElementById('m-ep').textContent=ep;
+document.getElementById('m-min').textContent=min.toLocaleString('pt-BR');
+document.getElementById('m-h').textContent=Math.round(h);
+document.getElementById('m-d').textContent=d.toLocaleString('pt-BR',{maximumFractionDigits:1});
+document.getElementById('m-w').textContent=w;}
+epR.addEventListener('input',medUpd);medUpd();
+
+// RIPPLE + BRILHO EM BOTÕES
+document.querySelectorAll('.btn,.g-filter,.map-pin,#btt').forEach(function(b){
+ b.addEventListener('click',function(e){
+  var r=document.createElement('span');r.className='ripple';
+  var rect=b.getBoundingClientRect();
+  r.style.left=(e.clientX-rect.left)+'px';
+  r.style.top=(e.clientY-rect.top)+'px';
+  b.appendChild(r);
+  setTimeout(function(){r.remove();},600);
+ });
+});
+
+// VÍDEO REI MAGO
 document.getElementById('btn-rei').addEventListener('click',function(){
  var m=document.getElementById('rei-modal');
- m.classList.add('open'); m.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+ m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
  var v=document.getElementById('rei-video');
  v.muted=true;
  v.play().catch(function(){});
 });
+
+// MAPA
 var pinModal=document.getElementById('pin-modal');
 var pinData={
  spade:{name:'Reino Spade',desc:'Lar da Tríade Negra e do passado secreto de Yuno. O palco do arco final.'},
@@ -824,87 +842,131 @@ var pinData={
  clover:{name:'Reino Clover',desc:'O coração da jornada: onde Asta e Yuno cresceram e onde mora o Rei Mago.'},
  diamond:{name:'Reino Diamond',desc:'Potência militar que busca o poder absoluto, liderada por Mars e Fana.'}
 };
-document.querySelectorAll('.map-pin').forEach(function(pin){ pin.addEventListener('click',function(){ var d=pinData[pin.getAttribute('data-pin')]; if(!d) return;
- document.getElementById('pin-name').textContent=d.name; document.getElementById('pin-desc').textContent=d.desc;
- pinModal.classList.add('open'); pinModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
-function stopAll(){ var v=document.getElementById('rei-video'); if(v){v.pause();v.currentTime=0;} }
-document.querySelectorAll('[data-close]').forEach(function(b){ b.addEventListener('click',function(){ document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; stopAll(); }); });
-document.querySelectorAll('.modal').forEach(function(m){ m.addEventListener('click',function(e){ if(e.target===m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); document.body.style.overflow=''; stopAll(); } }); });
+document.querySelectorAll('.map-pin').forEach(function(pin){pin.addEventListener('click',function(){var d=pinData[pin.getAttribute('data-pin')];if(!d)return;
+document.getElementById('pin-name').textContent=d.name;document.getElementById('pin-desc').textContent=d.desc;
+pinModal.classList.add('open');pinModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';});});
+
+function stopAll(){var v=document.getElementById('rei-video');if(v){v.pause();v.currentTime=0;}}
+document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',function(){document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');});document.body.style.overflow='';stopAll();});});
+document.querySelectorAll('.modal').forEach(function(m){m.addEventListener('click',function(e){if(e.target===m){m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';stopAll();}});});
+
+// FICHAS DE PERSONAGENS
 var charModal=document.getElementById('char-modal');
 var charData={
- asta:{name:'Asta',role:'Anti-Magia · Touros Negros',img:'img/22.jpg',bio:'Órfão de Hage, nasceu sem mana. Recebeu o grimório de cinco folhas e despertou a anti-magia.',bio2:'Barulhento, teimoso e impossível de quebrar: seu sonho é se tornar o Rei Mago.',stats:[{k:'Magia',v:'Nenhuma'},{k:'Poder',v:'Anti-Magia'},{k:'Arma',v:'Espadas 3'},{k:'Esquadrão',v:'Touros Negros'}]},
- yuno:{name:'Yuno Grinberryall',role:'Magia de Vento · Alvorecer Dourado',img:'img/07.jpg',bio:'Recebeu o grimório de quatro folhas no mesmo dia que Asta. Prodígio absoluto do vento.',bio2:'Silencioso e elegante, carrega o sangue do Reino Spade e a promessa de disputar o trono.',stats:[{k:'Magia',v:'Vento'},{k:'Grimório',v:'4 folhas'},{k:'Espírito',v:'Sylph'},{k:'Esquadrão',v:'Alvorecer'}]},
- yami:{name:'Yami Sukehiro',role:'Magia de Trevas · Capitão',img:'img/06.jpg',bio:'Estrangeiro, capitão dos Touros Negros. Mestre da magia de trevas e do "ki".',bio2:'"Ultrapasse seus limites." Sob seu comando, os excluídos viram a família mais forte do reino.',stats:[{k:'Magia',v:'Trevas'},{k:'Arma',v:'Katana'},{k:'Posto',v:'Capitão'},{k:'Lema',v:'Limites?'}]},
- aura:{name:'Aura',role:'Cavaleira Mágica · Reino Clover',img:'img/aura.jpg',bio:'Cavaleira mágica do Reino Clover, com padrão visual uniforme ao restante do elenco.',bio2:'Representa a nova geração de cavaleiros que protege o reino.',stats:[{k:'Magia',v:'Aura'},{k:'Reino',v:'Clover'},{k:'Padrão',v:'Uniforme'},{k:'Geração',v:'Nova'}]},
- noelle:{name:'Noelle Silva',role:'Magia de Água · Touros Negros',img:'img/25.jpg',bio:'Princesa do Reino Clover e membro dos Touros Negros. Domina a Magia de Água e desperta o Vestido da Valquíria.',bio2:'Orgulhosa, gentil e cada vez mais forte.',stats:[{k:'Magia',v:'Água'},{k:'Forma',v:'Valquíria'},{k:'Casa',v:'Silva'},{k:'Esquadrão',v:'Touros Negros'}]},
- julius:{name:'Julius Novachrono',role:'Magia de Tempo · Rei Mago',img:'img/26.jpg',bio:'O atual Rei Mago. Domina a Magia de Tempo e guarda segredos que nem o Conselho conhece.',bio2:'Sob a máscara, um passado misterioso.',stats:[{k:'Magia',v:'Tempo'},{k:'Posto',v:'Rei Mago'},{k:'Marca',v:'Máscara'},{k:'Legado',v:'Eterno'}]},
- liebe:{name:'Liebe',role:'Origem da anti-magia',img:'img/27.jpg',bio:'Habita o grimório de cinco folhas de Asta. Fonte da anti-magia.',bio2:'Encontrou em Asta um irmão. Juntos, viram a arma contra o submundo.',stats:[{k:'Poder',v:'Anti-Magia'},{k:'Casa',v:'Grimório 5'},{k:'União',v:'Asta'},{k:'Origem',v:'Submundo'}]},
- luck:{name:'Luck Voltia',role:'Magia de Relâmpago · Touros Negros',img:'img/28.jpg',bio:'Relâmpago veloz dos Touros Negros, sorridente e obcecado por lutar.',bio2:'Por trás do sorriso elétrico, um coração leal.',stats:[{k:'Magia',v:'Relâmpago'},{k:'Estilo',v:'Velocidade'},{k:'Marca',v:'Sorriso'},{k:'Esquadrão',v:'Touros Negros'}]},
- magna:{name:'Magna Swing',role:'Magia de Fogo · Touros Negros',img:'img/29.jpg',bio:'Fogo quente dos Touros Negros, o "irmão mais velho" da equipe.',bio2:'Briguento e leal: seu fogo protege quem ele ama.',stats:[{k:'Magia',v:'Fogo'},{k:'Técnica',v:'Soul Chain'},{k:'Alma',v:'Quente'},{k:'Esquadrão',v:'Touros Negros'}]},
- vanessa:{name:'Vanessa Enoteca',role:'Fios do Destino · Touros Negros',img:'img/30.jpg',bio:'A bruxa dos fios do destino, com sua gata de magia espacial.',bio2:'Sorte absoluta e coragem.',stats:[{k:'Magia',v:'Fios'},{k:'Companheira',v:'Gata'},{k:'Dom',v:'Sorte'},{k:'Esquadrão',v:'Touros Negros'}]}
+ asta:{name:'Asta',role:'Anti-Magia · Touros Negros',img:'img/22.jpg',fit:'rot',bio:'Órfão de Hage, nasceu sem mana. Recebeu o grimório de cinco folhas e despertou a anti-magia.',bio2:'Barulhento, teimoso e impossível de quebrar: seu sonho é se tornar o Rei Mago.',stats:[{k:'Magia',v:'Nenhuma'},{k:'Poder',v:'Anti-Magia'},{k:'Arma',v:'Espadas 3'},{k:'Esquadrão',v:'Touros Negros'}]},
+ yuno:{name:'Yuno Grinberryall',role:'Magia de Vento · Alvorecer Dourado',img:'img/07.jpg',fit:'rot',bio:'Recebeu o grimório de quatro folhas no mesmo dia que Asta. Prodígio absoluto do vento.',bio2:'Silencioso e elegante, carrega o sangue do Reino Spade e a promessa de disputar o trono.',stats:[{k:'Magia',v:'Vento'},{k:'Grimório',v:'4 folhas'},{k:'Espírito',v:'Sylph'},{k:'Esquadrão',v:'Alvorecer'}]},
+ yami:{name:'Yami Sukehiro',role:'Magia de Trevas · Capitão',img:'img/06.jpg',fit:'flip',bio:'Estrangeiro, capitão dos Touros Negros. Mestre da magia de trevas e do "ki".',bio2:'"Ultrapasse seus limites." Sob seu comando, os excluídos viram a família mais forte do reino.',stats:[{k:'Magia',v:'Trevas'},{k:'Arma',v:'Katana'},{k:'Posto',v:'Capitão'},{k:'Lema',v:'Limites?'}]},
+ noelle:{name:'Noelle Silva',role:'Magia de Água · Touros Negros',img:'img/25.jpg',fit:'sq',bio:'Princesa do Reino Clover e membro dos Touros Negros. Domina a Magia de Água e desperta o Vestido da Valquíria.',bio2:'Orgulhosa, gentil e cada vez mais forte.',stats:[{k:'Magia',v:'Água'},{k:'Forma',v:'Valquíria'},{k:'Casa',v:'Silva'},{k:'Esquadrão',v:'Touros Negros'}]},
+ julius:{name:'Julius Novachrono',role:'Magia de Tempo · Rei Mago',img:'img/26.jpg',fit:'sq',bio:'O atual Rei Mago. Domina a Magia de Tempo e guarda segredos que nem o Conselho conhece.',bio2:'Sob a máscara, um passado misterioso.',stats:[{k:'Magia',v:'Tempo'},{k:'Posto',v:'Rei Mago'},{k:'Marca',v:'Máscara'},{k:'Legado',v:'Eterno'}]},
+ liebe:{name:'Liebe',role:'Origem da anti-magia',img:'img/27.jpg',fit:'sq',bio:'Habita o grimório de cinco folhas de Asta. Fonte da anti-magia.',bio2:'Encontrou em Asta um irmão. Juntos, viram a arma contra o submundo.',stats:[{k:'Poder',v:'Anti-Magia'},{k:'Casa',v:'Grimório 5'},{k:'União',v:'Asta'},{k:'Origem',v:'Submundo'}]},
+ luck:{name:'Luck Voltia',role:'Magia de Relâmpago · Touros Negros',img:'img/28.jpg',fit:'sq',bio:'Relâmpago veloz dos Touros Negros, sorridente e obcecado por lutar.',bio2:'Por trás do sorriso elétrico, um coração leal.',stats:[{k:'Magia',v:'Relâmpago'},{k:'Estilo',v:'Velocidade'},{k:'Marca',v:'Sorriso'},{k:'Esquadrão',v:'Touros Negros'}]},
+ magna:{name:'Magna Swing',role:'Magia de Fogo · Touros Negros',img:'img/29.jpg',fit:'sq',bio:'Fogo quente dos Touros Negros, o "irmão mais velho" da equipe.',bio2:'Briguento e leal: seu fogo protege quem ele ama.',stats:[{k:'Magia',v:'Fogo'},{k:'Técnica',v:'Soul Chain'},{k:'Alma',v:'Quente'},{k:'Esquadrão',v:'Touros Negros'}]},
+ vanessa:{name:'Vanessa Enoteca',role:'Fios do Destino · Touros Negros',img:'img/30.jpg',fit:'sq',bio:'A bruxa dos fios do destino, com sua gata de magia espacial.',bio2:'Sorte absoluta e coragem.',stats:[{k:'Magia',v:'Fios'},{k:'Companheira',v:'Gata'},{k:'Dom',v:'Sorte'},{k:'Esquadrão',v:'Touros Negros'}]}
 };
-document.querySelectorAll('[data-char]').forEach(function(card){ card.addEventListener('click',function(){ var d=charData[card.getAttribute('data-char')]; if(!d) return;
- document.getElementById('m-p-img').src=d.img; document.getElementById('m-p-name').textContent=d.name; document.getElementById('m-p-role').textContent=d.role; document.getElementById('m-p-bio').textContent=d.bio; document.getElementById('m-p-bio2').textContent=d.bio2;
- var sb=document.getElementById('m-p-stats'); sb.innerHTML=''; d.stats.forEach(function(s){ var el=document.createElement('div'); el.className='m-p-stat'; el.innerHTML='<b>'+s.v+'</b><small>'+s.k+'</small>'; sb.appendChild(el); });
- charModal.classList.add('open'); charModal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
+document.querySelectorAll('[data-char]').forEach(function(card){card.addEventListener('click',function(){var d=charData[card.getAttribute('data-char')];if(!d)return;
+var wrap=document.getElementById('m-p-imgwrap');
+if(d.fit==='sq'){wrap.innerHTML='<img class="sq" src="'+d.img+'" alt="">';}
+else{wrap.innerHTML='<div class="deit"><img class="'+(d.fit==='flip'?'flip':'')+'" src="'+d.img+'" alt=""></div>';}
+document.getElementById('m-p-name').textContent=d.name;document.getElementById('m-p-role').textContent=d.role;document.getElementById('m-p-bio').textContent=d.bio;document.getElementById('m-p-bio2').textContent=d.bio2;
+var sb=document.getElementById('m-p-stats');sb.innerHTML='';d.stats.forEach(function(s){var el=document.createElement('div');el.className='m-p-stat';el.innerHTML='<b>'+s.v+'</b><small>'+s.k+'</small>';sb.appendChild(el);});
+charModal.classList.add('open');charModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';});});
+
 var gItems=document.querySelectorAll('.g-item');
-document.querySelectorAll('.g-filter').forEach(function(f){ f.addEventListener('click',function(){ document.querySelectorAll('.g-filter').forEach(function(x){ x.classList.remove('on'); }); f.classList.add('on');
- var cat=f.getAttribute('data-f'); gItems.forEach(function(it){ if(cat==='all'||it.getAttribute('data-cat')===cat){ it.classList.remove('hide'); } else { it.classList.add('hide'); } }); }); });
-var lb=document.getElementById('lightbox'), lbImg=document.getElementById('lb-img'), lbCap=document.getElementById('lb-cap');
-document.querySelectorAll('.g-item').forEach(function(f){ f.addEventListener('click',function(){ var img=f.querySelector('img'); lbImg.src=img.src; lbCap.textContent=f.getAttribute('data-caption')||''; lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; }); });
-function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
-lb.addEventListener('click',function(e){ if(e.target!==lbImg) closeLb(); });
-document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeLb(); document.querySelectorAll('.modal.open').forEach(function(m){ m.classList.remove('open'); m.setAttribute('aria-hidden','true'); }); document.body.style.overflow=''; stopAll(); } });
-var track=document.getElementById('q-track'), slides=track.children.length, dotsBox=document.getElementById('q-dots'), qi=0;
-for(var d=0; d<slides; d++){ var dot=document.createElement('button'); dot.className='q-dot'; dot.setAttribute('aria-label','Frase '+(d+1)); (function(dd){ dot.addEventListener('click',function(){ go(dd); }); })(d); dotsBox.appendChild(dot); }
-function go(i){ qi=(i+slides)%slides; track.style.transform='translateX(-'+(qi*100)+'%)'; dotsBox.querySelectorAll('.q-dot').forEach(function(dt,k){ dt.classList.toggle('on',k===qi); }); }
-document.getElementById('q-prev').addEventListener('click',function(){ go(qi-1); });
-document.getElementById('q-next').addEventListener('click',function(){ go(qi+1); });
+document.querySelectorAll('.g-filter').forEach(function(f){f.addEventListener('click',function(){document.querySelectorAll('.g-filter').forEach(function(x){x.classList.remove('on');});f.classList.add('on');
+var cat=f.getAttribute('data-f');gItems.forEach(function(it){if(cat==='all'||it.getAttribute('data-cat')===cat){it.classList.remove('hide');}else{it.classList.add('hide');}});});});
+var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbCap=document.getElementById('lb-cap');
+document.querySelectorAll('.g-item').forEach(function(f){f.addEventListener('click',function(){var img=f.querySelector('img');lbImg.src=img.src;lbCap.textContent=f.getAttribute('data-caption')||'';lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';});});
+function closeLb(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+lb.addEventListener('click',function(e){if(e.target!==lbImg)closeLb();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeLb();document.querySelectorAll('.modal.open').forEach(function(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');});document.body.style.overflow='';stopAll();}});
+var track=document.getElementById('q-track'),slides=track.children.length,dotsBox=document.getElementById('q-dots'),qi=0;
+for(var d=0;d<slides;d++){var dot=document.createElement('button');dot.className='q-dot';dot.setAttribute('aria-label','Frase '+(d+1));(function(dd){dot.addEventListener('click',function(){go(dd);});})(d);dotsBox.appendChild(dot);}
+function go(i){qi=(i+slides)%slides;track.style.transform='translateX(-'+(qi*100)+'%)';dotsBox.querySelectorAll('.q-dot').forEach(function(dt,k){dt.classList.toggle('on',k===qi);});}
+document.getElementById('q-prev').addEventListener('click',function(){go(qi-1);});
+document.getElementById('q-next').addEventListener('click',function(){go(qi+1);});
 go(0);
-if(!reduce) setInterval(function(){ go(qi+1); },7000);
-document.querySelectorAll('.ost-track').forEach(function(t){ t.addEventListener('click',function(){ document.querySelectorAll('.ost-track').forEach(function(x){ x.classList.remove('playing'); }); t.classList.add('playing');
- toast.show('Abrindo no YouTube…'); window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(t.getAttribute('data-q')),'_blank'); }); });
-document.querySelectorAll('.faq-q').forEach(function(q){ q.addEventListener('click',function(){ var item=q.parentElement; document.querySelectorAll('.faq-item').forEach(function(it){ if(it!==item) it.classList.remove('open'); }); item.classList.toggle('open'); }); });
-var stars=document.getElementById('stars').querySelectorAll('span'), revMsg=document.getElementById('rev-msg');
+if(!reduce)setInterval(function(){go(qi+1);},7000);
+document.querySelectorAll('.ost-track').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.ost-track').forEach(function(x){x.classList.remove('playing');});t.classList.add('playing');
+toast.show('Abrindo no YouTube...');window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(t.getAttribute('data-q')),'_blank');});});
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){var item=q.parentElement;document.querySelectorAll('.faq-item').forEach(function(it){if(it!==item)it.classList.remove('open');});item.classList.toggle('open');});});
+var stars=document.getElementById('stars').querySelectorAll('span'),revMsg=document.getElementById('rev-msg');
 var msgs=['Péssimo','Ruim','Médio','Bom','Obra-prima'];
-try{ var sv=parseInt(localStorage.getItem('bc_voto')||'0',10); if(sv>0){ for(var si=0; si<sv; si++) stars[si].classList.add('on'); revMsg.textContent='Você avaliou: '+msgs[sv-1]+' ('+sv+'/5)'; } }catch(e){}
-stars.forEach(function(s){ s.addEventListener('click',function(){ var v=parseInt(s.getAttribute('data-v'),10); stars.forEach(function(x,i){ x.classList.toggle('on',i<v); }); try{ localStorage.setItem('bc_voto',v); }catch(e){} revMsg.textContent='Você avaliou: '+msgs[v-1]+' ('+v+'/5)'; toast.show('Avaliação registrada: '+v+'/5'); });
- s.addEventListener('mouseenter',function(){ var v=parseInt(s.getAttribute('data-v'),10); stars.forEach(function(x,i){ x.classList.toggle('on',i<v); }); }); });
-document.getElementById('stars').addEventListener('mouseleave',function(){ var sv2=0; try{ sv2=parseInt(localStorage.getItem('bc_voto')||'0',10); }catch(e){} stars.forEach(function(x,i){ x.classList.toggle('on',i<sv2); }); });
+try{var sv=parseInt(localStorage.getItem('bc_voto')||'0',10);if(sv>0){for(var si=0;si<sv;si++)stars[si].classList.add('on');revMsg.textContent='Você avaliou: '+msgs[sv-1]+' ('+sv+'/5)';}}catch(e){}
+stars.forEach(function(s){s.addEventListener('click',function(){var v=parseInt(s.getAttribute('data-v'),10);stars.forEach(function(x,i){x.classList.toggle('on',i<v);});try{localStorage.setItem('bc_voto',v);}catch(e){}revMsg.textContent='Você avaliou: '+msgs[v-1]+' ('+v+'/5)';toast.show('Avaliação registrada: '+v+'/5');});
+s.addEventListener('mouseenter',function(){var v=parseInt(s.getAttribute('data-v'),10);stars.forEach(function(x,i){x.classList.toggle('on',i<v);});});});
+document.getElementById('stars').addEventListener('mouseleave',function(){var sv2=0;try{sv2=parseInt(localStorage.getItem('bc_voto')||'0',10);}catch(e){}stars.forEach(function(x,i){x.classList.toggle('on',i<sv2);});});
 var btt=document.getElementById('btt');
-window.addEventListener('scroll',function(){ btt.classList.toggle('show',window.scrollY>600); },{passive:true});
-btt.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-var toast=document.getElementById('toast'), toastTimer=null;
-toast.show=function(msg){ toast.textContent=msg; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(function(){ toast.classList.remove('show'); },2800); };
+window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>600);},{passive:true});
+btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+var toast=document.getElementById('toast'),toastTimer=null;
+toast.show=function(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(function(){toast.classList.remove('show');},2800);};
 var SUPA_URL='https://aprqqarlpygylwmyjcci.supabase.co';
 var SUPA_ANON='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFwcnFxYXJscHlneWx3bXlqY2NpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY0OTIzMDcsImV4cCI6MjEwMjA2ODMwN30.qCs9dFCBPe96_HKkBWactaD9o3FNoYUIFG5SaEL9Sx0';
 var supa=null;
-try{ if(window.supabase&&SUPA_URL.indexOf('https://')===0&&SUPA_URL.length>25){ supa=window.supabase.createClient(SUPA_URL,SUPA_ANON); } }catch(e){ supa=null; }
+try{if(window.supabase&&SUPA_URL.indexOf('https://')===0&&SUPA_URL.length>25){supa=window.supabase.createClient(SUPA_URL,SUPA_ANON);}}catch(e){supa=null;}
 var form=document.getElementById('form-contato');
-function paint(list,rows){ list.innerHTML=''; if(!rows||!rows.length){ var li0=document.createElement('li'); li0.textContent='Nenhuma mensagem ainda. Seja o primeiro Trevo do reino.'; list.appendChild(li0); return; }
- rows.forEach(function(m){ var li=document.createElement('li'); var b=document.createElement('strong'); b.textContent=m.nome+': '; li.appendChild(b); li.appendChild(document.createTextNode((m.msg||'').length>70?m.msg.slice(0,70)+'…':m.msg)); list.appendChild(li); }); }
-function renderGuest(){ var list=document.getElementById('guest-list'); function local(){ var all=[]; try{ all=JSON.parse(localStorage.getItem('bc_mensagens')||'[]'); }catch(e){} paint(list,all.slice(-3).reverse()); }
- if(supa){ supa.from('mensagens').select('nome,msg').order('id',{ascending:false}).limit(3).then(function(res){ if(res.error) throw res.error; paint(list,res.data||[]); }).catch(function(){ local(); }); } else { local(); } }
+function paint(list,rows){list.innerHTML='';if(!rows||!rows.length){var li0=document.createElement('li');li0.textContent='Nenhuma mensagem ainda. Seja o primeiro Trevo do reino.';list.appendChild(li0);return;}
+rows.forEach(function(m){var li=document.createElement('li');var b=document.createElement('strong');b.textContent=m.nome+': ';li.appendChild(b);li.appendChild(document.createTextNode((m.msg||'').length>70?m.msg.slice(0,70)+'...':m.msg));list.appendChild(li);});}
+function renderGuest(){var list=document.getElementById('guest-list');function local(){var all=[];try{all=JSON.parse(localStorage.getItem('bc_mensagens')||'[]');}catch(e){}paint(list,all.slice(-3).reverse());}
+if(supa){supa.from('mensagens').select('nome,msg').order('id',{ascending:false}).limit(3).then(function(res){if(res.error)throw res.error;paint(list,res.data||[]);}).catch(function(){local();});}else{local();}}
 renderGuest();
-form.addEventListener('submit',function(e){ e.preventDefault();
- var data={nome:form.nome.value.trim(),email:form.email.value.trim(),msg:form.mensagem.value.trim(),quando:new Date().toISOString()};
- if(!data.nome||!data.email||!data.msg) return;
- try{ var all=JSON.parse(localStorage.getItem('bc_mensagens')||'[]'); all.push(data); localStorage.setItem('bc_mensagens',JSON.stringify(all)); }catch(err){}
- form.reset();
- if(supa){ supa.from('mensagens').insert({nome:data.nome,email:data.email,msg:data.msg}).then(function(res){ if(res.error){ toast.show('Salvo localmente!'); } else { toast.show('Mensagem publicada!'); } renderGuest(); }).catch(function(){ toast.show('Salvo localmente!'); renderGuest(); }); }
- else { renderGuest(); toast.show('Mensagem registrada!'); } });
-var canvas=document.getElementById('fx'), ctx=canvas.getContext('2d'), W, H, parts=[];
-function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
-window.addEventListener('resize',resize); resize();
-function rnd(a,b){ return a+Math.random()*(b-a); }
-function makeP(type){ if(type==='clover'){ return {t:0,x:rnd(0,W),y:rnd(-H,0),s:rnd(4,8),a:rnd(0,6.28),va:rnd(-.02,.02),vy:rnd(.4,1.1),vx:rnd(-.4,.4),o:rnd(.2,.5)}; } return {t:1,x:rnd(0,W),y:rnd(H,H*1.4),s:rnd(1,2.6),vy:rnd(.5,1.4),vx:rnd(-.25,.25),o:rnd(.2,.6),f:rnd(0,6.28)}; }
-function cloverColor(){ return document.body.classList.contains('reino')?'#2e7d32':'#d92626'; }
-function emberColor(f){ if(document.body.classList.contains('reino')) return (f%2<1)?'#3fa34d':'#8a6d1c'; return (f%2<1)?'#ff6b6b':'#7a0c0c'; }
-if(!reduce){ for(var i2=0;i2<24;i2++) parts.push(makeP('clover')); for(var j2=0;j2<20;j2++) parts.push(makeP('ember'));
- (function loop(){ ctx.clearRect(0,0,W,H); for(var k=0;k<parts.length;k++){ var p=parts[k];
-  if(p.t===0){ p.y+=p.vy; p.x+=p.vx+Math.sin(p.y*.01)*.6; p.a+=p.va; if(p.y>H+20){ parts[k]=makeP('clover'); parts[k].y=-20; continue; } ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.a); ctx.globalAlpha=p.o; ctx.fillStyle=cloverColor(); for(var l=0;l<4;l++){ ctx.rotate(Math.PI/2); ctx.beginPath(); ctx.ellipse(0,-p.s*.8,p.s*.55,p.s*.75,0,0,Math.PI*2); ctx.fill(); } ctx.restore(); }
-  else { p.y-=p.vy; p.x+=p.vx; p.f+=.05; if(p.y<-10){ parts[k]=makeP('ember'); continue; } ctx.globalAlpha=p.o*(0.6+Math.sin(p.f)*0.4); ctx.fillStyle=emberColor(p.f); ctx.fillRect(p.x,p.y,p.s,p.s); ctx.globalAlpha=1; } }
-  requestAnimationFrame(loop); })(); }
+form.addEventListener('submit',function(e){e.preventDefault();
+var data={nome:form.nome.value.trim(),email:form.email.value.trim(),msg:form.mensagem.value.trim(),quando:new Date().toISOString()};
+if(!data.nome||!data.email||!data.msg)return;
+try{var all=JSON.parse(localStorage.getItem('bc_mensagens')||'[]');all.push(data);localStorage.setItem('bc_mensagens',JSON.stringify(all));}catch(err){}
+form.reset();
+if(supa){supa.from('mensagens').insert({nome:data.nome,email:data.email,msg:data.msg}).then(function(res){if(res.error){toast.show('Salvo localmente!');}else{toast.show('Mensagem publicada!');}renderGuest();}).catch(function(){toast.show('Salvo localmente!');renderGuest();});}
+else{renderGuest();toast.show('Mensagem registrada!');}});
+
+// CANVAS COM TREVOS REALISTAS + PARTÍCULAS DE ANTI-MAGIA
+var canvas=document.getElementById('fx'),ctx=canvas.getContext('2d'),W,H,parts=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+window.addEventListener('resize',resize);resize();
+function rnd(a,b){return a+Math.random()*(b-a);}
+function makeClover(){return{t:0,x:rnd(0,W),y:rnd(-H,0),s:rnd(4,8),a:rnd(0,6.28),va:rnd(-.02,.02),vy:rnd(.4,1.1),vx:rnd(-.4,.4),o:rnd(.2,.5)};}
+function makeEmber(){return{t:1,x:rnd(0,W),y:rnd(H,H*1.4),s:rnd(1,2.6),vy:rnd(.5,1.4),vx:rnd(-.25,.25),o:rnd(.2,.6),f:rnd(0,6.28)};}
+function cloverColor(){return document.body.classList.contains('reino')?'#2e7d32':'#d92626';}
+function emberColor(f){if(document.body.classList.contains('reino'))return(f%2<1)?'#3fa34d':'#8a6d1c';return(f%2<1)?'#ff6b6b':'#7a0c0c';}
+// Trevo realista: 4 folhas em forma de coração + cabinho
+function drawClover(p){
+ ctx.save();
+ ctx.translate(p.x,p.y);
+ ctx.rotate(p.a);
+ ctx.globalAlpha=p.o;
+ var col=cloverColor();
+ ctx.fillStyle=col;
+ // 4 folhas em coração
+ for(var l=0;l<4;l++){
+  ctx.save();
+  ctx.rotate(l*Math.PI/2);
+  ctx.translate(0,-p.s*.9);
+  ctx.beginPath();
+  // formato de coração invertido
+  ctx.moveTo(0,0);
+  ctx.bezierCurveTo(-p.s*.5,-p.s*.3,-p.s*.8,-p.s*.9,0,-p.s*1.2);
+  ctx.bezierCurveTo(p.s*.8,-p.s*.9,p.s*.5,-p.s*.3,0,0);
+  ctx.fill();
+  ctx.restore();
+ }
+ // cabinho
+ ctx.strokeStyle='#3a2817';
+ ctx.lineWidth=1.5;
+ ctx.beginPath();
+ ctx.moveTo(0,0);
+ ctx.quadraticCurveTo(p.s*.3,p.s*.6,p.s*.1,p.s*1.2);
+ ctx.stroke();
+ ctx.restore();
+}
+if(!reduce){for(var i2=0;i2<24;i2++)parts.push(makeClover());for(var j2=0;j2<20;j2++)parts.push(makeEmber());
+(function loop(){ctx.clearRect(0,0,W,H);for(var k=0;k<parts.length;k++){var p=parts[k];
+if(p.t===0){p.y+=p.vy;p.x+=p.vx+Math.sin(p.y*.01)*.6;p.a+=p.va;if(p.y>H+20){parts[k]=makeClover();parts[k].y=-20;continue;}drawClover(p);}
+else{p.y-=p.vy;p.x+=p.vx;p.f+=.05;if(p.y<-10){parts[k]=makeEmber();continue;}ctx.globalAlpha=p.o*(0.6+Math.sin(p.f)*0.4);ctx.fillStyle=emberColor(p.f);ctx.fillRect(p.x,p.y,p.s,p.s);ctx.globalAlpha=1;}}
+requestAnimationFrame(loop);})();}
+
+// EASTER EGG — MODO TREVO
+var seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],pos=0;
+document.addEventListener('keydown',function(e){var k=e.key.toLowerCase?e.key.toLowerCase():e.key;if(k===seq[pos].toLowerCase()){pos++;if(pos===seq.length){pos=0;for(var e1=0;e1<60;e1++)parts.push(makeClover());toast.show('MODO TREVO ATIVADO!');}}else{pos=0;}});
+
 document.getElementById('ano').textContent=new Date().getFullYear();
 })();
 </script>
