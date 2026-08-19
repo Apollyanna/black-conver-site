@@ -311,7 +311,6 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-/* HOVER GLOW DE ACORDO COM O TEMA */
 .p-card:hover,.mini:hover,.w-card:hover,.v-card:hover,.sq-card:hover,.stat:hover,.chip:hover,.ost-track:hover,.g-item:hover,.q-btn:hover{box-shadow:0 14px 40px var(--glow)}
 @media (max-width:960px){
 .burger{display:block}
@@ -560,6 +559,7 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <div class="med-item"><b id="m-d">2,8</b><small>Dias sem parar</small></div>
 <div class="med-item"><b id="m-w">12</b><small>Semanas (2 ep/dia)</small></div>
 </div>
+<p style="color:var(--muted);margin-top:1.2rem;font-size:.95rem">Cada episódio tem em média <strong style="color:var(--ink)">24 minutos</strong>. A primeira fase completa (170 ep) são quase <strong style="color:var(--ink)">3 dias</strong> de maratona sem dormir — ou 12 semanas assistindo 2 por dia. Eu nunca desisto!</p>
 </div>
 </div>
 </section>
@@ -914,55 +914,70 @@ form.reset();
 if(supa){supa.from('mensagens').insert({nome:data.nome,email:data.email,msg:data.msg}).then(function(res){if(res.error){toast.show('Salvo localmente!');}else{toast.show('Mensagem publicada!');}renderGuest();}).catch(function(){toast.show('Salvo localmente!');renderGuest();});}
 else{renderGuest();toast.show('Mensagem registrada!');}});
 
-// CANVAS — trevos realistas + partículas de anti-magia (sempre ativos)
+// ===== CANVAS PROFISSIONAL: trevos em sprite com brilho + partículas de luz =====
 var canvas=document.getElementById('fx'),ctx=canvas.getContext('2d'),W,H,parts=[];
 function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
 window.addEventListener('resize',resize);resize();
 function rnd(a,b){return a+Math.random()*(b-a);}
-function makeClover(){return{t:0,x:rnd(0,W),y:rnd(-H,0),s:rnd(4,8),a:rnd(0,6.28),va:rnd(-.02,.02),vy:rnd(.4,1.1),vx:rnd(-.4,.4),o:rnd(.2,.5)};}
-function makeEmber(){return{t:1,x:rnd(0,W),y:rnd(H,H*1.4),s:rnd(1,2.6),vy:rnd(.5,1.4),vx:rnd(-.25,.25),o:rnd(.2,.6),f:rnd(0,6.28)};}
-function cloverColor(){return document.body.classList.contains('reino')?'#2e7d32':'#d92626';}
-function emberColor(f){if(document.body.classList.contains('reino'))return(f%2<1)?'#3fa34d':'#8a6d1c';return(f%2<1)?'#ff6b6b':'#7a0c0c';}
-function drawClover(p){
- ctx.save();
- ctx.translate(p.x,p.y);
- ctx.rotate(p.a);
- ctx.globalAlpha=p.o;
- ctx.fillStyle=cloverColor();
- for(var l=0;l<4;l++){
-  ctx.save();
-  ctx.rotate(l*Math.PI/2);
-  ctx.translate(0,-p.s*.9);
-  ctx.beginPath();
-  ctx.moveTo(0,0);
-  ctx.bezierCurveTo(-p.s*.5,-p.s*.3,-p.s*.8,-p.s*.9,0,-p.s*1.2);
-  ctx.bezierCurveTo(p.s*.8,-p.s*.9,p.s*.5,-p.s*.3,0,0);
-  ctx.fill();
-  ctx.restore();
+function leafPath(x,s){
+ x.beginPath();
+ x.moveTo(0,0);
+ x.bezierCurveTo(-s*0.7,-s*0.35,-s*0.7,-s*1.2,0,-s*0.9);
+ x.bezierCurveTo(s*0.7,-s*1.2,s*0.7,-s*0.35,0,0);
+ x.closePath();
+}
+function makeSprite(kind){
+ var s=96,c=document.createElement('canvas');c.width=s;c.height=s;var x=c.getContext('2d');
+ x.translate(s/2,s/2);
+ var col,glow;
+ if(kind==='red'){col='#ff4444';glow='rgba(255,59,59,.28)';}
+ else if(kind==='green'){col='#2e9e46';glow='rgba(46,158,70,.28)';}
+ else if(kind==='emberR'){col='#ff6b6b';glow='rgba(255,80,80,.5)';}
+ else{col='#7cc97f';glow='rgba(90,200,110,.5)';}
+ var g=x.createRadialGradient(0,0,2,0,0,s/2);
+ g.addColorStop(0,glow);g.addColorStop(1,'rgba(0,0,0,0)');
+ x.fillStyle=g;x.fillRect(-s/2,-s/2,s,s);
+ if(kind==='emberR'||kind==='emberG'){
+  x.fillStyle=col;x.beginPath();x.arc(0,0,s*0.10,0,Math.PI*2);x.fill();
+  x.fillStyle='rgba(255,255,255,.85)';x.beginPath();x.arc(-s*0.02,-s*0.02,s*0.04,0,Math.PI*2);x.fill();
+ }else{
+  x.fillStyle=col;
+  for(var i=0;i<4;i++){x.save();x.rotate(Math.PI/4+i*Math.PI/2);leafPath(x,s*0.30);x.fill();x.restore();}
+  x.fillStyle='rgba(255,255,255,.14)';
+  for(i=0;i<4;i++){x.save();x.rotate(Math.PI/4+i*Math.PI/2);x.translate(0,-s*0.10);leafPath(x,s*0.16);x.fill();x.restore();}
+  x.strokeStyle=col;x.lineWidth=2.5;x.beginPath();x.moveTo(0,s*0.05);x.quadraticCurveTo(s*0.10,s*0.26,s*0.02,s*0.40);x.stroke();
  }
- ctx.strokeStyle='#3a2817';
- ctx.lineWidth=1.5;
- ctx.beginPath();
- ctx.moveTo(0,0);
- ctx.quadraticCurveTo(p.s*.3,p.s*.6,p.s*.1,p.s*1.2);
- ctx.stroke();
- ctx.restore();
+ return c;
 }
-// SOLTA TREVOS (botão + Konami)
-function burstClovers(n){
- for(var i=0;i<n;i++){var p=makeClover();p.y=rnd(-H,0);p.x=rnd(0,W);parts.push(p);}
- if(parts.length>500)parts.splice(0,parts.length-500);
- toast.show('MODO TREVO ATIVADO! +'+n+' trevos');
-}
+var SPR={red:makeSprite('red'),green:makeSprite('green'),emberR:makeSprite('emberR'),emberG:makeSprite('emberG')};
+function makeClover(){var z=rnd(0.35,1);return{t:0,x:rnd(0,W),y:rnd(-H,0),s:rnd(18,42)*z+10,a:rnd(0,6.28),va:rnd(-.012,.012),vy:rnd(.35,.9)*(0.6+z),sw:rnd(0,6.28),sws:rnd(.004,.01),o:rnd(.25,.6)*(0.5+z*0.5)};}
+function makeEmber(){return{t:1,x:rnd(0,W),y:rnd(H,H*1.3),s:rnd(3,7),vy:rnd(.4,1.1),vx:rnd(-.2,.2),o:rnd(.2,.55),f:rnd(0,6.28)};}
+function burstClovers(n){for(var i=0;i<n;i++){var p=makeClover();p.y=rnd(-H,0);parts.push(p);}if(parts.length>420)parts.splice(0,parts.length-420);toast.show('MODO TREVO ATIVADO! +'+n+' trevos');}
+if(!reduce){for(var i2=0;i2<26;i2++)parts.push(makeClover());for(var j2=0;j2<22;j2++)parts.push(makeEmber());
+(function loop(){
+ ctx.clearRect(0,0,W,H);
+ var light=document.body.classList.contains('reino');
+ for(var k=0;k<parts.length;k++){var p=parts[k];
+  if(p.t===0){
+   p.sw+=0.008;p.x+=Math.sin(p.sw)*0.6;p.y+=p.vy;p.a+=p.va;
+   if(p.y>H+60){parts[k]=makeClover();parts[k].y=-60;continue;}
+   var spr=light?SPR.green:SPR.red;
+   ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.a);ctx.globalAlpha=p.o;
+   var dd=p.s;ctx.drawImage(spr,-dd/2,-dd/2,dd,dd);ctx.restore();
+  }else{
+   p.y-=p.vy;p.x+=p.vx+Math.sin(p.f)*0.3;p.f+=.02;
+   if(p.y<-20){parts[k]=makeEmber();continue;}
+   var es=light?SPR.emberG:SPR.emberR;
+   ctx.save();ctx.globalAlpha=Math.max(.08,p.o*(0.6+Math.sin(p.f*3)*0.4));
+   var d2=p.s*3;ctx.drawImage(es,-d2/2,-d2/2,d2,d2);ctx.restore();
+  }
+ }
+ requestAnimationFrame(loop);
+})();}
 var btnClover=document.getElementById('btn-clover');
 if(btnClover)btnClover.addEventListener('click',function(){burstClovers(60);});
-if(!reduce){for(var i2=0;i2<24;i2++)parts.push(makeClover());for(var j2=0;j2<20;j2++)parts.push(makeEmber());
-(function loop(){ctx.clearRect(0,0,W,H);for(var k=0;k<parts.length;k++){var p=parts[k];
-if(p.t===0){p.y+=p.vy;p.x+=p.vx+Math.sin(p.y*.01)*.6;p.a+=p.va;if(p.y>H+20){parts[k]=makeClover();parts[k].y=-20;continue;}drawClover(p);}
-else{p.y-=p.vy;p.x+=p.vx;p.f+=.05;if(p.y<-10){parts[k]=makeEmber();continue;}ctx.globalAlpha=p.o*(0.6+Math.sin(p.f)*0.4);ctx.fillStyle=emberColor(p.f);ctx.fillRect(p.x,p.y,p.s,p.s);ctx.globalAlpha=1;}}
-requestAnimationFrame(loop);})();}
 
-// EASTER EGG — KONAMI (↑↑↓↓←→←→BA) = +60 TREVOS
+// EASTER EGG — KONAMI
 var seq=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],pos=0;
 document.addEventListener('keydown',function(e){var k=e.key.toLowerCase?e.key.toLowerCase():e.key;if(k===seq[pos].toLowerCase()){pos++;if(pos===seq.length){pos=0;burstClovers(60);}}else{pos=0;}});
 
