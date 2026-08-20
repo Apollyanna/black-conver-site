@@ -762,17 +762,46 @@ body.reino .map-legend{background:rgba(242,245,236,.92)}
 <script>
 (function(){
 "use strict";
-var _0x={b:['keydown','F12','ctrlKey','shiftKey','metaKey','preventDefault','ctrlKey','ctrlKey','contextmenu','selectstart','dragstart','copy']};
-document.addEventListener(_0x.b[8],function(e){e[_0x.b[7]]()});
-document.addEventListener(_0x.b[9],function(e){if(!/INPUT|TEXTAREA/.test(e.target.tagName))e[_0x.b[7]]()});
-document.addEventListener(_0x.b[10],function(e){e[_0x.b[7]]()});
-document.addEventListener(_0x.b[11],function(e){e[_0x.b[7]]()});
-document.addEventListener(_0x.b[0],function(e){
- if(e.key==='F12'){e[_0x.b[7]]();return}
+
+// --- TRAVAS DE CÓPIA, TECLAS E INSPECIONAR ---
+function bloquearDevTools() {
+  document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;background-color:#0a0a0b;color:#ff3b3b;font-family:\'Pirata One\',sans-serif;font-size:3rem;text-transform:uppercase;letter-spacing:2px;text-align:center;">acesso negado</div>';
+  window.stop();
+}
+
+document.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+document.addEventListener('selectstart', function(e){ if(!/INPUT|TEXTAREA/.test(e.target.tagName)) e.preventDefault(); });
+document.addEventListener('dragstart', function(e){ e.preventDefault(); });
+document.addEventListener('copy', function(e){ e.preventDefault(); });
+
+document.addEventListener('keydown', function(e){
+ if(e.key==='F12'){ e.preventDefault(); bloquearDevTools(); return; }
  var k=(e.key||'').toUpperCase();
- if(e[_0x.b[2]]&&e[_0x.b[3]]&&['I','J','C','K'].indexOf(k)>-1){e[_0x.b[7]]();return}
- if((e[_0x.b[2]]||e[_0x.b[4]])&&['U','S','P'].indexOf(k)>-1){e[_0x.b[7]]();return}
+ if(e.ctrlKey && e.shiftKey && ['I','J','C','K'].indexOf(k)>-1){ e.preventDefault(); bloquearDevTools(); return; }
+ if((e.ctrlKey || e.metaKey) && ['U','S','P'].indexOf(k)>-1){ e.preventDefault(); bloquearDevTools(); return; }
 });
+
+// Detecção ativa de abertura do DevTools
+setInterval(function() {
+  var threshold = 160;
+  if (
+    window.outerWidth - window.innerWidth > threshold ||
+    window.outerHeight - window.innerHeight > threshold
+  ) {
+    bloquearDevTools();
+  }
+}, 500);
+
+setInterval(function() {
+  var startTime = performance.now();
+  debugger;
+  var endTime = performance.now();
+  if (endTime - startTime > 100) {
+    bloquearDevTools();
+  }
+}, 1000);
+
+// --- LÓGICA DO SITE ---
 var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var rb=document.querySelector('#read-bar span');
 function updBar(){ var h=document.documentElement.scrollHeight-window.innerHeight; rb.style.width=(h>0?(window.scrollY/h)*100:0)+'%'; }
